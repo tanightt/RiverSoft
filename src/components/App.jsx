@@ -6,15 +6,35 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
+import { getCurrencyThunk } from 'redux/currency/currencyOperations';
+import { refreshCurrencyDate } from 'redux/currency/currencySlice';
+import { selectCurrencyDate } from 'redux/currency/currencySelectors';
+
 export const App = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const isLoggedIn = useSelector(selectUser)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectUser);
+
+  const currencyDate = useSelector(selectCurrencyDate);
+
   useEffect(() => {
     if (!isLoggedIn) {
-      dispatch(refreshUser())
+      dispatch(refreshUser());
     }
-  }, [isLoggedIn, navigate, dispatch])
+  }, [isLoggedIn, navigate, dispatch]);
+
+  useEffect(() => {
+    const oneHour = 3600000;
+    const time = Date.now();
+    const diffTime = new Date() - new Date(currencyDate);
+
+    console.log(diffTime);
+    if (diffTime < oneHour) {
+      return;
+    }
+    dispatch(refreshCurrencyDate(time));
+    dispatch(getCurrencyThunk());
+  }, [dispatch, currencyDate]);
 
   return (
     <Routes>
@@ -22,7 +42,7 @@ export const App = () => {
         <Route index element={<h1>Home page</h1>} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegistrationPage/>} />
+        <Route path="/register" element={<RegistrationPage />} />
         <Route path="/currency" element={<h1>Currency page</h1>} />
         <Route path="*" element={<h1> Error</h1>} />
       </Route>

@@ -1,0 +1,179 @@
+.currencyWrapper {
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 310px;
+  border-radius: 0px 0px 8px 8px;
+  background: rgba(74, 86, 226, 0.1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 320px;
+  overflow: hidden;
+}
+.currencyTable {
+  text-align: center;
+  font-family: Poppins;
+  /* color: #fff; */
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 auto;
+  border: none;
+  width: 320px;
+  border-collapse: collapse;
+}
+
+.currencyTable thead {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.currencyTable th {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.currencyTable td {
+  padding-top: 8px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.leftSide {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.rightSide {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.diagramWrapper {
+  position: relative;
+  margin-top: 4px;
+  width: 100%;
+  padding: 0;
+}
+
+.diagramIconMin {
+  width: 320px;
+  height: 54px;
+
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+.diagramIconMax {
+  width: 320px;
+  height: 88px;
+}
+
+.USD,
+.EUR {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .currencyWrapper {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    max-width: 336px;
+  }
+
+  .currencyTable {
+    width: 336px;
+  }
+
+  .diagramWrapper {
+    margin-top: 8px;
+  }
+
+  .currencyTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .diagramIconMin {
+    width: 336px;
+  }
+
+  .diagramIconMax {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .currencyWrapper {
+    max-width: 480px;
+    margin-top: 32px;
+    margin-bottom: 15px;
+    border-radius: 0px;
+  }
+
+  .currencyTable {
+    width: 480px;
+  }
+
+  .currencyTable thead {
+    height: 56px;
+    /* width: 480px; */
+  }
+
+  .currencyTable th {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .currencyTable td {
+    padding-top: 24px;
+  }
+
+  .leftSide {
+    text-align: center;
+    padding-left: 40px;
+  }
+
+  .rightSide {
+    text-align: center;
+    padding-right: 80px;
+  }
+
+  .diagramWrapper {
+    margin-top: 61px;
+  }
+
+  .diagramIconMin {
+    width: 480px;
+    height: 105px;
+    top: -20px;
+  }
+
+  .diagramIconMax {
+    width: 480px;
+    height: 167px;
+  }
+
+  .USD {
+    display: block;
+    position: absolute;
+    color: var(--dashboard-text, #ff868d);
+    font-size: 12px;
+    left: 10%;
+    bottom: 92%;
+  }
+
+  .EUR {
+    display: block;
+    position: absolute;
+    color: var(--dashboard-text, #ff868d);
+    font-size: 12px;
+    left: 74%;
+    bottom: 114%;
+  }
+}
