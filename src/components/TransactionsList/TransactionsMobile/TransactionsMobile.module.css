@@ -1,0 +1,13 @@
+.block {
+  width: 280px;
+  height: 293px;
+  margin: auto;
+}
+
+.text {
+  height: 48px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
