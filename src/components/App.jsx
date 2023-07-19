@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
-
+import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 export const App = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -22,7 +22,7 @@ export const App = () => {
         <Route index element={<h1>Home page</h1>} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<h1>Registration page</h1>} />
+        <Route path="/register" element={<RegistrationPage/>} />
         <Route path="/currency" element={<h1>Currency page</h1>} />
         <Route path="*" element={<h1> Error</h1>} />
       </Route>
