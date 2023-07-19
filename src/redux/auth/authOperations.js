@@ -1,5 +1,6 @@
 import { instanceWallet, setAuthHeader } from "config/instance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 export const login = createAsyncThunk('auth/login',
     async (body, { rejectWithValue }) => {
         try {
@@ -8,7 +9,16 @@ export const login = createAsyncThunk('auth/login',
             setAuthHeader(response.data.token)
             return response.data
         } catch (error) {
-            console.log(error)
+            toast.error('Email or password is incorrect', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
 )
@@ -26,7 +36,6 @@ export const refreshUser = createAsyncThunk(
             return response.data;
         } catch (error) {
             console.log(error)
-            return rejectWithValue();
         }
     }
 )
