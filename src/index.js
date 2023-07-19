@@ -13,10 +13,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/RiverSoft">
       <Provider store={store}>
-        {/* <PersistGate persistor={persistor}> */}
-        <App />
-        <ToastContainer autoClose="1000" />
-        {/* </PersistGate> */}
+        <PersistGate persistor={persistor}>
+          <App />
+          <ToastContainer autoClose="1000" />
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
