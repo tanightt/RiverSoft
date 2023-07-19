@@ -1,10 +1,12 @@
 import css from './RegistrationForm.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { register } from 'redux/auth/authOperations';
 import icons from '../../images/sprite.svg';
+import { selectIsAuth } from 'redux/auth/authSelectors';
+import { useEffect } from 'react';
 
 const calculateStrength = password => {
   const passwordLength = password.length;
@@ -27,10 +29,17 @@ const calculateStrength = password => {
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate('/')
+    }
+  }, [isAuth, navigate])
 
   const onSubmit = values => {
-    const { confirmPassword, ...payload } = values;
-    dispatch(register(payload));
+    dispatch(register({ email: values.email, password: values.password, username: values.username }))
   };
 
   const validationSchema = Yup.object({
@@ -140,7 +149,7 @@ export const RegistrationForm = () => {
                 </div>
               </div>
               {formik.touched.confirmPassword &&
-              formik.errors.confirmPassword ? (
+                formik.errors.confirmPassword ? (
                 <div className={css.error_message}>
                   {formik.errors.confirmPassword}
                 </div>
@@ -169,7 +178,7 @@ export const RegistrationForm = () => {
                   </div>
                 </div>
               ) : null}
-              <Link to="/" className={css.login_colored_link}>
+              <Link to="/" className={css.login_colored_link} onClick={formik.handleSubmit}>
                 <button type="submit" className={css.login_submit_button}>
                   Register
                 </button>
