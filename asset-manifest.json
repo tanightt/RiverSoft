@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RiverSoft/static/css/main.03771320.css",
-    "main.js": "/RiverSoft/static/js/main.3bbe1cd0.js",
+    "main.css": "/RiverSoft/static/css/main.b2a61d29.css",
+    "main.js": "/RiverSoft/static/js/main.ec75d262.js",
     "static/media/foto-mone-2xleft.png": "/RiverSoft/static/media/foto-mone-2xleft.df8cc6e1b130b0bf07e3.png",
     "static/media/foto-mone-2xright.png": "/RiverSoft/static/media/foto-mone-2xright.d04732429c8846301a59.png",
     "static/media/foto-mone-2xtableft.png": "/RiverSoft/static/media/foto-mone-2xtableft.a637a7996b92a4ca1d6f.png",
@@ -16,11 +16,11 @@
     "static/media/foto-mone-1xtabright.png": "/RiverSoft/static/media/foto-mone-1xtabright.8679793d9f9b873e3313.png",
     "static/media/sprite.svg": "/RiverSoft/static/media/sprite.eb3ed42170da08be209b5c908d53ff3c.svg",
     "index.html": "/RiverSoft/index.html",
-    "main.03771320.css.map": "/RiverSoft/static/css/main.03771320.css.map",
-    "main.3bbe1cd0.js.map": "/RiverSoft/static/js/main.3bbe1cd0.js.map"
+    "main.b2a61d29.css.map": "/RiverSoft/static/css/main.b2a61d29.css.map",
+    "main.ec75d262.js.map": "/RiverSoft/static/js/main.ec75d262.js.map"
   },
   "entrypoints": [
-    "static/css/main.03771320.css",
-    "static/js/main.3bbe1cd0.js"
+    "static/css/main.b2a61d29.css",
+    "static/js/main.ec75d262.js"
   ]
 }
