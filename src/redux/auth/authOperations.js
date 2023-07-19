@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export const register = createAsyncThunk('auth/register',
     async (body, { rejectWithValue }) => {
         try {
-            const response = await instanceWallet.post('api/users/sign-up', body)
+            const response = await instanceWallet.post('api/auth/sign-up', body)
             setAuthHeader(response.data.token);
             return response.data
 
