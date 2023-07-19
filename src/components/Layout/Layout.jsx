@@ -1,5 +1,6 @@
 import { Balance } from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
+import Header from 'components/Header/Header';
 import { Navigation } from 'components/Navigation/Navigation';
 import { NavLink, Outlet } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ const routes = [
 export const Layout = () => {
   return (
     <>
+      <Header />
       <ul>
         {routes.map(route => (
           <li key={route.path}>
