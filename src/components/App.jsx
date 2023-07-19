@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
+import ButtonAddTransactions from './ButtonAddTransactions/ButtonAddTransactions';
 export const App = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const App = () => {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/currency" element={<h1>Currency page</h1>} />
         <Route path="*" element={<h1> Error</h1>} />
-        {/* <Route path="/modal" element={<ButtonAddTransactions />} /> */}
+        <Route path="/modal" element={<ButtonAddTransactions />} />
       </Route>
     </Routes>
   );

@@ -1,9 +1,108 @@
 .addModal {
-  border: 1px solid black;
-  width: 500px;
-  height: 500px;
+  position: relative;
+  background: radial-gradient(rgba(60, 40, 160, 1), rgba(68, 53, 110, 1));
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
 }
 
-.iconBtn {
-  fill: black;
+.iconClose {
+  display: none;
+}
+
+.modalTitle {
+  margin-bottom: 34px;
+  color: var(--color-white);
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 200;
+}
+
+.transactionChange {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.income {
+  color: var(--color-yellow);
+}
+
+.expense {
+  color: #ff868d;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ================== SWITCH  ==============*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+}
+
+.switchInput {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 30px;
+  display: block;
+}
+
+.choiceBtn {
+  position: absolute;
+  left: 8px;
+  bottom: 2px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  font-size: 40px;
+}
+
+input:checked + .slider {
+  background-color: #ffffff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider > .choiceBtn {
+  -webkit-transform: translateX(44px);
+  -ms-transform: translateX(44px);
+  transform: translateX(44px);
+}
+
+/* ================ TABLET ============= */
+
+@media screen and (min-width: 767.98px) {
+  .iconClose {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fbfbfb;
+    background-color: transparent;
+    border: none;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
 }

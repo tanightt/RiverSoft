@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectOpenModalAdd } from 'redux/global/selectors';
 import css from './ButtonAddTransactions.module.css';
 import { openAddModal } from 'redux/global/slice';
+import Modal from 'components/Modal/Modal';
 
 const svgPlus = (
   <svg
@@ -18,8 +19,8 @@ const svgPlus = (
 );
 
 const ButtonAddTransactions = () => {
-  //   const selectOpenAdd = useSelector(selectOpenModalAdd);
   const dispatch = useDispatch();
+  const isAdd = useSelector(selectOpenModalAdd);
 
   const handleOpenAddModal = () => {
     dispatch(openAddModal());
@@ -34,6 +35,7 @@ const ButtonAddTransactions = () => {
       >
         {svgPlus}
       </button>
+      {isAdd && <Modal />}
     </div>
   );
 };
