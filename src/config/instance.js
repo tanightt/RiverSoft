@@ -13,5 +13,5 @@ export const clearAuthHeader = () => {
 };
 
 export const instanceMono = axios.create({
-  baseURL: 'https://api.monobank.ua/',
+  baseURL: 'https://api.monobank.ua/bank/currency',
 });
