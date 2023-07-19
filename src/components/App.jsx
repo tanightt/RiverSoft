@@ -9,6 +9,7 @@ import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
 import { refreshCurrencyDate } from 'redux/currency/currencySlice';
 import { selectCurrencyDate } from 'redux/currency/currencySelectors';
+import DashboardPage from 'page/DashboardPage/DashboardPage';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<h1>Home page</h1>} />
+        <Route index element={<DashboardPage />} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
