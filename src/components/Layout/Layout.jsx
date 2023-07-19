@@ -1,6 +1,5 @@
 import { Balance } from 'components/Balance/Balance';
 import { Currency } from 'components/Currency/Currency';
-import Header from 'components/Header/Header';
 import { Navigation } from 'components/Navigation/Navigation';
 import { NavLink, Outlet } from 'react-router-dom';
 
