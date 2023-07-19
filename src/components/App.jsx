@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
+import Modal from './Modal/Modal';
+import ButtonAddTransactions from './ButtonAddTransactions/ButtonAddTransactions';
 
 export const App = () => {
   return (
@@ -11,6 +13,7 @@ export const App = () => {
         <Route path="/register" element={<h1>Registration page</h1>} />
         <Route path="/currency" element={<h1>Currency page</h1>} />
         <Route path="*" element={<h1> Error</h1>} />
+        <Route path="/modal" element={<ButtonAddTransactions />} />
       </Route>
     </Routes>
   );
