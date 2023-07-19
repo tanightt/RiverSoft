@@ -13,7 +13,6 @@ const routes = [
 export const Layout = () => {
   return (
     <>
-      <Header />
       <ul>
         {routes.map(route => (
           <li key={route.path}>
