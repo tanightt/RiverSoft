@@ -1,13 +1,33 @@
-import { instanceWallet, setAuthHeader } from "config/instance";
+import { instanceWallet, setAuthHeader, clearAuthHeader } from "config/instance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+export const register = createAsyncThunk('auth/register',
+    async (body, { rejectWithValue }) => {
+        try {
+            const response = await instanceWallet.post('api/users/sign-up', body)
+            setAuthHeader(response.data.token);
+            return response.data
+
+        } catch (error) {
+            toast.error('The account with this email is already exists. OR Email or password is invalid, use valid data for registration.', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return rejectWithValue(error)
+        }
+    })
 export const login = createAsyncThunk('auth/login',
     async (body, { rejectWithValue }) => {
         try {
-            const response = await instanceWallet.post('api/auth/sign-in', body)
-            console.log(response)
-            setAuthHeader(response.data.token)
-            return response.data
+            const response = await instanceWallet.post('api/auth/sign-in', body);
+            setAuthHeader(response.data.token);
+            return response.data;
         } catch (error) {
             toast.error('Email or password is incorrect', {
                 position: "top-right",
@@ -19,9 +39,15 @@ export const login = createAsyncThunk('auth/login',
                 progress: undefined,
                 theme: "light",
             });
+            if (error.response) {
+                const { status, data } = error.response;
+                if (status === 400 || status === 403 || status === 404) {
+                    return rejectWithValue(data);
+                }
+            }
         }
     }
-)
+);
 export const refreshUser = createAsyncThunk(
     'auth/getUser',
     async (_, { rejectWithValue, getState }) => {
@@ -35,7 +61,18 @@ export const refreshUser = createAsyncThunk(
             const response = await instanceWallet.get('api/users/current');
             return response.data;
         } catch (error) {
-            console.log(error)
+            rejectWithValue(error)
         }
     }
+)
+export const logOut = createAsyncThunk("auth/logout", async (
+    _, { rejectWithValue }) => {
+    try {
+        clearAuthHeader()
+        const response = await instanceWallet.delete('api/auth/sign-out');
+        return response
+    } catch (error) {
+        rejectWithValue(error)
+    }
+}
 )
