@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RiverSoft/static/css/main.9cf3eaf3.css",
-    "main.js": "/RiverSoft/static/js/main.bfe2eb85.js",
+    "main.css": "/RiverSoft/static/css/main.6c5d7808.css",
+    "main.js": "/RiverSoft/static/js/main.6eef9182.js",
     "static/media/foto-dollar-2xtab.png": "/RiverSoft/static/media/foto-dollar-2xtab.cf6e2957fc772f432371.png",
     "static/media/foto-dollar-1xtab.png": "/RiverSoft/static/media/foto-dollar-1xtab.a250c46083136b680807.png",
     "static/media/foto-dollar-1xrigth.png": "/RiverSoft/static/media/foto-dollar-1xrigth.82c3bc673f462f6a3c93.png",
@@ -18,13 +18,14 @@
     "static/media/foto-mone-1xright.png": "/RiverSoft/static/media/foto-mone-1xright.cc55e00b04c9063f42c6.png",
     "static/media/foto-mone-1xtableft.png": "/RiverSoft/static/media/foto-mone-1xtableft.26d4dd98cc14eb79e75e.png",
     "static/media/foto-mone-1xtabright.png": "/RiverSoft/static/media/foto-mone-1xtabright.8679793d9f9b873e3313.png",
+    "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "static/media/sprite.svg": "/RiverSoft/static/media/sprite.eb3ed42170da08be209b5c908d53ff3c.svg",
     "index.html": "/RiverSoft/index.html",
-    "main.9cf3eaf3.css.map": "/RiverSoft/static/css/main.9cf3eaf3.css.map",
-    "main.bfe2eb85.js.map": "/RiverSoft/static/js/main.bfe2eb85.js.map"
+    "main.6c5d7808.css.map": "/RiverSoft/static/css/main.6c5d7808.css.map",
+    "main.6eef9182.js.map": "/RiverSoft/static/js/main.6eef9182.js.map"
   },
   "entrypoints": [
-    "static/css/main.9cf3eaf3.css",
-    "static/js/main.bfe2eb85.js"
+    "static/css/main.6c5d7808.css",
+    "static/js/main.6eef9182.js"
   ]
 }
