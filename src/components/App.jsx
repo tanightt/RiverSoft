@@ -1,5 +1,4 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { Layout } from './Layout/Layout';
 import { LoginPage } from 'page/LoginPage/LoginPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +9,8 @@ import { getCurrencyThunk } from 'redux/currency/currencyOperations';
 import { refreshCurrencyDate } from 'redux/currency/currencySlice';
 import { selectCurrencyDate } from 'redux/currency/currencySelectors';
 import DashboardPage from 'page/DashboardPage/DashboardPage';
+import Header from './Header/Header';
+import { Currency } from './Currency/Currency';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -39,12 +40,12 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<DashboardPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
+      <Route path="/" element={<Header />}>
+        <Route path="/home" element={<DashboardPage />} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/currency" element={<h1>Currency page</h1>} />
+        <Route path="/currency" element={<Currency />} />
         <Route path="*" element={<h1> Error</h1>} />
       </Route>
     </Routes>
