@@ -1,4 +1,4 @@
-import { instanceWallet, setAuthHeader, clearAuthHeader } from "config/instance";
+import { instanceWallet, setAuthHeader } from "config/instance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 export const login = createAsyncThunk('auth/login',
     async (body, { rejectWithValue }) => {
