@@ -4,6 +4,7 @@ import 'flatpickr/dist/themes/material_green.css';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeAddModal } from 'redux/global/slice';
 import Select from 'react-select';
@@ -13,15 +14,13 @@ import {
   addTransactionThunk,
   getCategoriesThunk,
 } from 'redux/transactions/transactionsOperations';
-import {
-  svgCalendar,
-  svgClose,
-  svgMinus,
-  svgPlus,
-} from 'images/icons/iconsModalAdd';
+import Icons from '../../images/sprite.svg';
+import { selectIsAuth } from 'redux/auth/authSelectors';
+import { toast } from 'react-toastify';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(selectIsAuth);
 
   const categories = useSelector(selectCategories);
   const incomeCategoties = categories.find(el => el.type === 'INCOME');
@@ -33,7 +32,7 @@ const ModalAddTransaction = () => {
   }));
 
   useEffect(() => {
-    if (!categories?.length) {
+    if (!categories?.length && isAuth) {
       dispatch(getCategoriesThunk());
     }
   }, [dispatch, categories]);
@@ -41,6 +40,14 @@ const ModalAddTransaction = () => {
   const handleCloseAddModal = () => {
     dispatch(closeAddModal());
   };
+
+  const validationSchema = Yup.object().shape({
+    amount: Yup.number()
+      .typeError('Please enter a valid number')
+      .required('Amount is required'),
+    transactionDate: Yup.date().required('Transaction date is required'),
+    categoryId: Yup.string().required('Category is required'),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -50,10 +57,14 @@ const ModalAddTransaction = () => {
       categoryId: 'INCOME',
       type: false,
     },
+    validationSchema: validationSchema,
 
     onSubmit: value => {
+      if (!value.categoryId) {
+        toast.error('Please select a category');
+        return;
+      }
       const date = value.transactionDate.toString();
-
       if (type) {
         dispatch(
           addTransactionThunk({
@@ -82,10 +93,12 @@ const ModalAddTransaction = () => {
     <div className={css.addModal}>
       <button
         type="button"
-        className={css.iconClose}
+        className={css.btnClose}
         onClick={handleCloseAddModal}
       >
-        {svgClose}
+        <svg className={css.closeBtnIcon}>
+          <use href={Icons + '#icon-close'}></use>
+        </svg>
       </button>
       <h2 className={css.modalTitle}>Add transaction</h2>
       <div className={css.transactionChange}>
@@ -105,9 +118,17 @@ const ModalAddTransaction = () => {
               }`}
             >
               {!type ? (
-                <span className={css.plus}>{svgPlus}</span>
+                <span>
+                  <svg className={css.plus}>
+                    <use href={Icons + '#icon-plus'}></use>
+                  </svg>
+                </span>
               ) : (
-                <span className={css.minus}>{svgMinus}</span>
+                <span>
+                  <svg className={css.minus}>
+                    <use href={Icons + '#icon-minis'}></use>
+                  </svg>
+                </span>
               )}
             </span>
           </span>
@@ -122,6 +143,8 @@ const ModalAddTransaction = () => {
             styles={customStyles}
             value={categoryId?.value}
             onChange={({ value }) => formik.setFieldValue('categoryId', value)}
+            isClearable
+            onBlur={formik.handleBlur}
           />
         )}
         <div className={css.incomeDate}>
@@ -148,7 +171,9 @@ const ModalAddTransaction = () => {
               formik.setFieldValue('transactionDate', val[0]);
             }}
           />
-          <div className={css.iconCalendar}>{svgCalendar}</div>
+          <svg className={css.iconCalendar}>
+            <use href={Icons + '#icon-calendar'}></use>
+          </svg>
         </div>
         <input
           type="text"
