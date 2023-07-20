@@ -22,7 +22,6 @@ const svgClose = (
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
-  // const [typeOfTransaction, setTypeOfTransaction] = useState('Income');
 
   const categories = useSelector(selectCategories);
   const incomeCategoties = categories.find(el => el.type === 'INCOME');
@@ -43,14 +42,6 @@ const ModalAddTransaction = () => {
     dispatch(closeAddModal());
   };
 
-  // const handleTransactionTypeChange = () => {
-  //   if (typeOfTransaction === 'Income') {
-  //     setTypeOfTransaction('Expense');
-  //   } else {
-  //     setTypeOfTransaction('Income');
-  //   }
-  // };
-
   const formik = useFormik({
     initialValues: {
       amount: '',
@@ -61,9 +52,8 @@ const ModalAddTransaction = () => {
     },
 
     onSubmit: value => {
-      const date = value.transactionDate
-        .toString()
-        .replace('00:00:00', '12:00:00');
+      const date = value.transactionDate.toString();
+
       if (type) {
         dispatch(
           addTransactionThunk({
@@ -73,6 +63,8 @@ const ModalAddTransaction = () => {
             transactionDate: new Date(date),
           })
         );
+        console.log(transactionDate);
+        // console.log(date);
       } else {
         dispatch(
           addTransactionThunk({
@@ -129,7 +121,6 @@ const ModalAddTransaction = () => {
           <Select
             placeholder="Select a category"
             options={options}
-            // className={css.listCategories}
             styles={customStyles}
             value={categoryId?.value}
             onChange={({ value }) => formik.setFieldValue('categoryId', value)}
@@ -146,15 +137,18 @@ const ModalAddTransaction = () => {
           />
           <Flatpickr
             options={{
-              dateFormat: 'd.m.Y',
+              dateFormat: 'Y.m.d',
               disableMobile: 'true',
             }}
             type="date"
             name="transactionDate"
             value={transactionDate}
             id="date"
-            placeholder="DD.MM.YYYY"
+            placeholder="YYYY.MM.DD"
             className={css.input}
+            onChange={val => {
+              formik.setFieldValue('transactionDate', val[0]);
+            }}
           />
         </div>
         <input
