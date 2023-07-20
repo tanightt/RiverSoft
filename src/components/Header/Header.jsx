@@ -3,8 +3,11 @@ import s from './Header.module.css';
 import Icons from '../../images/sprite.svg';
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
+import { useDispatch } from 'react-redux';
+import { openLogOutModal } from 'redux/global/slice';
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <header className={s.header}>
@@ -20,7 +23,7 @@ const Header = () => {
             <svg className={s.exitSvg}>
               <use href={Icons + '#icon-exit-logout'}></use>
             </svg>
-            <span>Exit</span>
+            <button onClick={() => dispatch(openLogOutModal())}>Exit</button>
           </div>
         </div>
       </header>
