@@ -1,0 +1,17 @@
+.nav {
+  margin: 40px 0 28px 16px;
+  display: grid;
+  gap: 12px;
+}
+.navLink {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink:hover {
+  font-weight: 700;
+}
+/* 
+.navLink:active {
+  font-weight: 700;
+} */

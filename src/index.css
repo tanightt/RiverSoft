@@ -3,12 +3,27 @@
 @import './stylesheet/vars.css';
 
 body {
+  height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--color-white);
+  background: radial-gradient(
+        at 98% 8%,
+        rgba(19, 19, 25, 1) 0px,
+        transparent 80%
+      )
+      repeat scroll 0% 0%,
+    radial-gradient(at 0% 0%, rgba(19, 19, 24, 1) 0px, transparent 70%) repeat
+      scroll 0% 0%,
+    radial-gradient(at 50% 90%, rgba(114, 44, 135, 1) 0px, transparent 50%)
+      repeat scroll 0% 0%,
+    radial-gradient(at 42% 20%, #6d54eb 0px, transparent 50%) repeat scroll 0%
+      0%,
+    #302e8e;
 }
 
 code {
