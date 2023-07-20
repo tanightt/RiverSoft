@@ -1,0 +1,31 @@
+.income {
+  color: #ffb627;
+}
+
+.expense {
+  color: #ff868d;
+}
+.bodyTable {
+  height: 53px;
+}
+.buttonDelete {
+  font-size: 14px;
+  padding: 4px 12px;
+
+  color: #fff;
+  border-radius: 18px;
+  background: var(
+    --button-gradient,
+    linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)
+  );
+  /* Button shadow */
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+}
+.buttonEdit {
+  color: var(--white-60, rgba(255, 255, 255, 0.6));
+  font-family: Poppins;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+
+  background: none;
+}

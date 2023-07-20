@@ -1,7 +1,11 @@
-.block {
+/* .block {
+  display: flex;
+  flex-direction: column;
   width: 280px;
   height: 293px;
-  margin: auto;
+  margin: 8px auto;
+  border: 2px solid;
+  border-radius: 10px;
 }
 
 .text {
@@ -10,4 +14,4 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
