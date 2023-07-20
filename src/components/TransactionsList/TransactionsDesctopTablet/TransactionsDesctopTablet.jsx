@@ -1,7 +1,11 @@
 import React from 'react';
 import css from './TransactionsDesctopTablet.module.css';
+import { useSelector } from 'react-redux';
+import { selectFinance } from 'redux/transactions/transactionsSelectors';
+import DesktopTableList from './DesktopTableList/DesktopTableList';
 
 const TransactionsDesctopTablet = () => {
+  const finance = useSelector(selectFinance);
   return (
     <table className={css.table}>
       <thead className={css.headerTable}>
@@ -16,19 +20,9 @@ const TransactionsDesctopTablet = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className={css.body}>04.01.19</td>
-          <td>-</td>
-          <td>Other</td>
-          <td>Gift for your wife</td>
-          <td>300.00</td>
-          <td>
-            <button>ok</button>
-          </td>
-          <td>
-            <button>Delete</button>
-          </td>
-        </tr>
+        {finance.map(item => {
+          return <DesktopTableList key={item.id} {...item} />;
+        })}
       </tbody>
     </table>
   );

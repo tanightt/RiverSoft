@@ -6,6 +6,7 @@ export const getTransactionThunk = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instanceWallet.get('/api/transactions');
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -65,6 +66,7 @@ export const getCategoriesThunk = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instanceWallet.get('api/transaction-categories');
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
