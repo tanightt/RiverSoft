@@ -2,7 +2,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import { LoginPage } from 'page/LoginPage/LoginPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/authSelectors';
+import { selecRefresh, selectUser } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
@@ -11,6 +11,7 @@ import { selectCurrencyDate } from 'redux/currency/currencySelectors';
 import DashboardPage from 'page/DashboardPage/DashboardPage';
 import Header from './Header/Header';
 import { Currency } from './Currency/Currency';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -37,13 +38,18 @@ export const App = () => {
     dispatch(refreshCurrencyDate(time));
     dispatch(getCurrencyThunk());
   }, [dispatch, currencyDate]);
-
-  return (
+  const refresh = useSelector(selecRefresh);
+  return refresh ? (
+    <>
+      <Loader />
+      <h1 style={{ display: 'flex', justifyContent: 'center' }}>Loader...</h1>
+    </>
+  ) : (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegistrationPage />} />
       <Route path="/" element={<Header />}>
-        <Route path="/home" element={<DashboardPage />} />
+        <Route index element={<DashboardPage />} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
         <Route path="/currency" element={<Currency />} />
         <Route path="*" element={<h1> Error</h1>} />
