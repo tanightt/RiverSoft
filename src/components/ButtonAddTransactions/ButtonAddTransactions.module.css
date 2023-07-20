@@ -1,1 +1,13 @@
-
+.btnAddTransaction {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}

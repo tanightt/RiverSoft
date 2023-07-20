@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import css from './ModalAddTransaction.module.css';
 import 'flatpickr/dist/themes/material_green.css';
 import Flatpickr from 'react-flatpickr';
@@ -13,7 +13,6 @@ import {
   addTransactionThunk,
   getCategoriesThunk,
 } from 'redux/transactions/transactionsOperations';
-import { nanoid } from '@reduxjs/toolkit';
 
 const svgClose = (
   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none">
@@ -38,7 +37,7 @@ const ModalAddTransaction = () => {
     if (!categories?.length) {
       dispatch(getCategoriesThunk());
     }
-  }, [dispatch]);
+  }, [dispatch, categories]);
 
   const handleCloseAddModal = () => {
     dispatch(closeAddModal());
@@ -79,7 +78,7 @@ const ModalAddTransaction = () => {
           addTransactionThunk({
             ...value,
             type: 'INCOME',
-            categoryId: nanoid(),
+            categoryId: incomeCategoties.id,
             transactionDate: new Date(date),
           })
         );
