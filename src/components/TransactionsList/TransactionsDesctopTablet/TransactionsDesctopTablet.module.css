@@ -1,8 +1,8 @@
 .table {
   margin: auto;
+  margin-top: 46px;
   border-collapse: collapse;
   width: 715px;
-  height: 308px;
 }
 
 .headerTable {
@@ -24,12 +24,17 @@
   align-items: center;
 } */
 
-.body > tr:hover {
+/* .body > tr:hover {
   margin: 0 auto;
   background-color: tomato;
   color: white;
-  /* overflow: auto; */
-}
+  overflow: auto;
+} */
+/* .bodyTable {
+  display: grid;
+  grid-template-rows: auto;
+  grid-auto-flow: dense;
+} */
 
 .table th,
 .table td {

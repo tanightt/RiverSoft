@@ -1,36 +1,18 @@
 import React from 'react';
-import css from './TransactionsMobile.module.css';
+// import css from './TransactionsMobile.module.css';
+import { useSelector } from 'react-redux';
+import { selectFinance } from 'redux/transactions/transactionsSelectors';
+import MobileList from './MobileList/MobileList';
 
 const TransactionsMobile = () => {
+  const finance = useSelector(selectFinance);
+
   return (
-    <div>
-      <ul className={css.block}>
-        <li className={css.text}>
-          <div>Date</div>
-          <div>04.01.19</div>
-        </li>
-        <li>
-          <span></span>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-          <span></span>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      {finance.map(item => {
+        return <MobileList key={item.id} {...item} />;
+      })}
+    </ul>
   );
 };
 
