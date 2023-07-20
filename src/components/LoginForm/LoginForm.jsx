@@ -62,10 +62,10 @@ export const LoginForm = () => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                 />
+                                {formik.touched.email && formik.errors.email ? (
+                                    <div className={css.error_message}>{formik.errors.email}</div>
+                                ) : null}
                             </div>
-                            {formik.touched.email && formik.errors.email ? (
-                                <div className={css.error_message}>{formik.errors.email}</div>
-                            ) : null}
                             <div className={css.input_wrapper}>
                                 <span className={css.input_icon}><svg className={css.svg_sizing}><use xlinkHref={icons + '#icon-password'} /></svg></span>
                                 <input type="password"
@@ -77,10 +77,10 @@ export const LoginForm = () => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                 />
+                                {formik.touched.password && formik.errors.password ? (
+                                    <div className={css.error_message}>{formik.errors.password}</div>
+                                ) : null}
                             </div>
-                            {formik.touched.password && formik.errors.password ? (
-                                <div className={css.error_message}>{formik.errors.password}</div>
-                            ) : null}
                             <Link to='/' className={css.login_colored_link} onClick={formik.handleSubmit}><button type='submit' className={css.login_submit_button}>Log in</button></Link>
                         </form>
                         <Link to='/register' className={css.login_white_link}>Register</Link>

@@ -100,10 +100,10 @@ export const RegistrationForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
+                {formik.touched.email && formik.errors.email ? (
+                  <div className={css.error_message}>{formik.errors.email}</div>
+                ) : null}
               </div>
-              {formik.touched.email && formik.errors.email ? (
-                <div className={css.error_message}>{formik.errors.email}</div>
-              ) : null}
               <div className={css.input_wrapper}>
                 <span className={css.input_icon}>
                   <svg className={css.svg_sizing}>
@@ -120,12 +120,12 @@ export const RegistrationForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className={css.error_message}>
+                    {formik.errors.password}
+                  </div>
+                ) : null}
               </div>
-              {formik.touched.password && formik.errors.password ? (
-                <div className={css.error_message}>
-                  {formik.errors.password}
-                </div>
-              ) : null}
               <div className={css.input_wrapper}>
                 <span className={css.input_icon}>
                   <svg className={css.svg_sizing}>
@@ -147,13 +147,13 @@ export const RegistrationForm = () => {
                     <div className={strengthClass}></div>
                   </div>
                 </div>
+                {formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword ? (
+                  <div className={css.error_message}>
+                    {formik.errors.confirmPassword}
+                  </div>
+                ) : null}
               </div>
-              {formik.touched.confirmPassword &&
-                formik.errors.confirmPassword ? (
-                <div className={css.error_message}>
-                  {formik.errors.confirmPassword}
-                </div>
-              ) : null}
               <div className={css.input_wrapper}>
                 <span className={css.input_icon}>
                   <svg className={css.svg_sizing}>
@@ -170,7 +170,6 @@ export const RegistrationForm = () => {
                   onBlur={formik.handleBlur}
                   value={formik.values.username}
                 />
-              </div>
               {formik.touched.username && formik.errors.username ? (
                 <div className={css.error_wrapper}>
                   <div className={css.error_message}>
@@ -178,6 +177,7 @@ export const RegistrationForm = () => {
                   </div>
                 </div>
               ) : null}
+              </div>
               <Link to="/" className={css.login_colored_link} onClick={formik.handleSubmit}>
                 <button type="submit" className={css.login_submit_button}>
                   Register

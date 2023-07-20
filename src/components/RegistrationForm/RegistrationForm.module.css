@@ -206,12 +206,16 @@
 }
 
 .error_message {
+  position: absolute;
   color: rgb(162, 68, 68);
-  margin-top: -35px;
   font-size: 18px;
   font-family: 'Poppins';
   font-weight: 400;
   text-align: center;
+  left: 0;
+  right: 0;
+  top: 48px;
+  bottom: 0;
 }
 
 .svg_sizing {
