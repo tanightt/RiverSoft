@@ -13,12 +13,12 @@ import {
   addTransactionThunk,
   getCategoriesThunk,
 } from 'redux/transactions/transactionsOperations';
-
-const svgClose = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none">
-    <path stroke="#FBFBFB" d="m1 1 16 16M1 17 17 1" />
-  </svg>
-);
+import {
+  svgCalendar,
+  svgClose,
+  svgMinus,
+  svgPlus,
+} from 'images/icons/iconsModalAdd';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
@@ -63,8 +63,6 @@ const ModalAddTransaction = () => {
             transactionDate: new Date(date),
           })
         );
-        console.log(transactionDate);
-        // console.log(date);
       } else {
         dispatch(
           addTransactionThunk({
@@ -107,9 +105,9 @@ const ModalAddTransaction = () => {
               }`}
             >
               {!type ? (
-                <span className={css.plus}>+</span>
+                <span className={css.plus}>{svgPlus}</span>
               ) : (
-                <span className={css.minus}>-</span>
+                <span className={css.minus}>{svgMinus}</span>
               )}
             </span>
           </span>
@@ -150,6 +148,7 @@ const ModalAddTransaction = () => {
               formik.setFieldValue('transactionDate', val[0]);
             }}
           />
+          <div className={css.iconCalendar}>{svgCalendar}</div>
         </div>
         <input
           type="text"

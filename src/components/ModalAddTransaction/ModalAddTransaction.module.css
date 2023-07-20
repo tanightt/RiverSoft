@@ -90,15 +90,15 @@
 
 .plus {
   position: absolute;
-  left: 8px;
-  bottom: 2px;
+  left: -15px;
+  bottom: -28px;
   color: var(--color-white);
 }
 
 .minus {
   position: absolute;
-  right: 15px;
-  top: -5px;
+  right: -15px;
+  top: -9px;
   color: var(--color-white);
 }
 
@@ -129,6 +129,7 @@ input:checked + .slider > .choiceBtn {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
 }
 
 .input {
@@ -136,10 +137,15 @@ input:checked + .slider > .choiceBtn {
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   outline: none;
-
   padding: 8px 20px;
   color: #fbfbfb;
   font-size: 18px;
+  transition: border-bottom 250ms linear;
+}
+
+.input:hover,
+.input:focus {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.822);
 }
 
 .addBtn {
@@ -157,11 +163,12 @@ input:checked + .slider > .choiceBtn {
   box-shadow: 1px 9px 15px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   text-transform: uppercase;
+  transition: scale 250ms linear, box-shadow 250ms linear;
 }
 
 .cancelBtn {
   border-radius: 20px;
-  padding: 13px 119px;
+  padding: 13px 110px;
   font-size: 18px;
   line-height: 1.5;
   background-color: var(--color-white);
@@ -169,6 +176,7 @@ input:checked + .slider > .choiceBtn {
   margin: 0 auto;
   text-transform: uppercase;
   width: 280px;
+  transition: scale 250ms linear, box-shadow 250ms linear;
 }
 
 .addBtn:hover,
@@ -179,8 +187,15 @@ input:checked + .slider > .choiceBtn {
   box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.listCategories {
-  background-color: transparent;
+.iconCalendar {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ================ TABLET ============= */
@@ -199,5 +214,20 @@ input:checked + .slider > .choiceBtn {
     border: none;
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .addModal {
+    width: 540px;
+    padding: 40px 72px;
+  }
+
+  .modalTitle {
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  .incomeDate {
+    flex-direction: row;
   }
 }
