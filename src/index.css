@@ -35,6 +35,7 @@ ol {
 button {
   border: none;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
 }
 img,
 picture {

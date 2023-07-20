@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import css from './ModalAddTransaction.module.css';
 import 'flatpickr/dist/themes/material_green.css';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeAddModal } from 'redux/global/slice';
 import Select from 'react-select';
+import { customStyles } from '../../stylesheet/customStyles';
+import { selectCategories } from 'redux/transactions/transactionsSelectors';
+import {
+  addTransactionThunk,
+  getCategoriesThunk,
+} from 'redux/transactions/transactionsOperations';
+import { nanoid } from '@reduxjs/toolkit';
 
 const svgClose = (
   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none">
@@ -17,45 +23,71 @@ const svgClose = (
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
-  const [typeOfTransaction, setTypeOfTransaction] = useState('Income');
+  // const [typeOfTransaction, setTypeOfTransaction] = useState('Income');
+
+  const categories = useSelector(selectCategories);
+  const incomeCategoties = categories.find(el => el.type === 'INCOME');
+  const expenseCategories = categories.filter(el => el.type !== 'INCOME');
+
+  const options = expenseCategories.map(el => ({
+    value: el.id,
+    label: el.name,
+  }));
+
+  useEffect(() => {
+    if (!categories?.length) {
+      dispatch(getCategoriesThunk());
+    }
+  }, [dispatch]);
 
   const handleCloseAddModal = () => {
     dispatch(closeAddModal());
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    // Написати операцію на створення транзакції та повісити її на сабміт форми, всередині операції на успішне виконання операції закривати модальне вікно екшн на закриття global.isModalAddTransactionOpen. Також операція повинна додавати в redux store нову транзакцію, отриману у відповідь від сервера
-    handleCloseAddModal();
-  };
+  // const handleTransactionTypeChange = () => {
+  //   if (typeOfTransaction === 'Income') {
+  //     setTypeOfTransaction('Expense');
+  //   } else {
+  //     setTypeOfTransaction('Income');
+  //   }
+  // };
 
-  const handleTransactionTypeChange = () => {
-    if (typeOfTransaction === 'Income') {
-      setTypeOfTransaction('Expense');
-    } else {
-      setTypeOfTransaction('Income');
-    }
-  };
+  const formik = useFormik({
+    initialValues: {
+      amount: '',
+      transactionDate: '',
+      comment: '',
+      categoryId: 'INCOME',
+      type: false,
+    },
 
-  // const validationSchema = Yup.object({
-  //   email: Yup.string()
-  //     .email('Incorrect email adress.')
-  //     .required('Please enter your email.'),
-  //   password: Yup.string()
-  //     .min(6, 'Password must be at least 6 characters.')
-  //     .max(12, 'Password should be no longer than 12 characters.')
-  //     .required('Please, enter your password.'),
-  // });
-  // const formik = useFormik({
-  //   initialValues: {
-  //     email: '',
-  //     password: '',
-  //   },
-  //   validationSchema,
-  //   onSubmit: values => {
-  //     dispatch(login({ email: values.email, password: values.password }));
-  //   },
-  // });
+    onSubmit: value => {
+      const date = value.transactionDate
+        .toString()
+        .replace('00:00:00', '12:00:00');
+      if (type) {
+        dispatch(
+          addTransactionThunk({
+            ...value,
+            type: 'EXPENSE',
+            amount: 0 - value.amount,
+            transactionDate: new Date(date),
+          })
+        );
+      } else {
+        dispatch(
+          addTransactionThunk({
+            ...value,
+            type: 'INCOME',
+            categoryId: nanoid(),
+            transactionDate: new Date(date),
+          })
+        );
+      }
+      handleCloseAddModal();
+    },
+  });
+  const { type, amount, comment, transactionDate, categoryId } = formik.values;
 
   return (
     <div className={css.addModal}>
@@ -68,19 +100,22 @@ const ModalAddTransaction = () => {
       </button>
       <h2 className={css.modalTitle}>Add transaction</h2>
       <div className={css.transactionChange}>
-        <p className={typeOfTransaction === 'Income' ? css.income : css.text}>
-          Income
-        </p>
+        <p className={!type ? css.income : css.text}>Income</p>
         <label className={css.switch}>
           <input
             className={css.switchInput}
             type="checkbox"
             name="type"
-            onClick={handleTransactionTypeChange}
+            value={type}
+            onClick={formik.handleChange}
           />
           <span className={css.slider}>
-            <span className={css.choiceBtn}>
-              {typeOfTransaction === 'Income' ? (
+            <span
+              className={`${css.choiceBtn} ${
+                !type ? css.choiceBgPlus : css.choiceBgminus
+              }`}
+            >
+              {!type ? (
                 <span className={css.plus}>+</span>
               ) : (
                 <span className={css.minus}>-</span>
@@ -88,22 +123,28 @@ const ModalAddTransaction = () => {
             </span>
           </span>
         </label>
-        <p className={typeOfTransaction === 'Expense' ? css.expense : css.text}>
-          Expense
-        </p>
+        <p className={type ? css.expense : css.text}>Expense</p>
       </div>
-      <form onSubmit={handleSubmit}>
-        {typeOfTransaction === 'Expense' && (
+      <form className={css.form} onSubmit={formik.handleSubmit}>
+        {type && (
           <Select
             placeholder="Select a category"
-            // options={options}
-            // styles={customStyles}
-            // value={categoryId?.value}
-            // onChange={({ value }) => formik.setFieldValue('categoryId', value)}
+            options={options}
+            // className={css.listCategories}
+            styles={customStyles}
+            value={categoryId?.value}
+            onChange={({ value }) => formik.setFieldValue('categoryId', value)}
           />
         )}
-        <div>
-          <input type="number" name="amount" placeholder="0.00" />
+        <div className={css.incomeDate}>
+          <input
+            type="number"
+            name="amount"
+            value={amount}
+            placeholder="0.00"
+            className={css.input}
+            onChange={formik.handleChange}
+          />
           <Flatpickr
             options={{
               dateFormat: 'd.m.Y',
@@ -111,14 +152,29 @@ const ModalAddTransaction = () => {
             }}
             type="date"
             name="transactionDate"
+            value={transactionDate}
             id="date"
             placeholder="DD.MM.YYYY"
+            className={css.input}
           />
         </div>
-        <input type="text" name="comment" placeholder="Comment" />
-        <button type="submit">Add</button>
+        <input
+          type="text"
+          name="comment"
+          value={comment}
+          placeholder="Comment"
+          className={css.input}
+          onChange={formik.handleChange}
+        />
+        <button type="submit" className={css.addBtn}>
+          Add
+        </button>
       </form>
-      <button className={css.btn} type="button" onClick={handleCloseAddModal}>
+      <button
+        className={css.cancelBtn}
+        type="button"
+        onClick={handleCloseAddModal}
+      >
         Cancel
       </button>
     </div>

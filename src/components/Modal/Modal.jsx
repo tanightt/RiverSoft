@@ -24,19 +24,25 @@ const Modal = () => {
 
   const dispatch = useDispatch();
 
+  const closeModal = () => {
+    if (isAdd) {
+      dispatch(closeAddModal());
+    } else if (isEdit) {
+      dispatch(closeEditModal());
+    } else if (isExit) {
+      dispatch(closeLofOutModal());
+    }
+  };
+
   const handleBackdropModalClose = event => {
     if (event.target === event.currentTarget) {
-      dispatch(closeAddModal());
-      dispatch(closeEditModal());
-      dispatch(closeLofOutModal());
+      closeModal();
     }
   };
 
   const handleEscKeyModalClose = event => {
     if (event.key === 'Escape') {
-      dispatch(closeAddModal());
-      dispatch(closeEditModal());
-      dispatch(closeLofOutModal());
+      closeModal();
     }
   };
 

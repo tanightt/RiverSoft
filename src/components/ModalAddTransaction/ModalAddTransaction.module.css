@@ -67,11 +67,39 @@
 
 .choiceBtn {
   position: absolute;
-  left: 8px;
-  bottom: 2px;
+  left: -4px;
+  bottom: -2px;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   font-size: 40px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.choiceBgPlus {
+  background-color: var(--color-yellow);
+}
+
+.choiceBgminus {
+  background-color: var(--color-dashboard-text);
+}
+
+.plus {
+  position: absolute;
+  left: 8px;
+  bottom: 2px;
+  color: var(--color-white);
+}
+
+.minus {
+  position: absolute;
+  right: 15px;
+  top: -5px;
+  color: var(--color-white);
 }
 
 input:checked + .slider {
@@ -86,6 +114,73 @@ input:checked + .slider > .choiceBtn {
   -webkit-transform: translateX(44px);
   -ms-transform: translateX(44px);
   transform: translateX(44px);
+}
+
+/* ================= FORM =========== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 20px;
+  min-width: 100%;
+}
+
+.incomeDate {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+
+  padding: 8px 20px;
+  color: #fbfbfb;
+  font-size: 18px;
+}
+
+.addBtn {
+  border-radius: 20px;
+  padding: 13px 119px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-white);
+  background-image: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  box-shadow: 1px 9px 15px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.cancelBtn {
+  border-radius: 20px;
+  padding: 13px 119px;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: var(--color-white);
+  color: var(--color-text-button);
+  margin: 0 auto;
+  text-transform: uppercase;
+  width: 280px;
+}
+
+.addBtn:hover,
+.addBtn:focus,
+.cancelBtn:hover,
+.cancelBtn:focus {
+  scale: 0.99;
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.listCategories {
+  background-color: transparent;
 }
 
 /* ================ TABLET ============= */
