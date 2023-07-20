@@ -7,7 +7,7 @@ export const getCurrencyThunk = createAsyncThunk(
     try {
       const { data } = await instanceMono.get();
 
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
