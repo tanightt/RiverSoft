@@ -2,16 +2,32 @@
   margin: 40px 0 28px 16px;
   display: grid;
   gap: 12px;
+  text-align: center;
 }
 .navLink {
   display: flex;
   gap: 20px;
+  fill: #fff;
+  opacity: 0.4;
+  align-items: center;
 }
 
 .navLink:hover {
   font-weight: 700;
 }
-/* 
-.navLink:active {
+
+.navLink.active {
   font-weight: 700;
+}
+.navLink:hover .svg {
+  fill: #734aef;
+}
+
+/* .navLink:active .svg {
+  fill: #734aef;
+} */
+
+/* .active {
+  fill: #734aef;
+  opacity: 1;
 } */

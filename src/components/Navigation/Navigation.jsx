@@ -14,11 +14,7 @@ export const Navigation = () => {
       <ul className={s.nav}>
         {routes.map(route => (
           <li key={route.path}>
-            <NavLink
-              to={route.path}
-              activeClassName={s.active}
-              className={s.navLink}
-            >
+            <NavLink to={route.path} className={s.navLink}>
               <svg width="24" height="24">
                 <use href={Icons + route.icon}></use>
               </svg>
