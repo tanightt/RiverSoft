@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
-import ButtonAddTransactions from './ButtonAddTransactions/ButtonAddTransactions';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
 import { refreshCurrencyDate } from 'redux/currency/currencySlice';
 import { selectCurrencyDate } from 'redux/currency/currencySelectors';
@@ -47,7 +46,6 @@ export const App = () => {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/currency" element={<h1>Currency page</h1>} />
         <Route path="*" element={<h1> Error</h1>} />
-        <Route path="/modal" element={<ButtonAddTransactions />} />
       </Route>
     </Routes>
   );
