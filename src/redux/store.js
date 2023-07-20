@@ -11,7 +11,10 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
+import { modalReducer } from './global/slice';
 import { currencyReducer } from './currency/currencySlice';
+import { transactionReducer } from './transactions/transactionsSlice';
+
 const authConfig = {
   key: 'auth',
   storage,
@@ -33,7 +36,9 @@ const currencyPersistedReducer = persistReducer(
 export const store = configureStore({
   reducer: {
     auth: authPersistedReducer,
+    modal: modalReducer,
     currency: currencyPersistedReducer,
+    transactions: transactionReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
