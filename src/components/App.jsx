@@ -2,7 +2,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import { LoginPage } from 'page/LoginPage/LoginPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selecRefresh, selectUser } from 'redux/auth/authSelectors';
+import { selectRefresh, selectUser } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
@@ -38,7 +38,7 @@ export const App = () => {
     dispatch(refreshCurrencyDate(time));
     dispatch(getCurrencyThunk());
   }, [dispatch, currencyDate]);
-  const refresh = useSelector(selecRefresh);
+  const refresh = useSelector(selectRefresh);
   return refresh ? (
     <>
       <Loader />
