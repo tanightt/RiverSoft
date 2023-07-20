@@ -9,7 +9,7 @@ export const register = createAsyncThunk('auth/register',
             return response.data
 
         } catch (error) {
-            toast.error('The account with this email is already exists. OR Email or password is invalid, use valid data for registration.', {
+            toast.error(error.message, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
