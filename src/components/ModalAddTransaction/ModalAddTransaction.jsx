@@ -35,7 +35,7 @@ const ModalAddTransaction = () => {
     if (!categories?.length && isAuth) {
       dispatch(getCategoriesThunk());
     }
-  }, [dispatch, categories]);
+  }, [dispatch, categories, isAuth]);
 
   const handleCloseAddModal = () => {
     dispatch(closeAddModal());
