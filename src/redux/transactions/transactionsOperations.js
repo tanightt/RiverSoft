@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWallet } from 'config/instance';
+import { toast } from 'react-toastify';
 
 export const getTransactionThunk = createAsyncThunk(
   'transaction/getTransaction',
@@ -53,6 +54,7 @@ export const addTransactionThunk = createAsyncThunk(
         '/api/transactions',
         transaction
       );
+      toast.success('Transaction added');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

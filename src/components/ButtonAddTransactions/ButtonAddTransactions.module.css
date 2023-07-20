@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -22,7 +23,7 @@
 
 .btnAddTransaction:hover,
 .btnAddTransaction:focus {
-  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.23);
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (min-width: 767.98px) {
