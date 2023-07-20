@@ -39,14 +39,13 @@ export const login = createAsyncThunk('auth/login',
                 progress: undefined,
                 theme: "light",
             });
-            if (error.response) {
-                const { status, data } = error.response;
-                if (status === 400 || status === 403 || status === 404) {
-                    return rejectWithValue(data);
-                }
+            const { status, data } = error.response;
+            if (status === 400 || status === 403 || status === 404) {
+                return rejectWithValue(data);
             }
         }
     }
+
 );
 export const refreshUser = createAsyncThunk(
     'auth/getUser',
