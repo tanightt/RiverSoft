@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { openLogOutModal } from 'redux/global/slice';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const Header = () => {
           <p>Money Guard</p>
         </div>
         <div className={s.exitBox}>
-          <p className={s.name}>Name</p>
+          <p className={s.name}>{selectUser}</p>
           <div className={s.border}>
             <svg className={s.exitSvg}>
               <use href={Icons + '#icon-exit-logout'}></use>
