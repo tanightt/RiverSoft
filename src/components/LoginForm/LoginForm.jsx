@@ -24,7 +24,7 @@ export const LoginForm = () => {
       .required('Please enter your email.'),
     password: Yup.string()
       .min(6, 'Password must be at least 6 characters.')
-      .max(30, 'Password should be no longer than 12 characters.')
+      .max(12, 'Password should be no longer than 12 characters.')
       .required('Please, enter your password.'),
   });
   const formik = useFormik({
