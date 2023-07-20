@@ -38,10 +38,15 @@ export const authSlice = createSlice({
                 state.isAuth = false;
                 state.token = '';
                 state.user = initialState.user;
+            }).addCase(refreshUser.fulfilled, (state, { payload }) => {
+                state.user = payload.user;
+                state.isAuth = true;
+                state.isLoading = false;
+                state.isRefresher = false;
             })
             .addCase(resetStateAction, () => initialState)
             .addMatcher(isAnyOf(register.pending, login.pending, refreshUser.pending, logOut.pending), handlePending)
-            .addMatcher(isAnyOf(register.fulfilled, login.fulfilled, refreshUser.fulfilled), handleFulfilled)
+            .addMatcher(isAnyOf(register.fulfilled, login.fulfilled), handleFulfilled)
             .addMatcher(isAnyOf(register.rejected, login.rejected, refreshUser.rejected, logOut.fulfilled), handleRejected)
     },
 });
