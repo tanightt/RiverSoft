@@ -1,11 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-import {
-    logOut,
-    login,
-    refreshUser,
-    register
-} from './authOperations';
+import { createSlice, isAnyOf, createAction } from '@reduxjs/toolkit';
+import { register, login, logOut, refreshUser } from './authOperations';
+const resetStateAction = createAction('auth/resetState');
 
 const initialState = {
     user: null,
@@ -16,68 +11,39 @@ const initialState = {
     isError: false,
 };
 
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(register.pending, (state) => {
+        const handlePending = (state) => {
             state.isLoading = true;
             state.isError = '';
-        })
-            .addCase(register.fulfilled, (state, { payload }) => {
-                state.user = payload.user;
-                state.token = payload.token;
-                state.isAuth = true;
-                state.isLoading = false;
-            })
-            .addCase(register.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = action.error.message;
-                state.isRefresher = false;
-            })
-            .addCase(login.pending, (state) => {
-                state.isLoading = true;
-                state.isError = '';
-            })
-            .addCase(login.fulfilled, (state, { payload }) => {
-                state.user = payload.user;
-                state.token = payload.token;
-                state.isAuth = true;
-                state.isLoading = false;
-
-            })
-            .addCase(login.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = action.error.message;
-                state.isRefresher = false;
-            })
-            .addCase(refreshUser.pending, (state) => {
-                state.isLoading = true;
-                state.isError = '';
-                state.isRefresher = true;
-            })
-            .addCase(refreshUser.fulfilled, (state, { payload }) => {
-                state.user = payload;
-                state.isAuth = true;
-                state.isLoading = false;
-                state.isRefresher = false;
-            })
-            .addCase(refreshUser.rejected, (state, action) => {
-                state.isLoading = false;
-                state.isError = action.error.message;
-                state.isRefresher = false;
-            })
+            state.isRefresher = false;
+        };
+        const handleFulfilled = (state, { payload }) => {
+            state.user = payload.user;
+            state.token = payload.token;
+            state.isAuth = true;
+            state.isLoading = false;
+            state.isRefresher = false;
+        };
+        const handleRejected = (state, action) => {
+            state.isLoading = false;
+            state.isError = action.error.message;
+            state.isRefresher = false;
+        };
+        builder
             .addCase(logOut.fulfilled, (state) => {
-                state.isLoading = false;
                 state.isAuth = false;
-                state.isRefresher = false;
                 state.token = '';
-                state.user = initialState.user
-            }).addCase(logOut.pending, (state) => {
-                state.isError = '';
-            }).addCase(logOut.rejected, () => initialState)
+                state.user = initialState.user;
+            })
+            .addCase(resetStateAction, () => initialState)
+            .addMatcher(isAnyOf(register.pending, login.pending, refreshUser.pending, logOut.pending), handlePending)
+            .addMatcher(isAnyOf(register.fulfilled, login.fulfilled, refreshUser.fulfilled), handleFulfilled)
+            .addMatcher(isAnyOf(register.rejected, login.rejected, refreshUser.rejected, logOut.fulfilled), handleRejected)
     },
 });
-
-
 export const authReducer = authSlice.reducer;
+export const resetAuthState = resetStateAction
