@@ -1,9 +1,39 @@
 .nav {
-  margin: 40px 0 28px 16px;
-  display: grid;
-  gap: 12px;
-  text-align: center;
+  margin: 12px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
 }
+
+.nav p {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    width: 336px;
+    margin: 40px 0 0 32px;
+    display: grid;
+    justify-content: start;
+    gap: 12px;
+    text-align: center;
+  }
+  .nav p {
+    display: none;
+    display: inline;
+  }
+  .nav svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .nav {
+    margin: 40px 0 0 16px;
+  }
+}
+
 .navLink {
   display: flex;
   gap: 20px;

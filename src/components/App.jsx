@@ -12,6 +12,7 @@ import DashboardPage from 'page/DashboardPage/DashboardPage';
 import Header from './Header/Header';
 import { Currency } from './Currency/Currency';
 import { Loader } from './Loader/Loader';
+import { useMediaQuery } from 'react-responsive';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -31,14 +32,18 @@ export const App = () => {
     const time = Date.now();
     const diffTime = new Date() - new Date(currencyDate);
 
-    console.log(diffTime);
+    // console.log(diffTime);
     if (diffTime < oneHour) {
       return;
     }
     dispatch(refreshCurrencyDate(time));
     dispatch(getCurrencyThunk());
   }, [dispatch, currencyDate]);
+
   const refresh = useSelector(selectRefresh);
+
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+
   return refresh ? (
     <>
       <Loader />
@@ -51,7 +56,9 @@ export const App = () => {
       <Route path="/" element={<Header />}>
         <Route index element={<DashboardPage />} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
-        <Route path="/currency" element={<Currency />} />
+
+        {isMobile && <Route path="/currency" element={<Currency />} />}
+
         <Route path="*" element={<h1> Error</h1>} />
       </Route>
     </Routes>
