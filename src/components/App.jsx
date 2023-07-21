@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { LoginPage } from 'page/LoginPage/LoginPage';
 import SummaryPage from 'page/SummaryPage/SummaryPage';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +14,8 @@ import Header from './Header/Header';
 import { Currency } from './Currency/Currency';
 import { Loader } from './Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
+import { PrivateRouter } from 'hoc/PrivateRouter';
+import { PublicRouter } from 'hoc/PublicRouter';
 
 export const App = () => {
   const navigate = useNavigate();
@@ -51,15 +53,82 @@ export const App = () => {
       <h1 style={{ display: 'flex', justifyContent: 'center' }}>Loader...</h1>
     </>
   ) : (
+    // <Routes>
+    //   <Route path="/login" element={<LoginPage />} />
+    //   <Route path="/register" element={<RegistrationPage />} />
+    //   <Route path="/" element={<Header />}>
+    //     <Route path="/home" element={<DashboardPage />} />
+    //     <Route path="/statistic" element={<h1>Statistics</h1>} />
+
+    //     {isMobile && <Route path="/currency" element={<Currency />} />}
+
+    //     <Route path="*" element={<h1> Error</h1>} />
+    //   </Route>
+    // </Routes>
+
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegistrationPage />} />
       <Route path="/" element={<Header />}>
-        <Route path="/home" element={<DashboardPage />} />
-        <Route path="/statistic" element={<SummaryPage />} />
-        {isMobile && <Route path="/currency" element={<Currency />} />}
-        <Route path="*" element={<h1> Error</h1>} />
+        
+        {/* <Route index element={<Navigate to="/home" />}></Route> */}
+
+        <Route
+          path="/home"
+          element={
+            <PrivateRouter>
+              <DashboardPage />
+            </PrivateRouter>
+          }
+        ></Route>
+
+        <Route
+          path="/statistic"
+          element={
+            <PrivateRouter>
+              <SummaryPage />
+            </PrivateRouter>
+          }
+        ></Route>
+
+        {isMobile && (
+          <Route
+            path="/currency"
+            element={
+              <PrivateRouter>
+                <Currency />
+              </PrivateRouter>
+            }
+          ></Route>
+        )}
+
+        {/* <Route
+          path="/currency"
+          element={
+            <PrivateRouter>
+              <Currency />
+            </PrivateRouter>
+          }
+        ></Route> */}
       </Route>
+
+      <Route
+        path="/login"
+        element={
+          <PublicRouter>
+            <LoginPage />
+          </PublicRouter>
+        }
+      ></Route>
+
+      <Route
+        path="/register"
+        element={
+          <PublicRouter>
+            <RegistrationPage />
+          </PublicRouter>
+        }
+      ></Route>
+
+      <Route path="*" element={<h1> Error</h1>} />
     </Routes>
   );
 };
