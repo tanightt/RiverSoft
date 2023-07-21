@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import css from './LoginForm.module.css'
 import * as Yup from 'yup';
@@ -11,13 +11,15 @@ export const LoginForm = () => {
     const isAuth = useSelector(selectIsAuth)
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
+    const [showPassword, setShowPassword] = useState(false);
     useEffect(() => {
         if (isAuth) {
             navigate('/')
         }
     }, [isAuth, navigate])
-
+    const toggleShowPassword = () => {
+        setShowPassword(prevState => !prevState);
+    }
     const validationSchema = Yup.object({
         email: Yup.string()
             .email('Incorrect email adress.')
@@ -68,7 +70,7 @@ export const LoginForm = () => {
                             </div>
                             <div className={css.input_wrapper}>
                                 <span className={css.input_icon}><svg className={css.svg_sizing}><use xlinkHref={icons + '#icon-password'} /></svg></span>
-                                <input type="password"
+                                <input type={showPassword ? "text" : "password"}
                                     name="password"
                                     placeholder="Password"
                                     autoComplete="current-password"
@@ -77,6 +79,11 @@ export const LoginForm = () => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                 />
+                                <span className={css.show_hide_password} onClick={toggleShowPassword}>
+                                    <svg>
+                                        <use xlinkHref={showPassword ? icons + "#icon-eye-closed" : icons + "#icon-eye"}></use>
+                                    </svg>
+                                </span>
                                 {formik.touched.password && formik.errors.password ? (
                                     <div className={css.error_message}>{formik.errors.password}</div>
                                 ) : null}
