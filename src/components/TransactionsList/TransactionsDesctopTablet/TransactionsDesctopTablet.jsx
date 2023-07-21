@@ -1,11 +1,12 @@
 import React from 'react';
 import css from './TransactionsDesctopTablet.module.css';
+import BodyTable from './BodyTable/BodyTable';
 import { useSelector } from 'react-redux';
-import { selectFinance } from 'redux/transactions/transactionsSelectors';
-import DesktopTableList from './DesktopTableList/DesktopTableList';
+import { selectLoading } from 'redux/transactions/transactionsSelectors';
+// import { Loader } from 'components/Loader/Loader';
 
 const TransactionsDesctopTablet = () => {
-  const finance = useSelector(selectFinance);
+  const isLoading = useSelector(selectLoading);
   return (
     <table className={css.table}>
       <thead className={css.headerTable}>
@@ -19,11 +20,7 @@ const TransactionsDesctopTablet = () => {
           <th></th>
         </tr>
       </thead>
-      <tbody className={css.bodyTable}>
-        {finance.map(item => {
-          return <DesktopTableList key={item.id} {...item} />;
-        })}
-      </tbody>
+      {isLoading ? <h1>Loadding...</h1> : <BodyTable />}
     </table>
   );
 };

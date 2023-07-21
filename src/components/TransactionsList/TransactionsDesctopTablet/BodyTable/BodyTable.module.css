@@ -1,0 +1,39 @@
+/* .bodyTable {
+  /* height: 200px; */
+/* position: relative; */
+/* } */
+.div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.button {
+  width: 69px;
+  height: 29px;
+  font-size: 14px;
+  padding: 4px 12px;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+  color: #fbfbfb;
+  background-image: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  border: none;
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 250ms linear;
+}

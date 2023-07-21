@@ -23,16 +23,16 @@ export const deleteTransactionThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  },
-  {
-    // condition: (_, { getState }) => {
-    //   const loading = getState().transactions.loading;
-    //   console.log(loading);
-    //   if (loading) {
-    //     return false;
-    //   }
-    // },
   }
+  // {
+  //   condition: (_, { getState }) => {
+  //     const loading = getState().transactions.loading;
+  //     console.log(loading);
+  //     if (loading) {
+  //       return false;
+  //     }
+  //   },
+  // }
 );
 
 export const patchTransactionThunk = createAsyncThunk(
@@ -68,7 +68,7 @@ export const getCategoriesThunk = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instanceWallet.get('api/transaction-categories');
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -1,2 +1,3 @@
 export const selectFinance = state => state.transactions.finance;
 export const selectCategories = state => state.transactions.categories;
+export const selectLoading = state => state.transactions.loading;

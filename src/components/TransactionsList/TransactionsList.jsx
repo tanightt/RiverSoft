@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
-
+import { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import TransactionsDesctopTablet from './TransactionsDesctopTablet/TransactionsDesctopTablet';
-// import TransactionsMobile from './TransactionsMobile/TransactionsMobile';
-
+import TransactionsMobile from './TransactionsMobile/TransactionsMobile';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   getCategoriesThunk,
   getTransactionThunk,
@@ -20,10 +18,15 @@ const TransactionsList = () => {
     dispatch(getCategoriesThunk());
   }, [dispatch, isLogined]);
 
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width:768px)',
+  });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   return (
     <>
-      <TransactionsDesctopTablet />
-      {/* <TransactionsMobile /> */}
+      {isDesktopOrLaptop && <TransactionsDesctopTablet />}
+      {isMobile && <TransactionsMobile />}
     </>
   );
 };

@@ -1,15 +1,13 @@
 .table {
-  margin: auto;
-  margin-top: 46px;
+  margin: 46px auto;
+
   border-collapse: collapse;
   width: 715px;
 }
 
 .headerTable {
-  table-layout: fixed;
   padding: 8px;
 
-  width: 715px;
   height: 56px;
   overflow: hidden;
   background: rgba(82, 59, 126, 0.6);
