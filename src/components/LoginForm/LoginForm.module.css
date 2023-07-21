@@ -8,6 +8,16 @@
   align-items: center;
 }
 
+.show_hide_password svg {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 .page_content {
   padding-left: 20px;
   padding-right: 20px;
@@ -81,7 +91,7 @@
 }
 
 .login_input::placeholder {
-  color: var(--white-60, rgba(255, 255, 255, 0.6));
+  color: var(--color-white-60, rgba(255, 255, 255, 0.6));
   font-family: 'Poppins';
   font-size: 18px;
   font-style: normal;
@@ -163,7 +173,7 @@
   text-align: center;
   left: 0;
   right: 0;
-  top: 35px;
+  top: 48px;
   bottom: 0;
 }
 
