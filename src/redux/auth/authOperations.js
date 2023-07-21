@@ -1,4 +1,4 @@
-import { instanceWallet, setAuthHeader, clearAuthHeader } from "config/instance";
+import { instanceWallet, setAuthHeader } from "config/instance";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 export const register = createAsyncThunk('auth/register',
@@ -67,11 +67,13 @@ export const refreshUser = createAsyncThunk(
 export const logOut = createAsyncThunk("auth/logout", async (
     _, { rejectWithValue }) => {
     try {
-        clearAuthHeader()
         const response = await instanceWallet.delete('api/auth/sign-out');
-        return response
+        if (response.status === 204) {
+            return response.data;
+        } else {
+            return rejectWithValue("Статус відповіді не 204");
+        }
     } catch (error) {
-        rejectWithValue(error)
+        return rejectWithValue(error.message);
     }
-}
-)
+});

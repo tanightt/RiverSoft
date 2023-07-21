@@ -10,14 +10,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import { persistor, store } from 'redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter basename="/RiverSoft">
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <App />
-          <ToastContainer autoClose="1000" />
-        </PersistGate>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter basename="/RiverSoft">
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <App />
+        <ToastContainer autoClose="1000" />
+      </PersistGate>
+    </Provider>
+  </BrowserRouter>
+  // </React.StrictMode>
 );

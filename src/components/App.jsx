@@ -1,8 +1,9 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { LoginPage } from 'page/LoginPage/LoginPage';
-import { useEffect } from 'react';
+import SummaryPage from 'page/SummaryPage/SummaryPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRefresh, selectUser } from 'redux/auth/authSelectors';
+import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
@@ -55,10 +56,8 @@ export const App = () => {
       <Route path="/register" element={<RegistrationPage />} />
       <Route path="/" element={<Header />}>
         <Route path="/home" element={<DashboardPage />} />
-        <Route path="/statistic" element={<h1>Statistics</h1>} />
-
+        <Route path="/statistic" element={<SummaryPage />} />
         {isMobile && <Route path="/currency" element={<Currency />} />}
-
         <Route path="*" element={<h1> Error</h1>} />
       </Route>
     </Routes>
