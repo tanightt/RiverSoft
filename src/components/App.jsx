@@ -53,21 +53,15 @@ export const App = () => {
       <h1 style={{ display: 'flex', justifyContent: 'center' }}>Loader...</h1>
     </>
   ) : (
-    // <Routes>
-    //   <Route path="/login" element={<LoginPage />} />
-    //   <Route path="/register" element={<RegistrationPage />} />
-    //   <Route path="/" element={<Header />}>
-    //     <Route path="/home" element={<DashboardPage />} />
-    //     <Route path="/statistic" element={<h1>Statistics</h1>} />
-
-    //     {isMobile && <Route path="/currency" element={<Currency />} />}
-
-    //     <Route path="*" element={<h1> Error</h1>} />
-    //   </Route>
-    // </Routes>
-
     <Routes>
-      <Route path="/" element={<Header />}>
+      <Route
+        path="/"
+        element={
+          <PrivateRouter>
+            <Header />
+          </PrivateRouter>
+        }
+      >
         {/* <Route index element={<Navigate to="/home" />}></Route> */}
 
         <Route
@@ -98,15 +92,6 @@ export const App = () => {
             }
           ></Route>
         )}
-
-        {/* <Route
-          path="/currency"
-          element={
-            <PrivateRouter>
-              <Currency />
-            </PrivateRouter>
-          }
-        ></Route> */}
       </Route>
 
       <Route
