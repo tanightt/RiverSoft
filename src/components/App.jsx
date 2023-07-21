@@ -54,7 +54,7 @@ export const App = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegistrationPage />} />
       <Route path="/" element={<Header />}>
-        <Route index element={<DashboardPage />} />
+        <Route path="/home" element={<DashboardPage />} />
         <Route path="/statistic" element={<h1>Statistics</h1>} />
 
         {isMobile && <Route path="/currency" element={<Currency />} />}
