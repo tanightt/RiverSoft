@@ -2,12 +2,11 @@ import React from 'react';
 
 import css from './DesktopTableList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  deleteTransactionThunk,
-  patchTransactionThunk,
-} from 'redux/transactions/transactionsOperations';
+import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
 import { selectCategories } from 'redux/transactions/transactionsSelectors';
 import date from 'config/date';
+
+import { openEditModal } from 'redux/global/slice';
 
 const DesktopTableList = ({
   id,
@@ -21,13 +20,14 @@ const DesktopTableList = ({
   const categoryName = useSelector(selectCategories);
   const category = categoryName.find(el => el.id === categoryId);
 
-  const handleDelete = id => {
+  const handleDelete = key => {
     console.log(id);
-    dispatch(deleteTransactionThunk(id));
+    dispatch(deleteTransactionThunk(key));
   };
 
   const handleEdit = id => {
-    dispatch(patchTransactionThunk(id));
+    console.log(id);
+    dispatch(openEditModal(id));
   };
 
   return (
@@ -37,9 +37,7 @@ const DesktopTableList = ({
       <td>{category?.name}</td>
       <td>{comment === '' ? `${category?.name}` : `${comment}`}</td>
       <td
-        className={`${Math.abs(amount)} ${
-          type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
-        }`}
+        className={`${type === 'EXPENSE' ? `${css.expense}` : `${css.income}`}`}
       >
         {Math.abs(amount)}
       </td>

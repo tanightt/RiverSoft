@@ -1,12 +1,9 @@
-/* .bodyTable {
-  /* height: 200px; */
-/* position: relative; */
-/* } */
 .div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   /* position: absolute;
   top: 50%;
   left: 50%;
@@ -36,16 +33,4 @@
   border: none;
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
   transition: box-shadow 250ms linear;
-}
-.td {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  height: 200px;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 }

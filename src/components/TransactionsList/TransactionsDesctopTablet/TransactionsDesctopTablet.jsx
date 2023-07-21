@@ -20,7 +20,17 @@ const TransactionsDesctopTablet = () => {
           <th></th>
         </tr>
       </thead>
-      {isLoading ? <h1>Loadding...</h1> : <BodyTable />}
+      <tbody>
+        {isLoading ? (
+          <tr>
+            <td>
+              <h2>Loading...</h2>
+            </td>
+          </tr>
+        ) : (
+          <BodyTable />
+        )}
+      </tbody>
     </table>
   );
 };

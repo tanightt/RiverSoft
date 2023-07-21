@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './MobileList.module.css';
 import { selectCategories } from 'redux/transactions/transactionsSelectors';
-import {
-  deleteTransactionThunk,
-  patchTransactionThunk,
-} from 'redux/transactions/transactionsOperations';
+import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
+import date from 'config/date';
+import { openEditModal } from 'redux/global/slice';
 
 const MobileList = ({
   id,
@@ -22,7 +21,7 @@ const MobileList = ({
     dispatch(deleteTransactionThunk(id));
   };
   const handleEdit = id => {
-    dispatch(patchTransactionThunk(id));
+    dispatch(openEditModal(id));
   };
 
   return (
@@ -30,7 +29,7 @@ const MobileList = ({
       <ul className={css.block}>
         <li className={css.text}>
           <p>Date</p>
-          <p>{transactionDate}</p>
+          <p>{date(transactionDate)}</p>
         </li>
         <li className={css.text}>
           <p>Type</p>
@@ -38,16 +37,16 @@ const MobileList = ({
         </li>
         <li className={css.text}>
           <p>Category</p>
-          <p>{category.name}</p>
+          <p>{category?.name}</p>
         </li>
         <li className={css.text}>
           <p>Comment</p>
-          <p>{comment}</p>
+          <p>{comment === '' ? `${category?.name}` : `${comment}`}</p>
         </li>
         <li className={css.text}>
           <p>Sum</p>
           <p
-            className={`${Math.abs(amount)} ${
+            className={`${
               type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
             }`}
           >
