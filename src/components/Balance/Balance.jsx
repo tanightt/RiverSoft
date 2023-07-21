@@ -9,15 +9,15 @@ export const Balance = () => {
 
   const bal = balance[balance.length - 1];
   console.log(balance);
-  console.log(bal);
-
+  console.log(bal?.balanceAfter);
+  const userBalance = bal?.balanceAfter;
   return (
     <div className={css.balanceWrapper}>
       <p className={css.balanceText}>Your balance</p>
-      {/* <p className={css.balance}>
-          <span className={css.balanceSign}>&#8372; </span>
-          {balance.toFixed(2)}
-        </p> */}
+      <p className={css.balance}>
+        <span className={css.balanceSign}>&#8372; </span>
+        {userBalance?.toFixed(2)}
+      </p>
     </div>
   );
 };
