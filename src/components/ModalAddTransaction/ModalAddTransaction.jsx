@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import css from './ModalAddTransaction.module.css';
 import 'flatpickr/dist/themes/material_green.css';
-import Flatpickr, { defaultDate } from 'react-flatpickr';
+import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -16,7 +16,6 @@ import {
 } from 'redux/transactions/transactionsOperations';
 import Icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
-import { toast } from 'react-toastify';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
