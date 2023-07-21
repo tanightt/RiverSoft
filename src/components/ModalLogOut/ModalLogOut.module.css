@@ -1,0 +1,55 @@
+.modalLogout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(28, 14, 69, 0.847);
+  padding: 20px;
+  text-align: center;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  gap: 20px;
+}
+
+.modalTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.logoutBtn {
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 18px;
+  color: var(--color-white);
+  background-image: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  box-shadow: 1px 9px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  transition: scale 250ms linear, box-shadow 250ms linear;
+}
+
+.cancelBtn {
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 18px;
+  background-color: var(--color-white);
+  color: var(--color-text-button);
+  text-transform: uppercase;
+  transition: scale 250ms linear, box-shadow 250ms linear;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus,
+.cancelBtn:hover,
+.cancelBtn:focus {
+  scale: 0.99;
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.5);
+}
