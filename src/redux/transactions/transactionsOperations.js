@@ -18,21 +18,21 @@ export const deleteTransactionThunk = createAsyncThunk(
   'transaction/deleteTransaction',
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await instanceWallet.delete(`/api/transactions/${id}`);
-      return data;
+      await instanceWallet.delete(`/api/transactions/${id}`);
+      return id;
     } catch (error) {
       return rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const loading = getState().transactions.loading;
+      console.log(loading);
+      if (loading) {
+        return false;
+      }
+    },
   }
-  // {
-  //   condition: (_, { getState }) => {
-  //     const loading = getState().transactions.loading;
-  //     console.log(loading);
-  //     if (loading) {
-  //       return false;
-  //     }
-  //   },
-  // }
 );
 
 export const patchTransactionThunk = createAsyncThunk(

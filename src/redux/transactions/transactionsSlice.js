@@ -5,6 +5,7 @@ const {
   deleteTransactionThunk,
   addTransactionThunk,
   getCategoriesThunk,
+  patchTransactionThunk,
 } = require('./transactionsOperations');
 
 const initialState = {
@@ -41,10 +42,13 @@ const transactionSlice = createSlice({
         state.loading = false;
       })
       .addCase(deleteTransactionThunk.fulfilled, (state, action) => {
-        const index = state.finance.findIndex(
-          el => el.id === action.payload.id
-        );
+        const index = state.finance.findIndex(el => el.id === action.payload);
         state.finance.splice(index, 1);
+        state.loading = false;
+      })
+      .addCase(patchTransactionThunk.fulfilled, (state, action) => {
+        state.tasks.find(task => task.id === action.payload.id);
+        // item.completed = action.payload.completed
         state.loading = false;
       })
       .addMatcher(action => action.type.endsWith('/pending'), pending)
