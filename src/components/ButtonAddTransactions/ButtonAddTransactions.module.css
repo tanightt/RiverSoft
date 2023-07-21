@@ -26,6 +26,11 @@
   box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
+.iconAddPlus {
+  width: 44px;
+  height: 44px;
+}
+
 @media screen and (min-width: 767.98px) {
   .btnAddTransaction {
     bottom: 40px;

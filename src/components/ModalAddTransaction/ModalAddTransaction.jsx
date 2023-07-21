@@ -16,7 +16,6 @@ import {
 } from 'redux/transactions/transactionsOperations';
 import Icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
-import { toast } from 'react-toastify';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
@@ -44,34 +43,37 @@ const ModalAddTransaction = () => {
   const validationSchema = Yup.object().shape({
     amount: Yup.number()
       .typeError('Please enter a valid number')
-      .required('Amount is required'),
+      .required('Amount is required')
+      .positive()
+      .integer(),
     transactionDate: Yup.date().required('Transaction date is required'),
     categoryId: Yup.string().required('Category is required'),
   });
+
+  // const defaultDate = new Date().toLocaleDateString();
+  // console.log(defaultDate);
 
   const formik = useFormik({
     initialValues: {
       amount: '',
       transactionDate: '',
       comment: '',
-      categoryId: 'INCOME',
+      categoryId: 'Income',
       type: false,
     },
     validationSchema: validationSchema,
 
     onSubmit: value => {
-      if (!value.categoryId) {
-        toast.error('Please select a category');
-        return;
-      }
-      const date = value.transactionDate.toString();
+      const date = value.transactionDate
+        .toString()
+        .replace('00:00:00', '12:00:00');
       if (type) {
         dispatch(
           addTransactionThunk({
             ...value,
             type: 'EXPENSE',
             amount: 0 - value.amount,
-            transactionDate: new Date(date),
+            transactionDate: new Date(date).toISOString().substring(0, 10),
           })
         );
       } else {
@@ -79,8 +81,8 @@ const ModalAddTransaction = () => {
           addTransactionThunk({
             ...value,
             type: 'INCOME',
-            categoryId: incomeCategoties.id,
-            transactionDate: new Date(date),
+            categoryId: incomeCategoties?.id,
+            transactionDate: new Date(date).toISOString().substring(0, 10),
           })
         );
       }
@@ -158,13 +160,14 @@ const ModalAddTransaction = () => {
           />
           <Flatpickr
             options={{
-              dateFormat: 'Y.m.d',
+              dateFormat: 'd.m.Y',
               disableMobile: 'true',
             }}
             type="date"
             name="transactionDate"
             value={transactionDate}
             id="date"
+            selected={(transactionDate && new Date(transactionDate)) || null}
             placeholder="YYYY.MM.DD"
             className={css.input}
             onChange={val => {
