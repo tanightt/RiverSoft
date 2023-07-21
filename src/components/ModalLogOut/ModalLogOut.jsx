@@ -3,17 +3,18 @@ import { useDispatch } from 'react-redux';
 import { closeLofOutModal } from 'redux/global/slice';
 import css from './ModalLogOut.module.css';
 import { logOut } from 'redux/auth/authOperations';
+import { useNavigate } from 'react-router-dom';
 
 const ModalLogOut = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleCloseLogOutModal = () => {
     dispatch(closeLofOutModal());
   };
-
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   const handleLogout = () => {
-    dispatch(logOut()); // Отут не можу  розлогуватись
+    dispatch(logOut());
+    dispatch(closeLofOutModal());
+    navigate('/login')
   };
 
   return (
