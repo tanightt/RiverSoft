@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openLogOutModal } from 'redux/global/slice';
 import { selectOpenLogOut } from 'redux/global/selectors';
 import Modal from 'components/Modal/Modal';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Header = () => {
   const openModalLogout = () => {
     dispatch(openLogOutModal());
   };
+  const user = useSelector(selectUser);
   return (
     <>
       <header className={css.header}>
@@ -25,7 +27,7 @@ const Header = () => {
           <p className={css.logoTitle}>Money Guard</p>
         </NavLink>
         <div className={css.exitBox}>
-          <p className={css.name}>Name</p>
+          <p className={css.name}>{user?.username}</p>
           <button className={css.buttonLogout} onClick={openModalLogout}>
             <svg className={css.exitSvg}>
               <use href={Icons + '#icon-exit-logout'}></use>
@@ -37,7 +39,9 @@ const Header = () => {
       {isOpenLogout && <Modal />}
       <div className={css.wrapper}>
         <Layout />
-        <Outlet />
+        <main className={css.container}>
+          <Outlet />
+        </main>
       </div>
     </>
   );
