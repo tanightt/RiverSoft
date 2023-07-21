@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RiverSoft/static/css/main.eb0493e1.css",
-    "main.js": "/RiverSoft/static/js/main.802c28dd.js",
+    "main.js": "/RiverSoft/static/js/main.8ee7a19a.js",
     "static/media/foto-dollar-2xtab.png": "/RiverSoft/static/media/foto-dollar-2xtab.cf6e2957fc772f432371.png",
     "static/media/foto-dollar-1xtab.png": "/RiverSoft/static/media/foto-dollar-1xtab.a250c46083136b680807.png",
     "static/media/foto-dollar-1xrigth.png": "/RiverSoft/static/media/foto-dollar-1xrigth.82c3bc673f462f6a3c93.png",
@@ -22,10 +22,10 @@
     "static/media/sprite.svg": "/RiverSoft/static/media/sprite.661a8a0f2130189b7a2308747ac80665.svg",
     "index.html": "/RiverSoft/index.html",
     "main.eb0493e1.css.map": "/RiverSoft/static/css/main.eb0493e1.css.map",
-    "main.802c28dd.js.map": "/RiverSoft/static/js/main.802c28dd.js.map"
+    "main.8ee7a19a.js.map": "/RiverSoft/static/js/main.8ee7a19a.js.map"
   },
   "entrypoints": [
     "static/css/main.eb0493e1.css",
-    "static/js/main.802c28dd.js"
+    "static/js/main.8ee7a19a.js"
   ]
 }
