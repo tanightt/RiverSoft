@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { LoginPage } from 'page/LoginPage/LoginPage';
 import SummaryPage from 'page/SummaryPage/SummaryPage';
 import { useDispatch, useSelector } from 'react-redux';
@@ -68,7 +68,6 @@ export const App = () => {
 
     <Routes>
       <Route path="/" element={<Header />}>
-        
         {/* <Route index element={<Navigate to="/home" />}></Route> */}
 
         <Route
