@@ -1,0 +1,50 @@
+.chartContainer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 280px;
+}
+
+.titleChart {
+  color: var(--white, #fbfbfb);
+  text-align: start;
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+.doughnut {
+  /* width: 280px; */
+  height: 280px;
+  margin-bottom: 32px;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+@media only screen and (min-width: 768px) {
+  .doughnut {
+    width: 336px;
+    height: 336px;
+    margin-right: 32px;
+  }
+  .titleChart {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .chartContainer {
+    margin: 0;
+    max-width: 336px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .doughnut {
+    width: 288px;
+    height: 288px;
+  }
+  .titleChart {
+    margin-top: 32px;
+  }
+  .chartContainer {
+    max-width: 288px;
+  }
+}
