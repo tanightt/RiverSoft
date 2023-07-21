@@ -4,8 +4,8 @@ import s from './Navigation.module.css';
 import { useMediaQuery } from 'react-responsive';
 
 const routes = [
-  { path: '/', text: 'Home', icon: '#icon-home' },
-  { path: '/statistic', text: 'Statistics', icon: '#icon-timeline' },
+  { path: '/home', text: 'Home', icon: '#icon-home' },
+  { path: '/statistic', text: 'Statistics', icon: '#icon-diagram' },
 ];
 
 export const Navigation = () => {
@@ -16,11 +16,7 @@ export const Navigation = () => {
       <ul className={s.nav}>
         {routes.map(route => (
           <li key={route.path}>
-            <NavLink
-              to={route.path}
-              activeClassName={s.active}
-              className={s.navLink}
-            >
+            <NavLink to={route.path} className={s.navLink}>
               <svg width="44" height="44">
                 <use href={Icons + route.icon}></use>
               </svg>

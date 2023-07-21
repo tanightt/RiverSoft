@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { register } from 'redux/auth/authOperations';
 import icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const calculateStrength = password => {
   const passwordLength = password.length;
@@ -31,7 +31,15 @@ export const RegistrationForm = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth)
   const navigate = useNavigate()
-
+  const [showPassword, setShowPassword] = useState(false);
+  useEffect(() => {
+    if (isAuth) {
+      navigate('/')
+    }
+  }, [isAuth, navigate])
+  const toggleShowPassword = () => {
+    setShowPassword(prevState => !prevState);
+  }
   useEffect(() => {
     if (isAuth) {
       navigate('/')
@@ -111,7 +119,7 @@ export const RegistrationForm = () => {
                   </svg>
                 </span>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   autoComplete="current-password"
@@ -120,6 +128,11 @@ export const RegistrationForm = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
+                <span className={css.show_hide_password} onClick={toggleShowPassword}>
+                  <svg>
+                    <use xlinkHref={showPassword ? icons + "#icon-eye" : icons + "#icon-eye-closed"}></use>
+                  </svg>
+                </span>
                 {formik.touched.password && formik.errors.password ? (
                   <div className={css.error_message}>
                     {formik.errors.password}
@@ -133,7 +146,7 @@ export const RegistrationForm = () => {
                   </svg>
                 </span>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   placeholder="Confirm password"
                   autoComplete="new-password"
@@ -170,13 +183,13 @@ export const RegistrationForm = () => {
                   onBlur={formik.handleBlur}
                   value={formik.values.username}
                 />
-              {formik.touched.username && formik.errors.username ? (
-                <div className={css.error_wrapper}>
-                  <div className={css.error_message}>
-                    {formik.errors.username}
+                {formik.touched.username && formik.errors.username ? (
+                  <div className={css.error_wrapper}>
+                    <div className={css.error_message}>
+                      {formik.errors.username}
+                    </div>
                   </div>
-                </div>
-              ) : null}
+                ) : null}
               </div>
               <Link to="/" className={css.login_colored_link} onClick={formik.handleSubmit}>
                 <button type="submit" className={css.login_submit_button}>
@@ -189,7 +202,7 @@ export const RegistrationForm = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };

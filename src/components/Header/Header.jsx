@@ -1,36 +1,47 @@
 import React from 'react';
-import s from './Header.module.css';
+import css from './Header.module.css';
 import Icons from '../../images/sprite.svg';
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openLogOutModal } from 'redux/global/slice';
+import { selectOpenLogOut } from 'redux/global/selectors';
+import Modal from 'components/Modal/Modal';
 import { selectUser } from 'redux/auth/authSelectors';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const isOpenLogout = useSelector(selectOpenLogOut);
+
+  const openModalLogout = () => {
+    dispatch(openLogOutModal());
+  };
+  const user = useSelector(selectUser);
   return (
     <>
-      <header className={s.header}>
-        <div className={s.headerLogo}>
-          <svg className={s.headerSvg}>
+      <header className={css.header}>
+        <NavLink className={css.headerLogo} href="/">
+          <svg className={css.headerSvg}>
             <use href={Icons + '#icon-logo'}></use>
           </svg>
-          <p>Money Guard</p>
-        </div>
-        <div className={s.exitBox}>
-          <p className={s.name}>{selectUser}</p>
-          <div className={s.border}>
-            <svg className={s.exitSvg}>
+          <p className={css.logoTitle}>Money Guard</p>
+        </NavLink>
+        <div className={css.exitBox}>
+          <p className={css.name}>{user?.username}</p>
+          <button className={css.buttonLogout} onClick={openModalLogout}>
+            <svg className={css.exitSvg}>
               <use href={Icons + '#icon-exit-logout'}></use>
             </svg>
-            <button onClick={() => dispatch(openLogOutModal())}>Exit</button>
-          </div>
+            <p className={css.exitText}>Exit</p>
+          </button>
         </div>
       </header>
-      <div className={s.wrapper}>
+      {isOpenLogout && <Modal />}
+      <div className={css.wrapper}>
         <Layout />
-        <Outlet />
+        <main className={css.container}>
+          <Outlet />
+        </main>
       </div>
     </>
   );

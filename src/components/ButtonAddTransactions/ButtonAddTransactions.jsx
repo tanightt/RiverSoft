@@ -21,7 +21,7 @@ const ButtonAddTransactions = () => {
         className={css.btnAddTransaction}
         onClick={handleOpenAddModal}
       >
-        <svg>
+        <svg className={css.iconAddPlus}>
           <use href={Icons + '#icon-plus'}></use>
         </svg>
       </button>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { closeLofOutModal } from 'redux/global/slice';
+import css from './ModalLogOut.module.css';
+import { logOut } from 'redux/auth/authOperations';
 
 const ModalLogOut = () => {
   const dispatch = useDispatch();
@@ -8,11 +10,23 @@ const ModalLogOut = () => {
   const handleCloseLogOutModal = () => {
     dispatch(closeLofOutModal());
   };
+
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const handleLogout = () => {
+    dispatch(logOut()); // Отут не можу  розлогуватись
+  };
+
   return (
-    <div>
-      <p>Are you sure you want to log out?</p>
-      <button type="button">Log out</button>
-      <button type="button" onClick={handleCloseLogOutModal}>
+    <div className={css.modalLogout}>
+      <p className={css.modalTitle}>Are you sure you want to log out?</p>
+      <button className={css.logoutBtn} type="button" onClick={handleLogout}>
+        Log out
+      </button>
+      <button
+        className={css.cancelBtn}
+        type="button"
+        onClick={handleCloseLogOutModal}
+      >
         Cancel
       </button>
     </div>
