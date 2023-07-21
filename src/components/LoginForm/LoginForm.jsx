@@ -81,7 +81,7 @@ export const LoginForm = () => {
                                 />
                                 <span className={css.show_hide_password} onClick={toggleShowPassword}>
                                     <svg>
-                                        <use xlinkHref={showPassword ? icons + "#icon-eye-closed" : icons + "#icon-eye"}></use>
+                                        <use xlinkHref={showPassword ? icons + "#icon-eye" : icons + "#icon-eye-closed"}></use>
                                     </svg>
                                 </span>
                                 {formik.touched.password && formik.errors.password ? (
