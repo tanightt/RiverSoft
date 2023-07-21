@@ -39,7 +39,7 @@ const Header = () => {
       {isOpenLogout && <Modal />}
       <div className={css.wrapper}>
         <Layout />
-        <main className={css.container}>
+        <main>
           <Outlet />
         </main>
       </div>
