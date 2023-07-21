@@ -1,19 +1,12 @@
 import React from 'react';
-// import css from './TransactionsMobile.module.css';
 import { useSelector } from 'react-redux';
-import { selectFinance } from 'redux/transactions/transactionsSelectors';
-import MobileList from './MobileList/MobileList';
+import { selectLoading } from 'redux/transactions/transactionsSelectors';
+import BodyList from './BodyList/BodyList';
+// import css from './TransactionsMobile.module.css';
 
 const TransactionsMobile = () => {
-  const finance = useSelector(selectFinance);
-
-  return (
-    <ul>
-      {finance.map(item => {
-        return <MobileList key={item.id} {...item} />;
-      })}
-    </ul>
-  );
+  const isLoading = useSelector(selectLoading);
+  return <>{isLoading ? <h1>Loading...</h1> : <BodyList />}</>;
 };
 
 export default TransactionsMobile;
