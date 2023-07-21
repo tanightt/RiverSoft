@@ -7,10 +7,10 @@ import {
   patchTransactionThunk,
 } from 'redux/transactions/transactionsOperations';
 import { selectCategories } from 'redux/transactions/transactionsSelectors';
+import date from 'config/date';
 
 const DesktopTableList = ({
   id,
-
   transactionDate,
   type,
   comment,
@@ -32,10 +32,10 @@ const DesktopTableList = ({
 
   return (
     <tr className={css.bodyTable}>
-      <td>{transactionDate}</td>
+      <td>{date(transactionDate)}</td>
       <td>{type === 'EXPENSE' ? '-' : '+'}</td>
       <td>{category?.name}</td>
-      <td>{comment}</td>
+      <td>{comment === '' ? `${category?.name}` : `${comment}`}</td>
       <td
         className={`${Math.abs(amount)} ${
           type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
