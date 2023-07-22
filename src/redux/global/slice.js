@@ -23,7 +23,7 @@ const modal = createSlice({
       state.isExit = false;
     },
     openEditModal: (state, { payload }) => {
-      state.isAdd = payload;
+      state.isEdit = payload;
     },
     closeEditModal: state => {
       state.isEdit = null;

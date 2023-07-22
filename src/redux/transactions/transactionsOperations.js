@@ -37,9 +37,17 @@ export const deleteTransactionThunk = createAsyncThunk(
 
 export const patchTransactionThunk = createAsyncThunk(
   'transaction/patchTransaction',
-  async (id, { rejectWithValue }) => {
+  async (
+    { id, transactionDate, type, categoryId, comment, amount },
+    { rejectWithValue }
+  ) => {
     try {
-      const { data } = await instanceWallet.patch(`/api/transactions/${id}`);
+      const body = { transactionDate, type, categoryId, comment, amount };
+      const { data } = await instanceWallet.patch(
+        `/api/transactions/${id}`,
+        body
+      );
+      toast.success('Transaction edited seccesfully!');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

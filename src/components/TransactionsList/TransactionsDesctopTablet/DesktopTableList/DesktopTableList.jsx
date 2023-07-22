@@ -26,32 +26,35 @@ const DesktopTableList = ({
   };
 
   const handleEdit = id => {
-    console.log(id);
     dispatch(openEditModal(id));
   };
 
   return (
-    <tr className={css.bodyTable}>
-      <td>{date(transactionDate)}</td>
-      <td>{type === 'EXPENSE' ? '-' : '+'}</td>
-      <td>{category?.name}</td>
-      <td>{comment === '' ? `${category?.name}` : `${comment}`}</td>
-      <td
-        className={`${type === 'EXPENSE' ? `${css.expense}` : `${css.income}`}`}
-      >
-        {Math.abs(amount)}
-      </td>
-      <td>
-        <button className={css.buttonEdit} onClick={() => handleEdit(id)}>
-          Edit
-        </button>
-      </td>
-      <td>
-        <button className={css.buttonDelete} onClick={() => handleDelete(id)}>
-          Delete
-        </button>
-      </td>
-    </tr>
+    <>
+      <tr className={css.bodyTable}>
+        <td>{date(transactionDate)}</td>
+        <td>{type === 'EXPENSE' ? '-' : '+'}</td>
+        <td>{category?.name}</td>
+        <td>{comment === '' ? `${category?.name}` : `${comment}`}</td>
+        <td
+          className={`${
+            type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
+          }`}
+        >
+          {Math.abs(amount)}
+        </td>
+        <td>
+          <button className={css.buttonEdit} onClick={() => handleEdit(id)}>
+            Edit
+          </button>
+        </td>
+        <td>
+          <button className={css.buttonDelete} onClick={() => handleDelete(id)}>
+            Delete
+          </button>
+        </td>
+      </tr>
+    </>
   );
 };
 

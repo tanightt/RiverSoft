@@ -4,6 +4,8 @@ import { selectCategories } from 'redux/transactions/transactionsSelectors';
 import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
 import date from 'config/date';
 import { openEditModal } from 'redux/global/slice';
+import { selectEditTransaction } from 'redux/global/selectors';
+import Modal from 'components/Modal/Modal';
 
 const MobileList = ({
   id,
@@ -14,6 +16,7 @@ const MobileList = ({
   categoryId,
 }) => {
   const dispatch = useDispatch();
+  const isEdit = useSelector(selectEditTransaction);
   const categoryName = useSelector(selectCategories);
   const category = categoryName.find(el => el.id === categoryId);
 
@@ -25,44 +28,50 @@ const MobileList = ({
   };
 
   return (
-    <li>
-      <ul className={css.block}>
-        <li className={css.text}>
-          <p>Date</p>
-          <p>{date(transactionDate)}</p>
-        </li>
-        <li className={css.text}>
-          <p>Type</p>
-          <p>{type === 'EXPENSE' ? '-' : '+'}</p>
-        </li>
-        <li className={css.text}>
-          <p>Category</p>
-          <p>{category?.name}</p>
-        </li>
-        <li className={css.text}>
-          <p>Comment</p>
-          <p>{comment === '' ? `${category?.name}` : `${comment}`}</p>
-        </li>
-        <li className={css.text}>
-          <p>Sum</p>
-          <p
-            className={`${
-              type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
-            }`}
-          >
-            {Math.abs(amount)}
-          </p>
-        </li>
-        <li className={css.text}>
-          <button className={css.buttonDelete} onClick={() => handleDelete(id)}>
-            Delete
-          </button>
-          <button className={css.buttonEdit} onClick={() => handleEdit(id)}>
-            Edit
-          </button>
-        </li>
-      </ul>
-    </li>
+    <>
+      <li>
+        <ul className={css.block}>
+          <li className={css.text}>
+            <p>Date</p>
+            <p>{date(transactionDate)}</p>
+          </li>
+          <li className={css.text}>
+            <p>Type</p>
+            <p>{type === 'EXPENSE' ? '-' : '+'}</p>
+          </li>
+          <li className={css.text}>
+            <p>Category</p>
+            <p>{category?.name}</p>
+          </li>
+          <li className={css.text}>
+            <p>Comment</p>
+            <p>{comment === '' ? `${category?.name}` : `${comment}`}</p>
+          </li>
+          <li className={css.text}>
+            <p>Sum</p>
+            <p
+              className={`${
+                type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
+              }`}
+            >
+              {Math.abs(amount)}
+            </p>
+          </li>
+          <li className={css.text}>
+            <button
+              className={css.buttonDelete}
+              onClick={() => handleDelete(id)}
+            >
+              Delete
+            </button>
+            <button className={css.buttonEdit} onClick={() => handleEdit(id)}>
+              Edit
+            </button>
+          </li>
+        </ul>
+      </li>
+      {isEdit && <Modal />}
+    </>
   );
 };
 

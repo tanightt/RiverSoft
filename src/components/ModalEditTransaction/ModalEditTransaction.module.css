@@ -1,0 +1,180 @@
+.editModal {
+  position: relative;
+  background: radial-gradient(rgba(60, 40, 160, 1), rgba(68, 53, 110, 1));
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+  border-radius: 20px;
+}
+
+.btnClose {
+  display: none;
+}
+
+.modalTitle {
+  margin-bottom: 32px;
+  color: var(--color-white);
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.button {
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white-60);
+}
+
+.slash {
+  /* color: var(--color-white-60);
+   */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconSlash {
+  width: 15px;
+  height: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 20px;
+  min-width: 100%;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  padding: 8px 20px;
+  color: var(--white-40);
+  font-size: 18px;
+  transition: border-bottom 250ms linear;
+}
+
+.input:hover,
+.input:focus {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.822);
+}
+
+.saveBtn {
+  border-radius: 20px;
+  padding: 11px 115px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-white);
+  background-image: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  margin: 0 auto;
+  box-shadow: 1px 9px 15px rgba(0, 0, 0, 0.2);
+  transition: scale 250ms linear, box-shadow 250ms linear;
+}
+
+.cancelBtn {
+  border-radius: 20px;
+  padding: 13px 110px;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: var(--color-white);
+  color: var(--color-text-button);
+  margin: 0 auto;
+  text-transform: uppercase;
+  width: 280px;
+  transition: scale 250ms linear, box-shadow 250ms linear;
+}
+
+.saveBtn:hover,
+.saveBtn:focus,
+.cancelBtn:hover,
+.cancelBtn:focus {
+  scale: 0.99;
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.inputContainer {
+  position: relative;
+}
+
+@media screen and (min-width: 767.98px) {
+  .editModal {
+    padding: 40px 80px;
+  }
+
+  .btnClose {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+
+  .modalTitle {
+    font-size: 30px;
+  }
+
+  .button {
+    font-weight: 700;
+  }
+
+  .inputContainer {
+    flex-direction: row;
+    gap: 32px;
+    position: relative;
+  }
+}
+
+.iconCalendar {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* _________________________________________ */
+
+.yellow {
+  color: var(--color-yellow);
+}
+.orange {
+  color: #ff868d;
+}
+/* 
+.text {
+  color: rgba(255, 255, 255, 0.6);
+} */
