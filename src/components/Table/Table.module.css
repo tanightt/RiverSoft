@@ -88,3 +88,8 @@
   font-weight: 400;
   line-height: normal;
 }
+.tableBtn {
+  background-color: transparent;
+  display: flex;
+  flex-wrap: nowrap;
+}
