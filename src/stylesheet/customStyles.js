@@ -45,7 +45,8 @@ export const customStyles = {
   menu: (provided, state) => {
     return {
       ...provided,
-      backgroundColor: 'rgba(83, 61, 186, 1)',
+      background:
+        'linear-gradient(0deg,rgba(83, 61, 186, 1) 0%,rgba(80, 48, 154, 1) 36%,rgba(106, 70, 165, 1) 61%,rgba(133, 93, 175, 1) 100%)',
       borderRadius: '8px',
     };
   },

@@ -15,10 +15,9 @@ const transactionsSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(getTransactions.fulfilled, (state, { payload }) => {
-      console.log(payload);
       state.transactions = payload;
     });
   },
 });
 
-export const transactionsReducer = transactionsSlice.reducer;
+export const statisticsReducer = transactionsSlice.reducer;

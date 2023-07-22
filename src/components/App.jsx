@@ -1,17 +1,12 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
-// import { LoginPage } from 'page/LoginPage/LoginPage';
-// import SummaryPage from 'page/SummaryPage/SummaryPage';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRefresh, selectUser } from 'redux/auth/authSelectors';
 import { Suspense, lazy, useEffect } from 'react';
 import { refreshUser } from 'redux/auth/authOperations';
-// import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
 import { refreshCurrencyDate } from 'redux/currency/currencySlice';
 import { selectCurrencyDate } from 'redux/currency/currencySelectors';
-// import DashboardPage from 'page/DashboardPage/DashboardPage';
 import Header from './Header/Header';
-// import { Currency } from './Currency/Currency';
 import { Loader } from './Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { PrivateRouter } from 'hoc/PrivateRouter';
@@ -43,7 +38,6 @@ export const App = () => {
     const time = Date.now();
     const diffTime = new Date() - new Date(currencyDate);
 
-    // console.log(diffTime);
     if (diffTime < oneHour) {
       return;
     }
@@ -68,7 +62,7 @@ export const App = () => {
             </PrivateRouter>
           }
         >
-          {/* <Route index element={<Navigate to="/home" />}></Route> */}
+          <Route index element={<Navigate to="/home" />}></Route>
 
           <Route
             path="/home"
