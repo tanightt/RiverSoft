@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Table.module.css';
 
-const Table = ({ transactions, filteredCategories }) => {
+const Table = ({ transactions, filteredCategories, handleClick }) => {
   const { incomeSummary, expenseSummary } = transactions;
 
   const barColors = [
@@ -26,10 +26,15 @@ const Table = ({ transactions, filteredCategories }) => {
         {filteredCategories.map((it, idx) => (
           <li className={css.itemList} key={it.name}>
             <button
+              onClick={() =>
+                handleClick({ sum: Math.abs(it.total), title: it.name })
+              }
               style={{ backgroundColor: barColors[idx] }}
               className={css.colorBox}
             ></button>
+
             <p className={css.titleCategory}>{it.name}</p>
+
             <p className={`${css.sum} ${css.titleCategory}`}>
               {Math.abs(it.total)}
             </p>

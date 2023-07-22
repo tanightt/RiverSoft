@@ -15,9 +15,8 @@ const transactionsSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(getTransactions.fulfilled, (state, { payload }) => {
+      console.log(payload);
       state.transactions = payload;
-      // state.transactions.year = payload.year;
-      // state.transactions.month = payload.month;
     });
   },
 });
