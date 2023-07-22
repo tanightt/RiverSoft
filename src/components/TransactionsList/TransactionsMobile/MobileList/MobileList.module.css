@@ -5,9 +5,13 @@
   height: 293px;
   margin: 8px auto;
 
-  border: 2px solid transparent;
   border-radius: 10px;
-  background: var(--color-small-form-color);
+  background: linear-gradient(
+    24deg,
+    rgba(255, 255, 255, 0.0005) 0%,
+
+    rgba(255, 255, 255, 0.2) 100%
+  );
 }
 
 .text {
@@ -16,6 +20,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.text:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.201);
 }
 
 .buttonDelete {
@@ -32,6 +39,10 @@
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 }
 .buttonEdit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
   color: var(--white-60, rgba(255, 255, 255, 0.6));
   font-family: Poppins;
   font-size: 16px;
@@ -46,4 +57,10 @@
 
 .expense {
   color: #ff868d;
+}
+.pen {
+  width: 14px;
+  height: 14px;
+  stroke: rgba(255, 255, 255, 0.6);
+  fill: none;
 }

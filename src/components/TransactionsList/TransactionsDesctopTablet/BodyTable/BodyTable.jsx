@@ -5,7 +5,9 @@ import { selectFinance } from 'redux/transactions/transactionsSelectors';
 import DesktopTableList from '../DesktopTableList/DesktopTableList';
 import css from './BodyTable.module.css';
 
-const BodyTable = () => {
+import Icons from '../../../../images/sprite.svg';
+
+const BodyTable = ({ finanseSort }) => {
   const dispatch = useDispatch();
   const finance = useSelector(selectFinance);
   const handleOpenAddModal = () => {
@@ -14,17 +16,19 @@ const BodyTable = () => {
   return (
     <>
       {finance.length === 0 ? (
-        <tr>
+        <tr className={css.tr}>
           <td className={css.td}>
             <h1>add transactions...</h1>
             <button className={css.button} onClick={handleOpenAddModal}>
-              add
+              <svg>
+                <use href={Icons + '#icon-plus'}></use>
+              </svg>
             </button>
           </td>
         </tr>
       ) : (
         <>
-          {finance.map(item => {
+          {finanseSort.map(item => {
             return <DesktopTableList key={item.id} {...item} />;
           })}
         </>

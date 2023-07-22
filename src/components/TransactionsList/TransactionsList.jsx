@@ -10,12 +10,9 @@ import {
 import Modal from 'components/Modal/Modal';
 import { selectEditTransaction } from 'redux/global/selectors';
 
-// import { selectIsAuth } from 'redux/auth/authSelectors';
-
-const TransactionsList = () => {
-  // const isLogined = useSelector(selectIsAuth);
-  const isEdit = useSelector(selectEditTransaction);
+const TransactionsList = ({ finanseSort, Scrol }) => {
   const dispatch = useDispatch();
+  const isEdit = useSelector(selectEditTransaction);
   useEffect(() => {
     dispatch(getTransactionThunk());
     dispatch(getCategoriesThunk());
@@ -28,8 +25,10 @@ const TransactionsList = () => {
 
   return (
     <>
-      {isDesktopOrLaptop && <TransactionsDesctopTablet />}
-      {isMobile && <TransactionsMobile />}
+      {isDesktopOrLaptop && (
+        <TransactionsDesctopTablet Scrol={Scrol} finanseSort={finanseSort} />
+      )}
+      {isMobile && <TransactionsMobile finanseSort={finanseSort} />}
       {isEdit && <Modal />}
     </>
   );

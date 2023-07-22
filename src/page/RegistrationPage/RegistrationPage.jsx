@@ -1,6 +1,6 @@
 import React from 'react';
 import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
-const RegistrationPage = () => {
+
+export const RegistrationPage = () => {
   return <RegistrationForm />;
 };
-export default RegistrationPage;
