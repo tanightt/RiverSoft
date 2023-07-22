@@ -48,11 +48,21 @@ const Currency = () => {
       </table>
       <div className={css.diagramWrapper}>
         <img className={css.diagramIconMax} src={diagram} alt="Diagram" />
+
+        <div className={css.left}>
+          <span className={css.circleLeft}></span>
+        </div>
+
+        <div className={css.right}>
+          <span className={css.circleRight}></span>
+        </div>
+
         <img
           className={css.diagramIconMin}
           src={diagramThin}
           alt="Currency diagram"
         />
+
         <span className={css.USD}>{currencies.usdSale}</span>
         <span className={css.EUR}>{currencies.eurSale}</span>
       </div>
