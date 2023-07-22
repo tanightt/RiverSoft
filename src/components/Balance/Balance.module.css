@@ -33,6 +33,7 @@
   .balanceWrapper {
     margin-top: 28px;
     max-width: 336px;
+    margin-left: 32px;
   }
 
   .balanceText {
@@ -49,6 +50,7 @@
     max-width: 480px;
     border-radius: 0;
     box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+    margin-left: 0;
   }
 
   .balanceText {

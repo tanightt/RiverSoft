@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRefresh, selectUser } from 'redux/auth/authSelectors';
-import { Suspense, lazy, useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { refreshUser } from 'redux/auth/authOperations';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
 import { refreshCurrencyDate } from 'redux/currency/currencySlice';
@@ -52,68 +52,66 @@ export const App = () => {
   return refresh ? (
     <Loader />
   ) : (
-    <Suspense>
-      <Routes>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <PrivateRouter>
+            <Header />
+          </PrivateRouter>
+        }
+      >
+        <Route index element={<Navigate to="/home" />}></Route>
+
         <Route
-          path="/"
+          path="/home"
           element={
             <PrivateRouter>
-              <Header />
+              <DashboardPage />
             </PrivateRouter>
           }
-        >
-          <Route index element={<Navigate to="/home" />}></Route>
-
-          <Route
-            path="/home"
-            element={
-              <PrivateRouter>
-                <DashboardPage />
-              </PrivateRouter>
-            }
-          ></Route>
-
-          <Route
-            path="/statistic"
-            element={
-              <PrivateRouter>
-                <SummaryPage />
-              </PrivateRouter>
-            }
-          ></Route>
-
-          {isMobile && (
-            <Route
-              path="/currency"
-              element={
-                <PrivateRouter>
-                  <Currency />
-                </PrivateRouter>
-              }
-            ></Route>
-          )}
-        </Route>
-
-        <Route
-          path="/login"
-          element={
-            <PublicRouter>
-              <LoginPage />
-            </PublicRouter>
-          }
         ></Route>
 
         <Route
-          path="/register"
+          path="/statistic"
           element={
-            <PublicRouter>
-              <RegistrationPage />
-            </PublicRouter>
+            <PrivateRouter>
+              <SummaryPage />
+            </PrivateRouter>
           }
         ></Route>
 
-        <Route path="*" element={<h1> Error</h1>} />
-      </Routes>
-    </Suspense>
+        {isMobile && (
+          <Route
+            path="/currency"
+            element={
+              <PrivateRouter>
+                <Currency />
+              </PrivateRouter>
+            }
+          ></Route>
+        )}
+      </Route>
+
+      <Route
+        path="/login"
+        element={
+          <PublicRouter>
+            <LoginPage />
+          </PublicRouter>
+        }
+      ></Route>
+
+      <Route
+        path="/register"
+        element={
+          <PublicRouter>
+            <RegistrationPage />
+          </PublicRouter>
+        }
+      ></Route>
+
+      <Route path="*" element={<h1> Error</h1>} />
+    </Routes>
   );
 };
