@@ -1,21 +1,29 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { LoginPage } from 'page/LoginPage/LoginPage';
-import SummaryPage from 'page/SummaryPage/SummaryPage';
+// import { LoginPage } from 'page/LoginPage/LoginPage';
+// import SummaryPage from 'page/SummaryPage/SummaryPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRefresh, selectUser } from 'redux/auth/authSelectors';
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { refreshUser } from 'redux/auth/authOperations';
-import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
+// import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 import { getCurrencyThunk } from 'redux/currency/currencyOperations';
 import { refreshCurrencyDate } from 'redux/currency/currencySlice';
 import { selectCurrencyDate } from 'redux/currency/currencySelectors';
-import DashboardPage from 'page/DashboardPage/DashboardPage';
+// import DashboardPage from 'page/DashboardPage/DashboardPage';
 import Header from './Header/Header';
-import { Currency } from './Currency/Currency';
+// import { Currency } from './Currency/Currency';
 import { Loader } from './Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { PrivateRouter } from 'hoc/PrivateRouter';
 import { PublicRouter } from 'hoc/PublicRouter';
+
+const DashboardPage = lazy(() => import('page/DashboardPage/DashboardPage'));
+const SummaryPage = lazy(() => import('page/SummaryPage/SummaryPage'));
+const Currency = lazy(() => import('./Currency/Currency'));
+const LoginPage = lazy(() => import('page/LoginPage/LoginPage'));
+const RegistrationPage = lazy(() =>
+  import('page/RegistrationPage/RegistrationPage')
+);
 
 export const App = () => {
   const navigate = useNavigate();
@@ -48,71 +56,70 @@ export const App = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   return refresh ? (
-    <>
-      <Loader />
-      <h1 style={{ display: 'flex', justifyContent: 'center' }}>Loader...</h1>
-    </>
+    <Loader />
   ) : (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <PrivateRouter>
-            <Header />
-          </PrivateRouter>
-        }
-      >
-        {/* <Route index element={<Navigate to="/home" />}></Route> */}
-
+    <Suspense>
+      <Routes>
         <Route
-          path="/home"
+          path="/"
           element={
             <PrivateRouter>
-              <DashboardPage />
+              <Header />
             </PrivateRouter>
           }
-        ></Route>
+        >
+          {/* <Route index element={<Navigate to="/home" />}></Route> */}
 
-        <Route
-          path="/statistic"
-          element={
-            <PrivateRouter>
-              <SummaryPage />
-            </PrivateRouter>
-          }
-        ></Route>
-
-        {isMobile && (
           <Route
-            path="/currency"
+            path="/home"
             element={
               <PrivateRouter>
-                <Currency />
+                <DashboardPage />
               </PrivateRouter>
             }
           ></Route>
-        )}
-      </Route>
 
-      <Route
-        path="/login"
-        element={
-          <PublicRouter>
-            <LoginPage />
-          </PublicRouter>
-        }
-      ></Route>
+          <Route
+            path="/statistic"
+            element={
+              <PrivateRouter>
+                <SummaryPage />
+              </PrivateRouter>
+            }
+          ></Route>
 
-      <Route
-        path="/register"
-        element={
-          <PublicRouter>
-            <RegistrationPage />
-          </PublicRouter>
-        }
-      ></Route>
+          {isMobile && (
+            <Route
+              path="/currency"
+              element={
+                <PrivateRouter>
+                  <Currency />
+                </PrivateRouter>
+              }
+            ></Route>
+          )}
+        </Route>
 
-      <Route path="*" element={<h1> Error</h1>} />
-    </Routes>
+        <Route
+          path="/login"
+          element={
+            <PublicRouter>
+              <LoginPage />
+            </PublicRouter>
+          }
+        ></Route>
+
+        <Route
+          path="/register"
+          element={
+            <PublicRouter>
+              <RegistrationPage />
+            </PublicRouter>
+          }
+        ></Route>
+
+        <Route path="*" element={<h1> Error</h1>} />
+      </Routes>
+    </Suspense>
   );
 };

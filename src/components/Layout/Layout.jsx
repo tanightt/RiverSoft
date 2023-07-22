@@ -1,7 +1,7 @@
 import s from './Layout.module.css';
 // import { AuthNav } from 'components/AuthNav/AuthNav';
 import { Balance } from 'components/Balance/Balance';
-import { Currency } from 'components/Currency/Currency';
+import Currency from 'components/Currency/Currency';
 import { Navigation } from 'components/Navigation/Navigation';
 import { useMediaQuery } from 'react-responsive';
 

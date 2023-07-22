@@ -10,7 +10,7 @@ import {
 import diagram from '../../images/Diagram-currency-1.png';
 import diagramThin from '../../images/Diagram-currency-2.png';
 
-export const Currency = () => {
+const Currency = () => {
   const usdBuy = useSelector(selectUSDRateBuy);
   const usdSell = useSelector(selectUSDRateSell);
   const eurBuy = useSelector(selectEURRateBuy);
@@ -59,3 +59,4 @@ export const Currency = () => {
     </div>
   );
 };
+export default Currency;
