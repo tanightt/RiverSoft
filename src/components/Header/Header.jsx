@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import css from './Header.module.css';
 import Icons from '../../images/sprite.svg';
 import { NavLink, Outlet } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { openLogOutModal } from 'redux/global/slice';
 import { selectOpenLogOut } from 'redux/global/selectors';
 import Modal from 'components/Modal/Modal';
 import { selectUser } from 'redux/auth/authSelectors';
+import { Loader } from 'components/Loader/Loader';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -39,8 +40,16 @@ const Header = () => {
       {isOpenLogout && <Modal />}
       <div className={css.wrapper}>
         <Layout />
-        <main>
-          <Outlet />
+        <main className={css.mainContent}>
+          <Suspense
+            fallback={
+              <div className={css.loaderContainer}>
+                <Loader />
+              </div>
+            }
+          >
+            <Outlet />
+          </Suspense>
         </main>
       </div>
     </>
