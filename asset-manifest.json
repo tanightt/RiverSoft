@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/RiverSoft/static/css/main.9fe00591.css",
-    "main.js": "/RiverSoft/static/js/main.dfadf96f.js",
-    "static/css/762.8e43a70a.chunk.css": "/RiverSoft/static/css/762.8e43a70a.chunk.css",
-    "static/js/762.9d7e5d58.chunk.js": "/RiverSoft/static/js/762.9d7e5d58.chunk.js",
+    "main.js": "/RiverSoft/static/js/main.b95a4f7c.js",
+    "static/css/762.d036fba7.chunk.css": "/RiverSoft/static/css/762.d036fba7.chunk.css",
+    "static/js/762.30a420b5.chunk.js": "/RiverSoft/static/js/762.30a420b5.chunk.js",
     "static/css/509.71c5185b.chunk.css": "/RiverSoft/static/css/509.71c5185b.chunk.css",
     "static/js/509.43857104.chunk.js": "/RiverSoft/static/js/509.43857104.chunk.js",
     "static/css/556.ff7170ff.chunk.css": "/RiverSoft/static/css/556.ff7170ff.chunk.css",
@@ -28,13 +28,13 @@
     "static/media/foto-mone-1xright.png": "/RiverSoft/static/media/foto-mone-1xright.cc55e00b04c9063f42c6.png",
     "static/media/foto-mone-1xtableft.png": "/RiverSoft/static/media/foto-mone-1xtableft.26d4dd98cc14eb79e75e.png",
     "static/media/foto-mone-1xtabright.png": "/RiverSoft/static/media/foto-mone-1xtabright.8679793d9f9b873e3313.png",
-    "static/media/sprite.svg": "/RiverSoft/static/media/sprite.97f320cec3b96f5ea4276078cd64ed1b.svg",
+    "static/media/sprite.svg": "/RiverSoft/static/media/sprite.d7b6d0d70af2cb382b1c186d7a1d9d82.svg",
     "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "index.html": "/RiverSoft/index.html",
     "main.9fe00591.css.map": "/RiverSoft/static/css/main.9fe00591.css.map",
-    "main.dfadf96f.js.map": "/RiverSoft/static/js/main.dfadf96f.js.map",
-    "762.8e43a70a.chunk.css.map": "/RiverSoft/static/css/762.8e43a70a.chunk.css.map",
-    "762.9d7e5d58.chunk.js.map": "/RiverSoft/static/js/762.9d7e5d58.chunk.js.map",
+    "main.b95a4f7c.js.map": "/RiverSoft/static/js/main.b95a4f7c.js.map",
+    "762.d036fba7.chunk.css.map": "/RiverSoft/static/css/762.d036fba7.chunk.css.map",
+    "762.30a420b5.chunk.js.map": "/RiverSoft/static/js/762.30a420b5.chunk.js.map",
     "509.71c5185b.chunk.css.map": "/RiverSoft/static/css/509.71c5185b.chunk.css.map",
     "509.43857104.chunk.js.map": "/RiverSoft/static/js/509.43857104.chunk.js.map",
     "556.ff7170ff.chunk.css.map": "/RiverSoft/static/css/556.ff7170ff.chunk.css.map",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.9fe00591.css",
-    "static/js/main.dfadf96f.js"
+    "static/js/main.b95a4f7c.js"
   ]
 }
