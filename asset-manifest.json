@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RiverSoft/static/css/main.cfb675bc.css",
-    "main.js": "/RiverSoft/static/js/main.6b40b345.js",
+    "main.css": "/RiverSoft/static/css/main.9fe00591.css",
+    "main.js": "/RiverSoft/static/js/main.dfadf96f.js",
     "static/css/762.8e43a70a.chunk.css": "/RiverSoft/static/css/762.8e43a70a.chunk.css",
     "static/js/762.9d7e5d58.chunk.js": "/RiverSoft/static/js/762.9d7e5d58.chunk.js",
     "static/css/509.71c5185b.chunk.css": "/RiverSoft/static/css/509.71c5185b.chunk.css",
@@ -28,11 +28,11 @@
     "static/media/foto-mone-1xright.png": "/RiverSoft/static/media/foto-mone-1xright.cc55e00b04c9063f42c6.png",
     "static/media/foto-mone-1xtableft.png": "/RiverSoft/static/media/foto-mone-1xtableft.26d4dd98cc14eb79e75e.png",
     "static/media/foto-mone-1xtabright.png": "/RiverSoft/static/media/foto-mone-1xtabright.8679793d9f9b873e3313.png",
-    "static/media/sprite.svg": "/RiverSoft/static/media/sprite.365aca21ed03bfb16cec63b69f485367.svg",
+    "static/media/sprite.svg": "/RiverSoft/static/media/sprite.97f320cec3b96f5ea4276078cd64ed1b.svg",
     "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "index.html": "/RiverSoft/index.html",
-    "main.cfb675bc.css.map": "/RiverSoft/static/css/main.cfb675bc.css.map",
-    "main.6b40b345.js.map": "/RiverSoft/static/js/main.6b40b345.js.map",
+    "main.9fe00591.css.map": "/RiverSoft/static/css/main.9fe00591.css.map",
+    "main.dfadf96f.js.map": "/RiverSoft/static/js/main.dfadf96f.js.map",
     "762.8e43a70a.chunk.css.map": "/RiverSoft/static/css/762.8e43a70a.chunk.css.map",
     "762.9d7e5d58.chunk.js.map": "/RiverSoft/static/js/762.9d7e5d58.chunk.js.map",
     "509.71c5185b.chunk.css.map": "/RiverSoft/static/css/509.71c5185b.chunk.css.map",
@@ -45,7 +45,7 @@
     "623.bde53c92.chunk.js.map": "/RiverSoft/static/js/623.bde53c92.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cfb675bc.css",
-    "static/js/main.6b40b345.js"
+    "static/css/main.9fe00591.css",
+    "static/js/main.dfadf96f.js"
   ]
 }
