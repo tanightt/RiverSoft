@@ -3,35 +3,44 @@ import css from './TransactionsDesctopTablet.module.css';
 import BodyTable from './BodyTable/BodyTable';
 import { useSelector } from 'react-redux';
 import { selectLoading } from 'redux/transactions/transactionsSelectors';
-// import { Loader } from 'components/Loader/Loader';
 
-const TransactionsDesctopTablet = () => {
+const TransactionsDesctopTablet = ({ finanseSort, Scrol }) => {
   const isLoading = useSelector(selectLoading);
+  console.log(Scrol());
   return (
-    <table className={css.table}>
-      <thead className={css.headerTable}>
-        <tr className={css.headerName}>
-          <th>Date</th>
-          <th>Type</th>
-          <th>Category</th>
-          <th>Comment</th>
-          <th>Sum</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {isLoading ? (
-          <tr>
-            <td>
-              <h2>Loading...</h2>
-            </td>
+    <div className={`${css.div} `}>
+      <table className={css.table}>
+        <thead className={css.headerTable}>
+          <tr className={css.headerName}>
+            <th className={css.date}>Date</th>
+            <th className={css.type}>Type</th>
+            <th className={css.category}>Category</th>
+            <th className={css.comment}>Comment</th>
+            <th className={css.sum}>Sum</th>
+            <th className={css.th}></th>
           </tr>
-        ) : (
-          <BodyTable />
-        )}
-      </tbody>
-    </table>
+        </thead>
+      </table>
+      <div>
+        <table
+          className={`${css.secondTable} ${
+            Scrol() ? css.overflow : css.nowOverflow
+          }`}
+        >
+          <tbody className={css.tbody}>
+            {isLoading ? (
+              <tr>
+                <td>
+                  <h2>Loading...</h2>
+                </td>
+              </tr>
+            ) : (
+              <BodyTable finanseSort={finanseSort} />
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 

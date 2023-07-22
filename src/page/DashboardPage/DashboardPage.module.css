@@ -1,6 +1,30 @@
+.homeWrapper {
+  position: relative;
+}
+
+@media only screen and (min-width: 320px) {
+  .homeWrapper {
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media only screen and (min-width: minwidthpx) {
+  .homeWrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
 @media only screen and (min-width: 1280px) {
   .homeWrapper {
     border-left: 1px solid #d9d9d9;
     min-height: 81vh;
+    padding-left: 69px;
+    padding-right: 16px;
   }
 }
+
+/* .homeWrapper {
+  padding-left: 69px;
+  padding-right: 16px;
+} */
