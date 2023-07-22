@@ -4,6 +4,7 @@ import { selectCategories } from 'redux/transactions/transactionsSelectors';
 import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
 import date from 'config/date';
 import { openEditModal } from 'redux/global/slice';
+import Icons from '../../../../images/sprite.svg';
 
 const MobileList = ({
   id,
@@ -58,6 +59,9 @@ const MobileList = ({
             Delete
           </button>
           <button className={css.buttonEdit} onClick={() => handleEdit(id)}>
+            <svg className={css.pen}>
+              <use href={Icons + '#icon-pen'}></use>
+            </svg>
             Edit
           </button>
         </li>

@@ -1,44 +1,74 @@
+.div {
+  width: 715px;
+  margin-top: 46px;
+}
 .table {
-  margin: 46px auto;
+  margin: auto;
 
   border-collapse: collapse;
-  width: 715px;
+  width: 100%;
 }
 
 .headerTable {
-  padding: 8px;
+  display: block;
+  text-align: center;
 
-  height: 56px;
-  overflow: hidden;
+  border-radius: 8px;
   background: rgba(82, 59, 126, 0.6);
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(50px);
-  border-radius: 8px;
 }
 
-/* .headerName {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+.headerName {
+  padding: 16px;
+  height: 56px;
+}
+.date {
+  text-align: center;
+  width: 100px;
+}
+.type {
+  text-align: center;
+  width: 80px;
+}
+.category {
+  text-align: center;
+  width: 140px;
+}
+.comment {
+  text-align: center;
+  width: 150px;
+}
+.sum {
+  text-align: center;
+  width: 120px;
+}
 
-/* .body > tr:hover {
-  margin: 0 auto;
-  background-color: tomato;
-  color: white;
+.tbody {
+  width: 715px;
+}
+.overflow {
+  display: block;
+
+  width: 715px;
+  max-height: 318px;
   overflow: auto;
-} */
-/* .bodyTable {
-  display: grid;
-  grid-template-rows: auto;
-  grid-auto-flow: dense;
-} */
+}
+.overflow::-webkit-scrollbar {
+  width: 4px;
+  height: 318px;
+}
 
-.table th,
+.overflow::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.nowOverflow {
+  overflow: none;
+}
+
+/* .table th,
 .table td {
   text-align: center;
   padding: 8px;
-}
-table td {
-  max-height: 53px;
-}
+} */

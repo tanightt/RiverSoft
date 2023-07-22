@@ -6,9 +6,16 @@
   color: #ff868d;
 }
 .bodyTable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 53px;
 }
+.bodyTable:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.201);
+}
 .buttonDelete {
+  display: block;
   font-size: 14px;
   padding: 4px 12px;
 
@@ -22,10 +29,45 @@
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 }
 .buttonEdit {
-  color: var(--white-60, rgba(255, 255, 255, 0.6));
-  font-family: Poppins;
+  display: block;
+
   font-size: 16px;
   letter-spacing: 0.32px;
-
+  padding: 10px;
   background: none;
+}
+.pen {
+  width: 14px;
+  height: 14px;
+  stroke: rgba(255, 255, 255, 0.6);
+  fill: none;
+}
+
+.sectionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.date {
+  text-align: center;
+  width: 100px;
+}
+.type {
+  text-align: center;
+  width: 80px;
+}
+
+.category {
+  text-align: center;
+  width: 120px;
+}
+.comment {
+  text-align: center;
+  width: 170px;
+}
+.sum {
+  text-align: center;
+  width: 100px;
 }

@@ -8,10 +8,7 @@ import {
   getTransactionThunk,
 } from 'redux/transactions/transactionsOperations';
 
-// import { selectIsAuth } from 'redux/auth/authSelectors';
-
-const TransactionsList = () => {
-  // const isLogined = useSelector(selectIsAuth);
+const TransactionsList = ({ finanseSort, Scrol }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTransactionThunk());
@@ -25,8 +22,10 @@ const TransactionsList = () => {
 
   return (
     <>
-      {isDesktopOrLaptop && <TransactionsDesctopTablet />}
-      {isMobile && <TransactionsMobile />}
+      {isDesktopOrLaptop && (
+        <TransactionsDesctopTablet Scrol={Scrol} finanseSort={finanseSort} />
+      )}
+      {isMobile && <TransactionsMobile finanseSort={finanseSort} />}
     </>
   );
 };
