@@ -29,7 +29,6 @@ export const styleSelect = {
     fontWeight: '400',
     lineHeight: ' normal',
     border: '1px solid rgba(255, 255, 255, 0.4)',
-    // borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
     borderRadius: '8px',
     boxShadow: 'none',
     backgroundColor: 'rgba(74, 86, 226, 0.10)',
@@ -65,14 +64,6 @@ export const styleSelect = {
     },
   }),
 
-  // placeholder: () => {
-  //   return {
-  //     color: 'rgba(255, 255, 255, 0.5)',
-  //     position: 'absolute',
-  //     left: 10,
-  //     padding: '8px 20px',
-  //   };
-  // },
   indicatorSeparator: () => ({}),
 
   indicators: () => {

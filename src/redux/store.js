@@ -14,7 +14,7 @@ import { authReducer } from './auth/authSlice';
 import { modalReducer } from './global/slice';
 import { currencyReducer } from './currency/currencySlice';
 import { transactionReducer } from './transactions/transactionsSlice';
-import { transactionsReducer } from './statistics/statisticsSlice';
+import { statisticsReducer } from './statistics/statisticsSlice';
 const authConfig = {
   key: 'auth',
   storage,
@@ -35,7 +35,7 @@ const currencyPersistedReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
-    transaction: transactionsReducer,
+    statistics: statisticsReducer,
     auth: authPersistedReducer,
     modal: modalReducer,
     currency: currencyPersistedReducer,
