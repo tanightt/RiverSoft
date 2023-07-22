@@ -11,14 +11,12 @@ import { Loader } from './Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { PrivateRouter } from 'hoc/PrivateRouter';
 import { PublicRouter } from 'hoc/PublicRouter';
+import { LoginPage } from 'page/LoginPage/LoginPage';
+import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 
 const DashboardPage = lazy(() => import('page/DashboardPage/DashboardPage'));
 const SummaryPage = lazy(() => import('page/SummaryPage/SummaryPage'));
 const Currency = lazy(() => import('./Currency/Currency'));
-const LoginPage = lazy(() => import('page/LoginPage/LoginPage'));
-const RegistrationPage = lazy(() =>
-  import('page/RegistrationPage/RegistrationPage')
-);
 
 export const App = () => {
   const navigate = useNavigate();
