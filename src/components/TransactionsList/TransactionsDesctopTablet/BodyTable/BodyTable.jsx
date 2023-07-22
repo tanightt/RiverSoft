@@ -16,7 +16,7 @@ const BodyTable = ({ finanseSort }) => {
   return (
     <>
       {finance.length === 0 ? (
-        <tr>
+        <tr className={css.tr}>
           <td className={css.td}>
             <h1>add transactions...</h1>
             <button className={css.button} onClick={handleOpenAddModal}>
