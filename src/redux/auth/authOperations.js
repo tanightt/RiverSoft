@@ -6,6 +6,16 @@ export const register = createAsyncThunk('auth/register',
         try {
             const response = await instanceWallet.post('api/auth/sign-up', body)
             setAuthHeader(response.data.token);
+            toast.success("Registration was successful", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             return response.data
 
         } catch (error) {
@@ -27,6 +37,16 @@ export const login = createAsyncThunk('auth/login',
         try {
             const response = await instanceWallet.post('api/auth/sign-in', body);
             setAuthHeader(response.data.token);
+            toast.success("Login was successful", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             return response.data;
         } catch (error) {
             toast.error('Email or password is incorrect', {
@@ -66,11 +86,17 @@ export const logOut = createAsyncThunk("auth/logout", async (
     _, { rejectWithValue }) => {
     try {
         const response = await instanceWallet.delete('api/auth/sign-out');
-        if (response.status === 204) {
-            return response.data;
-        } else {
-            return rejectWithValue("Статус відповіді не 204");
-        }
+        toast.success("Logout was successful", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+        return response.data;
     } catch (error) {
         return rejectWithValue(error.message);
     }
