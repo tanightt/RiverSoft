@@ -18,9 +18,10 @@ export const getTransactionThunk = createAsyncThunk(
 
 export const deleteTransactionThunk = createAsyncThunk(
   'transaction/deleteTransaction',
-  async (id, { rejectWithValue }) => {
+  async (id, { dispatch, rejectWithValue }) => {
     try {
       await instanceWallet.delete(`/api/transactions/${id}`);
+      dispatch(refreshUser());
       return id;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -49,7 +50,8 @@ export const patchTransactionThunk = createAsyncThunk(
         body
       );
       toast.success('Transaction edited seccesfully!');
-      dispatch(getTransactionThunk());
+      // dispatch(getTransactionThunk());
+      dispatch(refreshUser());
       return data;
     } catch (error) {
       error.response.data?.message(toast.error('Transaction failed!'));
