@@ -25,7 +25,7 @@ const ModalDeleteTransaction = () => {
         onClick={() => {
           dispatch(deleteTransactionThunk(id));
           dispatch(closeDeleteModal());
-          dispatch(refreshUser());
+          // dispatch(refreshUser());
         }}
       >
         Yes

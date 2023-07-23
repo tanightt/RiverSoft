@@ -15,7 +15,7 @@ import { patchTransactionThunk } from 'redux/transactions/transactionsOperations
 import Select from 'react-select';
 import { customStyles } from 'stylesheet/customStyles';
 import Flatpickr from 'react-flatpickr';
-import { refreshUser } from 'redux/auth/authOperations';
+// import { refreshUser } from 'redux/auth/authOperations';
 import { toast } from 'react-toastify';
 
 const ModalEditTransaction = () => {
@@ -81,7 +81,7 @@ const ModalEditTransaction = () => {
         transactionDate: new Date(date).toISOString().substring(0, 10),
       };
       dispatch(patchTransactionThunk(updateValues));
-      dispatch(refreshUser());
+      // dispatch(refreshUser());
       handleCloseEditModal();
     },
   });
