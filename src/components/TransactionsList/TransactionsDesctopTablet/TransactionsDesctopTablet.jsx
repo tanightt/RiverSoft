@@ -6,7 +6,7 @@ import { selectLoading } from 'redux/transactions/transactionsSelectors';
 
 const TransactionsDesctopTablet = ({ finanseSort, Scrol }) => {
   const isLoading = useSelector(selectLoading);
-  console.log(Scrol());
+
   return (
     <div className={`${css.div} `}>
       <table className={css.table}>

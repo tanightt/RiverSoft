@@ -1,12 +1,12 @@
 import React from 'react';
-
 import css from './DesktopTableList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
 import { selectCategories } from 'redux/transactions/transactionsSelectors';
 import date from 'config/date';
 import Icons from '../../../../images/sprite.svg';
-import { openEditModal } from 'redux/global/slice';
+import { openDeleteModal, openEditModal } from 'redux/global/slice';
+import { selectDeleteModal } from 'redux/global/selectors';
+import Modal from 'components/Modal/Modal';
 
 const DesktopTableList = ({
   id,
@@ -17,13 +17,9 @@ const DesktopTableList = ({
   categoryId,
 }) => {
   const dispatch = useDispatch();
+  const isDelete = useSelector(selectDeleteModal);
   const categoryName = useSelector(selectCategories);
   const category = categoryName.find(el => el.id === categoryId);
-
-  const handleDelete = key => {
-    console.log(id);
-    dispatch(deleteTransactionThunk(key));
-  };
 
   const handleEdit = id => {
     dispatch(openEditModal(id));
@@ -53,9 +49,15 @@ const DesktopTableList = ({
           </svg>
         </button>
 
-        <button className={css.buttonDelete} onClick={() => handleDelete(id)}>
+        <button
+          className={css.buttonDelete}
+          onClick={() => {
+            dispatch(openDeleteModal(id));
+          }}
+        >
           Delete
         </button>
+        {isDelete && <Modal />}
       </td>
     </tr>
   );

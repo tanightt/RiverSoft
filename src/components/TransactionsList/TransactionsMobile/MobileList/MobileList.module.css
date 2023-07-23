@@ -4,7 +4,8 @@
   width: 280px;
   height: 293px;
   margin: 8px auto;
-
+  border-left: 5px solid;
+  box-sizing: border-box;
   border-radius: 10px;
   background: linear-gradient(
     24deg,
@@ -12,6 +13,13 @@
 
     rgba(255, 255, 255, 0.2) 100%
   );
+}
+
+.incomeBorder {
+  border-color: var(--color-yellow);
+}
+.expenseBorder {
+  border-color: var(--color-dashboard-text);
 }
 
 .text {
@@ -52,11 +60,11 @@
 }
 
 .income {
-  color: #ffb627;
+  color: var(--color-yellow);
 }
 
 .expense {
-  color: #ff868d;
+  color: var(--color-dashboard-text);
 }
 .pen {
   width: 14px;

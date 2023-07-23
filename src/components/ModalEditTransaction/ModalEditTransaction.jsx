@@ -15,12 +15,14 @@ import { patchTransactionThunk } from 'redux/transactions/transactionsOperations
 import Select from 'react-select';
 import { customStyles } from 'stylesheet/customStyles';
 import Flatpickr from 'react-flatpickr';
+import { refreshUser } from 'redux/auth/authOperations';
 
 const ModalEditTransaction = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   const transactions = useSelector(selectFinance);
   const idTransaction = useSelector(selectEditTransaction);
+
   const singleTransaction = transactions.find(el => el.id === idTransaction);
 
   // const incomeCategories = categories.find(el => el.type === 'INCOME');
@@ -76,6 +78,7 @@ const ModalEditTransaction = () => {
 
   const handleCloseEditModal = () => {
     dispatch(closeEditModal());
+    dispatch(refreshUser());
   };
 
   return (

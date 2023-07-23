@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './MobileList.module.css';
 import { selectCategories } from 'redux/transactions/transactionsSelectors';
-import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
 import date from 'config/date';
-import { openEditModal } from 'redux/global/slice';
-import { selectEditTransaction } from 'redux/global/selectors';
+import { openDeleteModal, openEditModal } from 'redux/global/slice';
+import {
+  selectDeleteModal,
+  selectEditTransaction,
+} from 'redux/global/selectors';
 import Modal from 'components/Modal/Modal';
 import Icons from '../../../../images/sprite.svg';
 
@@ -18,12 +20,11 @@ const MobileList = ({
 }) => {
   const dispatch = useDispatch();
   const isEdit = useSelector(selectEditTransaction);
+  const isDelete = useSelector(selectDeleteModal);
+
   const categoryName = useSelector(selectCategories);
   const category = categoryName.find(el => el.id === categoryId);
 
-  const handleDelete = id => {
-    dispatch(deleteTransactionThunk(id));
-  };
   const handleEdit = id => {
     dispatch(openEditModal(id));
   };
@@ -31,7 +32,11 @@ const MobileList = ({
   return (
     <>
       <li>
-        <ul className={css.block}>
+        <ul
+          className={`${css.block} ${
+            type === 'EXPENSE' ? `${css.expenseBorder}` : `${css.incomeBorder}`
+          }`}
+        >
           <li className={css.text}>
             <p>Date</p>
             <p>{date(transactionDate)}</p>
@@ -61,7 +66,7 @@ const MobileList = ({
           <li className={css.text}>
             <button
               className={css.buttonDelete}
-              onClick={() => handleDelete(id)}
+              onClick={() => dispatch(openDeleteModal(id))}
             >
               Delete
             </button>
@@ -75,6 +80,7 @@ const MobileList = ({
         </ul>
       </li>
       {isEdit && <Modal />}
+      {isDelete && <Modal />}
     </>
   );
 };
