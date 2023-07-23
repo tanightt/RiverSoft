@@ -228,20 +228,32 @@
 @media (min-width: 768px) {
   .login_page_wrapper {
     height: 100vh;
-    background: url(../../images/mone/foto-mone-1xtableft.png) left top,
-      url(../../images/mone/foto-mone-1xtabright.png) right,
-      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 79% 82%,
-        rgba(114, 44, 135, 1) 0px,
-        rgba(42, 28, 134, 1) 50% 0px,
-        transparent 60%) repeat scroll 0% 0%,
-      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      rgba(114, 44, 135, 1) radial-gradient(at 57% 33%,
-        rgba(96, 55, 169, 1) 0px,
-        rgba(114, 44, 135, 1) 50%) repeat scroll 0% 0%;
+    background: url(../../images/money/money-1x-tab-left.png) left top,
+      url(../../images/money/money-1x-tab-right.png) right,
+      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(
+          at 79% 82%,
+          rgba(114, 44, 135, 1) 0px,
+          rgba(42, 28, 134, 1) 50% 0px,
+          transparent 60%
+        )
+        repeat scroll 0% 0%,
+      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      rgba(114, 44, 135, 1)
+        radial-gradient(
+          at 57% 33%,
+          rgba(96, 55, 169, 1) 0px,
+          rgba(114, 44, 135, 1) 50%
+        )
+        repeat scroll 0% 0%;
     background-repeat: no-repeat;
     width: 100%;
     display: flex;
@@ -254,40 +266,64 @@
 
 @media screen and (min-width: 768px) and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (min-resolution: 2dppx) {
   .wrapper {
-    background: url(../../images/mone/foto-mone-2xtableft.png) left top,
-      url(../../images/mone/foto-mone-2xtabright.png) right,
-      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 79% 82%,
-        rgba(114, 44, 135, 1) 0px,
-        rgba(42, 28, 134, 1) 50% 0px,
-        transparent 60%) repeat scroll 0% 0%,
-      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      rgba(114, 44, 135, 1) radial-gradient(at 57% 33%,
-        rgba(96, 55, 169, 1) 0px,
-        rgba(114, 44, 135, 1) 50%) repeat scroll 0% 0%;
+    background: url(../../images/money/money-2x-tab-left.png) left top,
+      url(../../images/money/money-2x-tab-right.png) right,
+      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(
+          at 79% 82%,
+          rgba(114, 44, 135, 1) 0px,
+          rgba(42, 28, 134, 1) 50% 0px,
+          transparent 60%
+        )
+        repeat scroll 0% 0%,
+      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      rgba(114, 44, 135, 1)
+        radial-gradient(
+          at 57% 33%,
+          rgba(96, 55, 169, 1) 0px,
+          rgba(114, 44, 135, 1) 50%
+        )
+        repeat scroll 0% 0%;
   }
 }
 
 @media (min-width: 1280px) {
   .login_page_wrapper {
     height: 100vh;
-    background: url(../../images/mone/foto-mone-1xleft.png) left top,
-      url(../../images/mone/foto-mone-1xright.png) right,
-      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 79% 82%,
-        rgba(114, 44, 135, 1) 0px,
-        rgba(42, 28, 134, 1) 50% 0px,
-        transparent 60%) repeat scroll 0% 0%,
-      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      rgba(114, 44, 135, 1) radial-gradient(at 57% 33%,
-        rgba(96, 55, 169, 1) 0px,
-        rgba(114, 44, 135, 1) 50%) repeat scroll 0% 0%;
+    background: url(../../images/money/money-1x-left.png) left top,
+      url(../../images/money/money-1x-right.png) right,
+      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(
+          at 79% 82%,
+          rgba(114, 44, 135, 1) 0px,
+          rgba(42, 28, 134, 1) 50% 0px,
+          transparent 60%
+        )
+        repeat scroll 0% 0%,
+      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      rgba(114, 44, 135, 1)
+        radial-gradient(
+          at 57% 33%,
+          rgba(96, 55, 169, 1) 0px,
+          rgba(114, 44, 135, 1) 50%
+        )
+        repeat scroll 0% 0%;
     background-repeat: no-repeat;
     width: 100%;
     display: flex;
@@ -301,20 +337,32 @@
 @media (min-width: 1280px) and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (min-resolution: 2dppx) {
   .login_page_wrapper {
     height: 100vh;
-    background: url(../../images/mone/foto-mone-2xleft.png) left top,
-      url(../../images/mone/foto-mone-2xright.png) right,
-      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 79% 82%,
-        rgba(114, 44, 135, 1) 0px,
-        rgba(42, 28, 134, 1) 50% 0px,
-        transparent 60%) repeat scroll 0% 0%,
-      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%) repeat scroll 0% 0%,
-      rgba(114, 44, 135, 1) radial-gradient(at 57% 33%,
-        rgba(96, 55, 169, 1) 0px,
-        rgba(114, 44, 135, 1) 50%) repeat scroll 0% 0%;
+    background: url(../../images/money/money-2x-left.png) left top,
+      url(../../images/money/money-2x-right.png) right,
+      radial-gradient(at 8% 89%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 97% 8%, rgba(19, 19, 25, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(
+          at 79% 82%,
+          rgba(114, 44, 135, 1) 0px,
+          rgba(42, 28, 134, 1) 50% 0px,
+          transparent 60%
+        )
+        repeat scroll 0% 0%,
+      radial-gradient(at 96% 10%, rgba(35, 27, 58, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 42% 20%, rgba(42, 28, 134, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      radial-gradient(at 1% 79%, rgba(37, 33, 80, 1) 0px, transparent 50%)
+        repeat scroll 0% 0%,
+      rgba(114, 44, 135, 1)
+        radial-gradient(
+          at 57% 33%,
+          rgba(96, 55, 169, 1) 0px,
+          rgba(114, 44, 135, 1) 50%
+        )
+        repeat scroll 0% 0%;
     background-repeat: no-repeat;
     width: 100%;
     display: flex;
