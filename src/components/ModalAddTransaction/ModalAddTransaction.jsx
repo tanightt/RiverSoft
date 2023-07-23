@@ -16,6 +16,7 @@ import {
 } from 'redux/transactions/transactionsOperations';
 import Icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
+import moment from 'moment';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const ModalAddTransaction = () => {
       .required('Amount is required')
       .positive()
       .integer(),
-    transactionDate: Yup.date().required('Transaction date is required'),
+    // transactionDate: Yup.date().required('Transaction date is required'),
     categoryId: Yup.string().required('Category is required'),
   });
 
@@ -56,7 +57,7 @@ const ModalAddTransaction = () => {
   const formik = useFormik({
     initialValues: {
       amount: '',
-      transactionDate: '',
+      transactionDate: moment().format('DD.MM.YYYY'),
       comment: '',
       categoryId: 'Income',
       type: false,

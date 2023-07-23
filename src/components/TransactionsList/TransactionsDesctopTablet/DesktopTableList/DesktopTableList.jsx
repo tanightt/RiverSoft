@@ -26,7 +26,6 @@ const DesktopTableList = ({
   };
 
   const handleEdit = id => {
-    console.log(id);
     dispatch(openEditModal(id));
   };
 
