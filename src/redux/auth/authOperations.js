@@ -39,10 +39,8 @@ export const login = createAsyncThunk('auth/login',
                 progress: undefined,
                 theme: "light",
             });
-            const { status, data } = error.response;
-            if (status === 400 || status === 403 || status === 404) {
-                return rejectWithValue(data);
-            }
+            const { data } = error.response;
+            return rejectWithValue(data);
         }
     }
 
