@@ -6,21 +6,25 @@ import ModalLogOut from 'components/ModalLogOut/ModalLogOut';
 import css from './Modal.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  selectDeleteModal,
   selectEditTransaction,
   selectOpenLogOut,
   selectOpenModalAdd,
 } from 'redux/global/selectors';
 import {
   closeAddModal,
+  closeDeleteModal,
   closeEditModal,
   closeLofOutModal,
 } from 'redux/global/slice';
+import ModalDeleteTransaction from 'components/ModalDeleteTransaction/ModalDeleteTransaction';
 
 const modalRoot = document.querySelector('#modal');
 const Modal = () => {
   const isAdd = useSelector(selectOpenModalAdd);
   const isExit = useSelector(selectOpenLogOut);
   const isEdit = useSelector(selectEditTransaction);
+  const isDelete = useSelector(selectDeleteModal);
 
   const dispatch = useDispatch();
 
@@ -31,6 +35,8 @@ const Modal = () => {
       dispatch(closeEditModal());
     } else if (isExit) {
       dispatch(closeLofOutModal());
+    } else if (isDelete) {
+      dispatch(closeDeleteModal());
     }
   };
 
@@ -53,6 +59,7 @@ const Modal = () => {
       {isAdd && <ModalAddTransaction />}
       {isExit && <ModalLogOut />}
       {isEdit && <ModalEditTransaction />}
+      {isDelete && <ModalDeleteTransaction />}
     </div>,
     modalRoot
   );
