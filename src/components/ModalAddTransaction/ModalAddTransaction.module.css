@@ -68,7 +68,7 @@
 
 .choiceBtn {
   position: absolute;
-  left: -4px;
+  left: 40px;
   bottom: -2px;
   -webkit-transition: 0.6s;
   transition: 0.6s;
@@ -110,7 +110,7 @@ input:focus + .slider {
 input:checked + .slider > .choiceBtn {
   -webkit-transform: translateX(44px);
   -ms-transform: translateX(44px);
-  transform: translateX(44px);
+  transform: translateX(-44px);
 }
 
 /* ================= FORM =========== */
@@ -119,7 +119,6 @@ input:checked + .slider > .choiceBtn {
   flex-direction: column;
   gap: 40px;
   margin-bottom: 20px;
-  min-width: 100%;
 }
 
 .incomeDate {
@@ -227,5 +226,9 @@ input:checked + .slider > .choiceBtn {
 
   .incomeDate {
     flex-direction: row;
+  }
+
+  .form {
+    width: 560px;
   }
 }

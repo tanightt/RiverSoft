@@ -11,10 +11,7 @@ import {
   selectFinance,
 } from 'redux/transactions/transactionsSelectors';
 import moment from 'moment';
-import {
-  getTransactionThunk,
-  patchTransactionThunk,
-} from 'redux/transactions/transactionsOperations';
+import { patchTransactionThunk } from 'redux/transactions/transactionsOperations';
 import Select from 'react-select';
 import { customStyles } from 'stylesheet/customStyles';
 import Flatpickr from 'react-flatpickr';
@@ -72,7 +69,6 @@ const ModalEditTransaction = () => {
       };
       dispatch(patchTransactionThunk(updateValues));
       handleCloseEditModal();
-      dispatch(getTransactionThunk());
     },
   });
 
@@ -125,6 +121,7 @@ const ModalEditTransaction = () => {
             value={options.find(e => e.value === categoryId)}
             styles={customStyles}
             options={options}
+            isDisabled={true}
             onChange={({ value }) => {
               formik.setFieldValue('categoryId', value);
             }}
