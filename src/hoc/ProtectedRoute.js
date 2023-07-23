@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { selectIsAuth } from 'redux/auth/authSelectors';
 
-export const PrivateRouter = ({ children }) => {
+export const ProtectedRoute = ({ children }) => {
   const isAuth = useSelector(selectIsAuth);
   const location = useLocation();
 

@@ -9,8 +9,8 @@ import { selectCurrencyDate } from 'redux/currency/currencySelectors';
 import Header from './Header/Header';
 import { Loader } from './Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
-import { PrivateRouter } from 'hoc/PrivateRouter';
-import { PublicRouter } from 'hoc/PublicRouter';
+import { ProtectedRoute } from 'hoc/ProtectedRoute';
+import { PublicRoute } from 'hoc/PublicRoute';
 import { LoginPage } from 'page/LoginPage/LoginPage';
 import { RegistrationPage } from 'page/RegistrationPage/RegistrationPage';
 
@@ -53,9 +53,9 @@ export const App = () => {
       <Route
         path="/"
         element={
-          <PrivateRouter>
+          <ProtectedRoute>
             <Header />
-          </PrivateRouter>
+          </ProtectedRoute>
         }
       >
         <Route index element={<Navigate to="/home" />}></Route>
@@ -63,18 +63,18 @@ export const App = () => {
         <Route
           path="/home"
           element={
-            <PrivateRouter>
+            <ProtectedRoute>
               <DashboardPage />
-            </PrivateRouter>
+            </ProtectedRoute>
           }
         ></Route>
 
         <Route
           path="/statistic"
           element={
-            <PrivateRouter>
+            <ProtectedRoute>
               <SummaryPage />
-            </PrivateRouter>
+            </ProtectedRoute>
           }
         ></Route>
 
@@ -82,9 +82,9 @@ export const App = () => {
           <Route
             path="/currency"
             element={
-              <PrivateRouter>
+              <ProtectedRoute>
                 <Currency />
-              </PrivateRouter>
+              </ProtectedRoute>
             }
           ></Route>
         )}
@@ -93,22 +93,29 @@ export const App = () => {
       <Route
         path="/login"
         element={
-          <PublicRouter>
+          <PublicRoute>
             <LoginPage />
-          </PublicRouter>
+          </PublicRoute>
         }
       ></Route>
 
       <Route
         path="/register"
         element={
-          <PublicRouter>
+          <PublicRoute>
             <RegistrationPage />
-          </PublicRouter>
+          </PublicRoute>
         }
       ></Route>
 
-      <Route path="*" element={<h1> Error</h1>} />
+      <Route
+        path="*"
+        element={
+          <h1 style={{ paddingTop: '300px', textAlign: 'center' }}>
+            Oh, something went wrong.
+          </h1>
+        }
+      />
     </Routes>
   );
 };
