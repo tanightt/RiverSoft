@@ -3,10 +3,7 @@ import css from './MobileList.module.css';
 import { selectCategories } from 'redux/transactions/transactionsSelectors';
 import date from 'config/date';
 import { openDeleteModal, openEditModal } from 'redux/global/slice';
-import {
-  selectDeleteModal,
-  selectEditTransaction,
-} from 'redux/global/selectors';
+import { selectDeleteModal } from 'redux/global/selectors';
 import Modal from 'components/Modal/Modal';
 import Icons from '../../../../images/sprite.svg';
 import formattedAmount from 'config/formattedAmount';
@@ -20,7 +17,6 @@ const MobileList = ({
   categoryId,
 }) => {
   const dispatch = useDispatch();
-  const isEdit = useSelector(selectEditTransaction);
   const isDelete = useSelector(selectDeleteModal);
 
   const categoryName = useSelector(selectCategories);
@@ -80,7 +76,6 @@ const MobileList = ({
           </li>
         </ul>
       </li>
-      {isEdit && <Modal />}
       {isDelete && <Modal />}
     </>
   );
