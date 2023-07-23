@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/RiverSoft/static/css/main.dfdd9e53.css",
-    "main.js": "/RiverSoft/static/js/main.5f74aa2b.js",
+    "main.css": "/RiverSoft/static/css/main.ba887018.css",
+    "main.js": "/RiverSoft/static/js/main.3b4ae7e1.js",
     "static/css/762.89d6fdc2.chunk.css": "/RiverSoft/static/css/762.89d6fdc2.chunk.css",
-    "static/js/762.a44d3e02.chunk.js": "/RiverSoft/static/js/762.a44d3e02.chunk.js",
+    "static/js/762.cd9ca8e2.chunk.js": "/RiverSoft/static/js/762.cd9ca8e2.chunk.js",
     "static/css/509.ac2a3682.chunk.css": "/RiverSoft/static/css/509.ac2a3682.chunk.css",
     "static/js/509.43857104.chunk.js": "/RiverSoft/static/js/509.43857104.chunk.js",
     "static/js/977.26f27bd9.chunk.js": "/RiverSoft/static/js/977.26f27bd9.chunk.js",
@@ -27,17 +27,17 @@
     "static/media/sprite.svg": "/RiverSoft/static/media/sprite.96d254ee9a0f326f8b0477924ed34252.svg",
     "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "index.html": "/RiverSoft/index.html",
-    "main.dfdd9e53.css.map": "/RiverSoft/static/css/main.dfdd9e53.css.map",
-    "main.5f74aa2b.js.map": "/RiverSoft/static/js/main.5f74aa2b.js.map",
+    "main.ba887018.css.map": "/RiverSoft/static/css/main.ba887018.css.map",
+    "main.3b4ae7e1.js.map": "/RiverSoft/static/js/main.3b4ae7e1.js.map",
     "762.89d6fdc2.chunk.css.map": "/RiverSoft/static/css/762.89d6fdc2.chunk.css.map",
-    "762.a44d3e02.chunk.js.map": "/RiverSoft/static/js/762.a44d3e02.chunk.js.map",
+    "762.cd9ca8e2.chunk.js.map": "/RiverSoft/static/js/762.cd9ca8e2.chunk.js.map",
     "509.ac2a3682.chunk.css.map": "/RiverSoft/static/css/509.ac2a3682.chunk.css.map",
     "509.43857104.chunk.js.map": "/RiverSoft/static/js/509.43857104.chunk.js.map",
     "977.26f27bd9.chunk.js.map": "/RiverSoft/static/js/977.26f27bd9.chunk.js.map",
     "623.bde53c92.chunk.js.map": "/RiverSoft/static/js/623.bde53c92.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dfdd9e53.css",
-    "static/js/main.5f74aa2b.js"
+    "static/css/main.ba887018.css",
+    "static/js/main.3b4ae7e1.js"
   ]
 }
