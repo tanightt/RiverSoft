@@ -1,12 +1,11 @@
 import css from './RegistrationForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { register } from 'redux/auth/authOperations';
 import icons from '../../images/sprite.svg';
-import { selectIsAuth } from 'redux/auth/authSelectors';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const calculateStrength = password => {
   const passwordLength = password.length;
@@ -29,23 +28,10 @@ const calculateStrength = password => {
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector(selectIsAuth)
-  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false);
-  useEffect(() => {
-    if (isAuth) {
-      navigate('/')
-    }
-  }, [isAuth, navigate])
   const toggleShowPassword = () => {
     setShowPassword(prevState => !prevState);
   }
-  useEffect(() => {
-    if (isAuth) {
-      navigate('/')
-    }
-  }, [isAuth, navigate])
-
   const onSubmit = values => {
     dispatch(register({ email: values.email, password: values.password, username: values.username }))
   };

@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import css from './LoginForm.module.css'
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import icons from '../../images/sprite.svg'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/authOperations';
-import { selectIsAuth } from 'redux/auth/authSelectors';
 export const LoginForm = () => {
-    const isAuth = useSelector(selectIsAuth)
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const [showPassword, setShowPassword] = useState(false);
-    useEffect(() => {
-        if (isAuth) {
-            navigate('/')
-        }
-    }, [isAuth, navigate])
     const toggleShowPassword = () => {
         setShowPassword(prevState => !prevState);
     }
