@@ -1,7 +1,6 @@
 import TransactionsList from 'components/TransactionsList/TransactionsList';
 import { useSelector } from 'react-redux';
 import { selectFinanseSort } from 'redux/transactions/transactionsSelectors';
-// import css from './HomeTab.module.css';
 
 const HomeTab = () => {
   const finanseSort = useSelector(selectFinanseSort);

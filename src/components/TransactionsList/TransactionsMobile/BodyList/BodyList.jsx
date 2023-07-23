@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openAddModal } from 'redux/global/slice';
 import MobileList from '../MobileList/MobileList';
+import Icons from '../../../../images/sprite.svg';
 import css from './BodyList.module.css';
 
 const BodyList = ({ finanseSort }) => {
@@ -11,12 +12,14 @@ const BodyList = ({ finanseSort }) => {
     dispatch(openAddModal());
   };
   return (
-    <ul>
+    <ul className={css.ollList}>
       {finanseSort.length === 0 ? (
         <div className={css.div}>
-          <h1>add transactions...</h1>
+          <svg width={'120px'} height={'120px'}>
+            <use href={Icons + '#icon-time-money'}></use>
+          </svg>
           <button className={css.button} onClick={handleOpenAddModal}>
-            add
+            add transactions...
           </button>
         </div>
       ) : (

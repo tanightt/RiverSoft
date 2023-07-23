@@ -9,7 +9,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 53px;
+
+  min-height: 53px;
+
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 .bodyTable:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.201);
@@ -25,7 +30,7 @@
     --button-gradient,
     linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)
   );
-  /* Button shadow */
+
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 }
 .buttonEdit {
@@ -48,26 +53,29 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-left: 30px;
 }
 
 .date {
   text-align: center;
-  width: 100px;
+  width: 90px;
 }
 .type {
   text-align: center;
-  width: 80px;
+  width: 90px;
 }
 
 .category {
-  text-align: center;
-  width: 120px;
+  text-align: start;
+  padding-left: 20px;
+  width: 110px;
 }
 .comment {
-  text-align: center;
-  width: 170px;
+  text-align: start;
+  padding-left: 30px;
+  width: 110px;
 }
 .sum {
-  text-align: center;
+  text-align: end;
   width: 100px;
 }

@@ -28,15 +28,7 @@ const TransactionsDesctopTablet = ({ finanseSort, Scrol }) => {
           }`}
         >
           <tbody className={css.tbody}>
-            {isLoading ? (
-              <tr>
-                <td>
-                  <h2>Loading...</h2>
-                </td>
-              </tr>
-            ) : (
-              <BodyTable finanseSort={finanseSort} />
-            )}
+            {!isLoading && <BodyTable finanseSort={finanseSort} />}
           </tbody>
         </table>
       </div>

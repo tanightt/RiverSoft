@@ -4,12 +4,10 @@ import { openAddModal } from 'redux/global/slice';
 
 import DesktopTableList from '../DesktopTableList/DesktopTableList';
 import css from './BodyTable.module.css';
-
 import Icons from '../../../../images/sprite.svg';
 
 const BodyTable = ({ finanseSort }) => {
   const dispatch = useDispatch();
-
   const handleOpenAddModal = () => {
     dispatch(openAddModal());
   };
@@ -18,11 +16,11 @@ const BodyTable = ({ finanseSort }) => {
       {finanseSort.length === 0 ? (
         <tr className={css.tr}>
           <td className={css.td}>
-            <h1>add transactions...</h1>
+            <svg width={'120px'} height={'120px'}>
+              <use href={Icons + '#icon-time-money'}></use>
+            </svg>
             <button className={css.button} onClick={handleOpenAddModal}>
-              <svg>
-                <use href={Icons + '#icon-plus'}></use>
-              </svg>
+              add transactions...
             </button>
           </td>
         </tr>
