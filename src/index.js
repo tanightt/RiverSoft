@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <App />
-        <ToastContainer autoClose="1000" />
+        <ToastContainer autoClose="2000" />
       </PersistGate>
     </Provider>
   </BrowserRouter>

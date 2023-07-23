@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWallet } from 'config/instance';
 import { toast } from 'react-toastify';
+import { closeAddModal } from 'redux/global/slice';
 
 export const getTransactionThunk = createAsyncThunk(
   'transaction/getTransaction',
@@ -39,7 +40,7 @@ export const patchTransactionThunk = createAsyncThunk(
   'transaction/patchTransaction',
   async (
     { id, transactionDate, type, categoryId, comment, amount },
-    { rejectWithValue }
+    { dispatch }
   ) => {
     try {
       const body = { transactionDate, type, categoryId, comment, amount };
@@ -48,25 +49,30 @@ export const patchTransactionThunk = createAsyncThunk(
         body
       );
       toast.success('Transaction edited seccesfully!');
+      dispatch(getTransactionThunk());
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      error.response.data?.message(toast.error('Transaction failed!'));
+      throw error;
     }
   }
 );
 
 export const addTransactionThunk = createAsyncThunk(
   'transaction/addTransaction',
-  async (transaction, { rejectWithValue }) => {
+  async (transaction, { dispatch }) => {
     try {
       const { data } = await instanceWallet.post(
         '/api/transactions',
         transaction
       );
+      dispatch(closeAddModal());
+      dispatch(getTransactionThunk());
       toast.success('Transaction added');
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      error.response.data?.message(toast.error('Please choose a category'));
+      throw error;
     }
   }
 );

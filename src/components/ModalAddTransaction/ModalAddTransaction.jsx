@@ -17,6 +17,7 @@ import {
 import Icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
 import moment from 'moment';
+import { toast } from 'react-toastify';
 import { refreshUser } from 'redux/auth/authOperations';
 
 const ModalAddTransaction = () => {
@@ -44,17 +45,14 @@ const ModalAddTransaction = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    amount: Yup.number()
-      .typeError('Please enter a valid number')
-      .required('Amount is required')
-      .positive()
-      .integer(),
-    // transactionDate: Yup.date().required('Transaction date is required'),
-    categoryId: Yup.string().required('Category is required'),
+    // amount: Yup.number()
+    //   .typeError('Please enter a valid number')
+    //   .required('Amount is required')
+    //   .positive()
+    //   .integer(),
+    transactionDate: Yup.date().required('Transaction date is required'),
+    // categoryId: Yup.string().required('Category is required'),
   });
-
-  // const defaultDate = new Date().toLocaleDateString();
-  // console.log(defaultDate);
 
   const formik = useFormik({
     initialValues: {
@@ -67,10 +65,15 @@ const ModalAddTransaction = () => {
     validationSchema: validationSchema,
 
     onSubmit: value => {
+      if (value.amount <= 0) {
+        toast.error('Please enter a positive number');
+        return;
+      }
+
       const date = value.transactionDate
         .toString()
         .replace('00:00:00', '12:00:00');
-      if (type) {
+      if (!type) {
         dispatch(
           addTransactionThunk({
             ...value,
@@ -89,7 +92,6 @@ const ModalAddTransaction = () => {
           })
         );
       }
-      handleCloseAddModal();
     },
   });
   const { type, amount, comment, transactionDate, categoryId } = formik.values;
@@ -107,7 +109,7 @@ const ModalAddTransaction = () => {
       </button>
       <h2 className={css.modalTitle}>Add transaction</h2>
       <div className={css.transactionChange}>
-        <p className={!type ? css.income : css.text}>Income</p>
+        <p className={type ? css.income : css.text}>Income</p>
         <label className={css.switch}>
           <input
             className={css.switchInput}
@@ -119,29 +121,29 @@ const ModalAddTransaction = () => {
           <span className={css.slider}>
             <span
               className={`${css.choiceBtn} ${
-                !type ? css.choiceBgPlus : css.choiceBgminus
+                type ? css.choiceBgPlus : css.choiceBgminus
               }`}
             >
               {!type ? (
                 <span>
-                  <svg className={css.plus}>
-                    <use href={Icons + '#icon-plus'}></use>
+                  <svg className={css.minus}>
+                    <use href={Icons + '#icon-minis'}></use>
                   </svg>
                 </span>
               ) : (
                 <span>
-                  <svg className={css.minus}>
-                    <use href={Icons + '#icon-minis'}></use>
+                  <svg className={css.plus}>
+                    <use href={Icons + '#icon-plus'}></use>
                   </svg>
                 </span>
               )}
             </span>
           </span>
         </label>
-        <p className={type ? css.expense : css.text}>Expense</p>
+        <p className={!type ? css.expense : css.text}>Expense</p>
       </div>
       <form className={css.form} onSubmit={formik.handleSubmit}>
-        {type && (
+        {!type && (
           <Select
             placeholder="Select a category"
             options={options}
@@ -165,12 +167,12 @@ const ModalAddTransaction = () => {
             options={{
               dateFormat: 'd.m.Y',
               disableMobile: 'true',
+              allowInput: false,
             }}
             type="date"
             name="transactionDate"
             value={transactionDate}
             id="date"
-            selected={(transactionDate && new Date(transactionDate)) || null}
             placeholder="YYYY.MM.DD"
             className={css.input}
             onChange={val => {
