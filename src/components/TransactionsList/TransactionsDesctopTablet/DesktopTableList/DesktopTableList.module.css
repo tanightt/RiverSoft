@@ -1,9 +1,9 @@
 .income {
-  color: #ffb627;
+  color: var(--color-yellow);
 }
 
 .expense {
-  color: #ff868d;
+  color: var(--color-dashboard-text);
 }
 .bodyTable {
   display: flex;

@@ -31,7 +31,11 @@ const MobileList = ({
   return (
     <>
       <li>
-        <ul className={css.block}>
+        <ul
+          className={`${css.block} ${
+            type === 'EXPENSE' ? `${css.expenseBorder}` : `${css.incomeBorder}`
+          }`}
+        >
           <li className={css.text}>
             <p>Date</p>
             <p>{date(transactionDate)}</p>
