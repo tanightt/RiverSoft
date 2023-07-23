@@ -18,7 +18,6 @@ import Icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
 import moment from 'moment';
 import { toast } from 'react-toastify';
-import { refreshUser } from 'redux/auth/authOperations';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
@@ -41,17 +40,15 @@ const ModalAddTransaction = () => {
 
   const handleCloseAddModal = () => {
     dispatch(closeAddModal());
-    dispatch(refreshUser());
   };
 
   const validationSchema = Yup.object().shape({
-    // amount: Yup.number()
-    //   .typeError('Please enter a valid number')
-    //   .required('Amount is required')
-    //   .positive()
-    //   .integer(),
+    amount: Yup.number()
+      .typeError('Please enter a valid number')
+      .required()
+      .integer(),
     transactionDate: Yup.date().required('Transaction date is required'),
-    // categoryId: Yup.string().required('Category is required'),
+    categoryId: Yup.string().required('Category is required'),
   });
 
   const formik = useFormik({
@@ -67,6 +64,12 @@ const ModalAddTransaction = () => {
     onSubmit: value => {
       if (value.amount <= 0) {
         toast.error('Please enter a positive number');
+        return;
+      } else if (value.amount > 1000000) {
+        toast.error('Your amount is too high! Max sum is 1 000 000');
+        return;
+      } else if (value.comment.length > 20) {
+        toast.error('Sorry! You can enter only 20 characters');
         return;
       }
 
@@ -150,7 +153,6 @@ const ModalAddTransaction = () => {
             styles={customStyles}
             value={categoryId?.value}
             onChange={({ value }) => formik.setFieldValue('categoryId', value)}
-            isClearable
             onBlur={formik.handleBlur}
           />
         )}
