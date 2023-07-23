@@ -27,11 +27,16 @@
   padding: 16px;
   border-bottom: 1px solid #d9d9d9;
 }
+.itemList:hover {
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #c1b7f6a5;
+}
 .colorBox {
   width: 24px;
   height: 24px;
   border-color: black;
-  /* background-color: white; */
+
   border-radius: 4px;
   margin-right: 16px;
 }
@@ -61,6 +66,13 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.expenseHover:hover {
+  cursor: pointer;
+}
+.sumarryExpense:hover {
+  border-radius: 8px;
+  background-color: #c1b7f6a5;
 }
 .income {
   color: var(--yellow, #ffb627);

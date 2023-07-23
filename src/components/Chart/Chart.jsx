@@ -2,7 +2,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import css from './Chart.module.css';
 import { Doughnut } from 'react-chartjs-2';
 import Icons from '../../images/sprite.svg';
-import { barColors } from 'components/StatisticsSelect/selectService';
+import { barColors } from 'components/DiagramTab/selectService';
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -17,7 +17,7 @@ const Chart = ({ filteredCategories, categoryInfo }) => {
         data: yValues,
         backgroundColor: barColors,
         borderColor: 'transparent',
-        borderWidth: 2,
+        borderWidth: 1,
         cutout: '70%',
       },
     ],

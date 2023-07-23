@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsAuth } from 'redux/auth/authSelectors';
 import { getTransactions } from 'redux/statistics/statisticsOperation';
-import css from './StatisticsSelect.module.css';
+import css from './DiagramTab.module.css';
 import Select from 'react-select';
 import { styleSelect } from './styleSelect';
 import {
