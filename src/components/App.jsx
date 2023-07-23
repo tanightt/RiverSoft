@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRefresh, selectUser } from 'redux/auth/authSelectors';
 import { lazy, useEffect } from 'react';
@@ -19,7 +19,6 @@ const SummaryPage = lazy(() => import('page/SummaryPage/SummaryPage'));
 const Currency = lazy(() => import('./Currency/Currency'));
 
 export const App = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectUser);
 
@@ -29,7 +28,7 @@ export const App = () => {
     if (!isLoggedIn) {
       dispatch(refreshUser());
     }
-  }, [isLoggedIn, navigate, dispatch]);
+  }, [isLoggedIn, dispatch]);
 
   useEffect(() => {
     const oneHour = 3600000;
