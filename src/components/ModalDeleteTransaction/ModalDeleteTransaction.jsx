@@ -4,6 +4,7 @@ import { closeDeleteModal } from 'redux/global/slice';
 import css from './ModalDeleteTransaction.module.css';
 import { deleteTransactionThunk } from 'redux/transactions/transactionsOperations';
 import { selectDeleteModal } from 'redux/global/selectors';
+import { refreshUser } from 'redux/auth/authOperations';
 
 const ModalDeleteTransaction = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const ModalDeleteTransaction = () => {
         onClick={() => {
           dispatch(deleteTransactionThunk(id));
           dispatch(closeDeleteModal());
+          dispatch(refreshUser());
         }}
       >
         Yes

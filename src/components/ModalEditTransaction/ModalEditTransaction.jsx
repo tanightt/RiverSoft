@@ -18,6 +18,7 @@ import {
 import Select from 'react-select';
 import { customStyles } from 'stylesheet/customStyles';
 import Flatpickr from 'react-flatpickr';
+import { refreshUser } from 'redux/auth/authOperations';
 
 const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const ModalEditTransaction = () => {
 
   const handleCloseEditModal = () => {
     dispatch(closeEditModal());
+    dispatch(refreshUser());
   };
 
   return (

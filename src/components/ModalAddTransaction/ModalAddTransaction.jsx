@@ -17,6 +17,7 @@ import {
 import Icons from '../../images/sprite.svg';
 import { selectIsAuth } from 'redux/auth/authSelectors';
 import moment from 'moment';
+import { refreshUser } from 'redux/auth/authOperations';
 
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const ModalAddTransaction = () => {
 
   const handleCloseAddModal = () => {
     dispatch(closeAddModal());
+    dispatch(refreshUser());
   };
 
   const validationSchema = Yup.object().shape({
