@@ -8,11 +8,15 @@ import {
   getTransactionThunk,
 } from 'redux/transactions/transactionsOperations';
 import Modal from 'components/Modal/Modal';
-import { selectEditTransaction } from 'redux/global/selectors';
+import {
+  selectDeleteModal,
+  selectEditTransaction,
+} from 'redux/global/selectors';
 
 const TransactionsList = ({ finanseSort, Scrol }) => {
   const dispatch = useDispatch();
   const isEdit = useSelector(selectEditTransaction);
+  const isDelete = useSelector(selectDeleteModal);
   useEffect(() => {
     dispatch(getTransactionThunk());
     dispatch(getCategoriesThunk());
@@ -30,6 +34,7 @@ const TransactionsList = ({ finanseSort, Scrol }) => {
       )}
       {isMobile && <TransactionsMobile finanseSort={finanseSort} />}
       {isEdit && <Modal />}
+      {isDelete && <Modal />}
     </>
   );
 };

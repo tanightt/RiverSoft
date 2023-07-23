@@ -5,8 +5,6 @@ import { selectCategories } from 'redux/transactions/transactionsSelectors';
 import date from 'config/date';
 import Icons from '../../../../images/sprite.svg';
 import { openDeleteModal, openEditModal } from 'redux/global/slice';
-import { selectDeleteModal } from 'redux/global/selectors';
-import Modal from 'components/Modal/Modal';
 import formattedAmount from 'config/formattedAmount';
 
 const DesktopTableList = ({
@@ -18,7 +16,6 @@ const DesktopTableList = ({
   categoryId,
 }) => {
   const dispatch = useDispatch();
-  const isDelete = useSelector(selectDeleteModal);
   const categoryName = useSelector(selectCategories);
   const category = categoryName.find(el => el.id === categoryId);
 
@@ -56,7 +53,6 @@ const DesktopTableList = ({
         >
           Delete
         </button>
-        {isDelete && <Modal />}
       </td>
     </tr>
   );

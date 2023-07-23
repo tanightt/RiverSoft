@@ -35,9 +35,7 @@ const ModalEditTransaction = () => {
   }));
 
   const validationSchema = Yup.object({
-    amount: Yup.number('Must be a number!').required(
-      'Please enter amount of transaction'
-    ),
+    amount: Yup.number('Must be a number!'),
   });
 
   const initialValues = {
@@ -58,7 +56,7 @@ const ModalEditTransaction = () => {
     initialValues,
     validationSchema,
     onSubmit: values => {
-      if (values.amount <= 0) {
+      if (values.amount < 0) {
         toast.error('Please enter a positive number');
         return;
       } else if (values.amount > 1000000) {
@@ -66,6 +64,9 @@ const ModalEditTransaction = () => {
         return;
       } else if (values.comment.length > 20) {
         toast.error('Sorry! You can enter only 20 characters');
+        return;
+      } else if (!values.amount) {
+        toast.error('You have not entered an amount');
         return;
       }
       const date = values.transactionDate
