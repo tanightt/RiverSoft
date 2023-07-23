@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWallet } from 'config/instance';
 import { toast } from 'react-toastify';
+import { refreshUser } from 'redux/auth/authOperations';
 import { closeAddModal } from 'redux/global/slice';
 
 export const getTransactionThunk = createAsyncThunk(
@@ -66,12 +67,17 @@ export const addTransactionThunk = createAsyncThunk(
         '/api/transactions',
         transaction
       );
-      dispatch(closeAddModal());
-      dispatch(getTransactionThunk());
       toast.success('Transaction added');
+      dispatch(closeAddModal());
+      dispatch(refreshUser());
       return data;
     } catch (error) {
-      error.response.data?.message(toast.error('Please choose a category'));
+      if (error.response) {
+        const { status } = error.response;
+        if (status === 400) {
+          toast.error('Please choose a category');
+        }
+      }
       throw error;
     }
   }

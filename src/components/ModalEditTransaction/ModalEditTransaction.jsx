@@ -16,6 +16,7 @@ import Select from 'react-select';
 import { customStyles } from 'stylesheet/customStyles';
 import Flatpickr from 'react-flatpickr';
 import { refreshUser } from 'redux/auth/authOperations';
+import { toast } from 'react-toastify';
 
 const ModalEditTransaction = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,16 @@ const ModalEditTransaction = () => {
     initialValues,
     validationSchema,
     onSubmit: values => {
+      if (values.amount <= 0) {
+        toast.error('Please enter a positive number');
+        return;
+      } else if (values.amount > 1000000) {
+        toast.error('Your amount is too high! Max sum is 1 000 000');
+        return;
+      } else if (values.comment.length > 20) {
+        toast.error('Sorry! You can enter only 20 characters');
+        return;
+      }
       const date = values.transactionDate
         .toString()
         .replace('00:00:00', '12:00:00');
@@ -70,6 +81,7 @@ const ModalEditTransaction = () => {
         transactionDate: new Date(date).toISOString().substring(0, 10),
       };
       dispatch(patchTransactionThunk(updateValues));
+      dispatch(refreshUser());
       handleCloseEditModal();
     },
   });
@@ -78,7 +90,6 @@ const ModalEditTransaction = () => {
 
   const handleCloseEditModal = () => {
     dispatch(closeEditModal());
-    dispatch(refreshUser());
   };
 
   return (
