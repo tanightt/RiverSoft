@@ -14,7 +14,6 @@ export const register = createAsyncThunk('auth/register',
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "light",
             });
             return response.data
 
@@ -27,7 +26,6 @@ export const register = createAsyncThunk('auth/register',
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "light",
             });
             return rejectWithValue(error)
         }
@@ -45,7 +43,6 @@ export const login = createAsyncThunk('auth/login',
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "light",
             });
             return response.data;
         } catch (error) {
@@ -57,7 +54,6 @@ export const login = createAsyncThunk('auth/login',
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "light",
             });
             const { data } = error.response;
             return rejectWithValue(data);
@@ -94,7 +90,6 @@ export const logOut = createAsyncThunk("auth/logout", async (
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "light",
         })
         return response.data;
     } catch (error) {
