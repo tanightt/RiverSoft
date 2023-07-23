@@ -24,6 +24,7 @@ const ModalEditTransaction = () => {
   const categories = useSelector(selectCategories);
   const transactions = useSelector(selectFinance);
   const idTransaction = useSelector(selectEditTransaction);
+
   const singleTransaction = transactions.find(el => el.id === idTransaction);
 
   // const incomeCategories = categories.find(el => el.type === 'INCOME');

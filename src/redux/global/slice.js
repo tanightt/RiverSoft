@@ -4,6 +4,7 @@ const initialState = {
   isEdit: null,
   isExit: false,
   isAdd: false,
+  isDelete: false,
 };
 
 const modal = createSlice({
@@ -28,6 +29,12 @@ const modal = createSlice({
     closeEditModal: state => {
       state.isEdit = null;
     },
+    openDeleteModal: (state, { payload }) => {
+      state.isDelete = payload;
+    },
+    closeDeleteModal: state => {
+      state.isDelete = false;
+    },
   },
 });
 
@@ -39,4 +46,6 @@ export const {
   closeLofOutModal,
   openEditModal,
   closeEditModal,
+  openDeleteModal,
+  closeDeleteModal,
 } = modal.actions;
