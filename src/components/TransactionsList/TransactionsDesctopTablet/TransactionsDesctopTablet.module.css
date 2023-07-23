@@ -3,16 +3,13 @@
   margin-top: 46px;
 }
 .table {
-  margin: auto;
-
   border-collapse: collapse;
-  width: 100%;
 }
 
 .headerTable {
   display: block;
   text-align: center;
-
+  min-width: 715px;
   border-radius: 8px;
   background: rgba(82, 59, 126, 0.6);
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
@@ -24,24 +21,29 @@
   height: 56px;
 }
 .date {
-  text-align: center;
-  width: 100px;
+  text-align: start;
+  padding-left: 20px;
+  width: 70px;
 }
 .type {
   text-align: center;
-  width: 80px;
+  width: 90px;
 }
 .category {
-  text-align: center;
-  width: 140px;
+  text-align: start;
+  padding-left: 20px;
+  width: 100px;
 }
 .comment {
   text-align: center;
   width: 150px;
 }
 .sum {
-  text-align: center;
-  width: 120px;
+  text-align: end;
+  width: 100px;
+}
+.th {
+  width: 130px;
 }
 
 .tbody {
@@ -65,13 +67,7 @@
 }
 .nowOverflow {
   padding-right: 20px;
-  overflow: none;
 }
 .secondTable {
   margin: auto;
 }
-/* .table th,
-.table td {
-  text-align: center;
-  padding: 8px;
-} */

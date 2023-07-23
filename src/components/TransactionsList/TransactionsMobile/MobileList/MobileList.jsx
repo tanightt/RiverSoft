@@ -9,6 +9,7 @@ import {
 } from 'redux/global/selectors';
 import Modal from 'components/Modal/Modal';
 import Icons from '../../../../images/sprite.svg';
+import formattedAmount from 'config/formattedAmount';
 
 const MobileList = ({
   id,
@@ -60,7 +61,7 @@ const MobileList = ({
                 type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
               }`}
             >
-              {Math.abs(amount)}
+              {formattedAmount(amount)}
             </p>
           </li>
           <li className={css.text}>

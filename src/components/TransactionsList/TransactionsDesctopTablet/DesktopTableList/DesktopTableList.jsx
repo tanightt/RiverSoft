@@ -7,6 +7,7 @@ import Icons from '../../../../images/sprite.svg';
 import { openDeleteModal, openEditModal } from 'redux/global/slice';
 import { selectDeleteModal } from 'redux/global/selectors';
 import Modal from 'components/Modal/Modal';
+import formattedAmount from 'config/formattedAmount';
 
 const DesktopTableList = ({
   id,
@@ -25,11 +26,9 @@ const DesktopTableList = ({
     dispatch(openEditModal(id));
   };
 
-  const newDate = date(transactionDate);
-
   return (
     <tr className={css.bodyTable}>
-      <td className={css.date}>{newDate}</td>
+      <td className={css.date}>{date(transactionDate)}</td>
       <td className={css.type}>{type === 'EXPENSE' ? '-' : '+'}</td>
       <td className={css.category}>{category?.name}</td>
       <td className={css.comment}>
@@ -40,7 +39,7 @@ const DesktopTableList = ({
           type === 'EXPENSE' ? `${css.expense}` : `${css.income}`
         }`}
       >
-        {Math.abs(amount)}
+        {formattedAmount(amount)}
       </td>
       <td className={css.sectionButton}>
         <button className={css.buttonEdit} onClick={() => handleEdit(id)}>

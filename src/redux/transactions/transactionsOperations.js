@@ -29,7 +29,6 @@ export const deleteTransactionThunk = createAsyncThunk(
   {
     condition: (_, { getState }) => {
       const loading = getState().transactions.loading;
-      console.log(loading);
       if (loading) {
         return false;
       }

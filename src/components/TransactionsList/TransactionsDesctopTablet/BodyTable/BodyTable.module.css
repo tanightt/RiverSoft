@@ -1,24 +1,15 @@
-/* .bodyTable {
-  /* height: 200px; */
-/* position: relative; */
-/* } */
 .div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 }
 
 .button {
-  width: 69px;
-  height: 29px;
-  font-size: 14px;
-  padding: 4px 12px;
-  margin-top: 20px;
+  min-width: 69px;
+  height: 40px;
+  font-size: 16px;
+  padding: 10px 12px;
 
   display: flex;
   flex-direction: column;
@@ -38,20 +29,11 @@
   transition: box-shadow 250ms linear;
 }
 
-.tr {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .td {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  height: 200px;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+  gap: 20px;
+  padding-top: 30%;
 }

@@ -1,9 +1,10 @@
 .block {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  max-width: 280px;
   height: 293px;
-  margin: 8px auto;
+  margin: auto;
+  margin-top: 8px;
   border-left: 5px solid;
   box-sizing: border-box;
   border-radius: 10px;
@@ -28,6 +29,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 .text:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.201);
@@ -43,7 +45,6 @@
     --button-gradient,
     linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)
   );
-  /* Button shadow */
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 }
 .buttonEdit {

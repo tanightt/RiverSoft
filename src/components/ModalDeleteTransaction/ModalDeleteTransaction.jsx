@@ -9,7 +9,6 @@ import { refreshUser } from 'redux/auth/authOperations';
 const ModalDeleteTransaction = () => {
   const dispatch = useDispatch();
   const id = useSelector(selectDeleteModal);
-  console.log(id);
 
   const handleCancelDeleteModal = () => {
     dispatch(closeDeleteModal());
