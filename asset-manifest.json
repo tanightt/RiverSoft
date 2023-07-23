@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RiverSoft/static/css/main.a9427b8d.css",
-    "main.js": "/RiverSoft/static/js/main.0f03fd2b.js",
+    "main.js": "/RiverSoft/static/js/main.17c20f6b.js",
     "static/css/762.89d6fdc2.chunk.css": "/RiverSoft/static/css/762.89d6fdc2.chunk.css",
     "static/js/762.99a68df8.chunk.js": "/RiverSoft/static/js/762.99a68df8.chunk.js",
     "static/css/509.ac2a3682.chunk.css": "/RiverSoft/static/css/509.ac2a3682.chunk.css",
@@ -28,7 +28,7 @@
     "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "index.html": "/RiverSoft/index.html",
     "main.a9427b8d.css.map": "/RiverSoft/static/css/main.a9427b8d.css.map",
-    "main.0f03fd2b.js.map": "/RiverSoft/static/js/main.0f03fd2b.js.map",
+    "main.17c20f6b.js.map": "/RiverSoft/static/js/main.17c20f6b.js.map",
     "762.89d6fdc2.chunk.css.map": "/RiverSoft/static/css/762.89d6fdc2.chunk.css.map",
     "762.99a68df8.chunk.js.map": "/RiverSoft/static/js/762.99a68df8.chunk.js.map",
     "509.ac2a3682.chunk.css.map": "/RiverSoft/static/css/509.ac2a3682.chunk.css.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.a9427b8d.css",
-    "static/js/main.0f03fd2b.js"
+    "static/js/main.17c20f6b.js"
   ]
 }
