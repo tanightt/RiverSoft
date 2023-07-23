@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <>
       <header className={css.header}>
-        <NavLink className={css.headerLogo} href="/">
+        <NavLink className={css.headerLogo} to='/home'>
           <svg className={css.headerSvg}>
             <use href={Icons + '#icon-logo'}></use>
           </svg>
