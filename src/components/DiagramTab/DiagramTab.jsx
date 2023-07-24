@@ -49,7 +49,7 @@ const StatisticsSelect = () => {
         defaultValue={optionMonth}
         onChange={setOptionMonth}
         name="optionsMonth"
-        id="mounth-select"
+        id="month-select"
       ></Select>
 
       <Select
