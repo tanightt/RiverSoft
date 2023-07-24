@@ -40,7 +40,7 @@ const Chart = ({ filteredCategories, categoryInfo }) => {
         />
         {categoryInfo.sum !== 0 ? (
           <p className={css.total}>
-            {categoryInfo.title} : <br /> &#8372;{' '}
+            {categoryInfo.title} : <br /> &#8372;
             {formattedAmount(categoryInfo.sum)}
           </p>
         ) : (
