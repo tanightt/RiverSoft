@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/RiverSoft/static/css/main.828bf83a.css",
+    "main.css": "/RiverSoft/static/css/main.01561b0e.css",
     "main.js": "/RiverSoft/static/js/main.e208cc42.js",
     "static/css/762.9d2eb99a.chunk.css": "/RiverSoft/static/css/762.9d2eb99a.chunk.css",
     "static/js/762.cc09e130.chunk.js": "/RiverSoft/static/js/762.cc09e130.chunk.js",
@@ -27,7 +27,7 @@
     "static/media/sprite.svg": "/RiverSoft/static/media/sprite.96d254ee9a0f326f8b0477924ed34252.svg",
     "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "index.html": "/RiverSoft/index.html",
-    "main.828bf83a.css.map": "/RiverSoft/static/css/main.828bf83a.css.map",
+    "main.01561b0e.css.map": "/RiverSoft/static/css/main.01561b0e.css.map",
     "main.e208cc42.js.map": "/RiverSoft/static/js/main.e208cc42.js.map",
     "762.9d2eb99a.chunk.css.map": "/RiverSoft/static/css/762.9d2eb99a.chunk.css.map",
     "762.cc09e130.chunk.js.map": "/RiverSoft/static/js/762.cc09e130.chunk.js.map",
@@ -37,7 +37,7 @@
     "623.bde53c92.chunk.js.map": "/RiverSoft/static/js/623.bde53c92.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.828bf83a.css",
+    "static/css/main.01561b0e.css",
     "static/js/main.e208cc42.js"
   ]
 }
