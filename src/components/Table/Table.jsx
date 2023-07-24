@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './Table.module.css';
 import { barColors } from 'components/DiagramTab/selectService';
+import formattedAmount from 'config/formattedAmount';
 
 const Table = ({ transactions, filteredCategories, handleClick }) => {
   const { incomeSummary, expenseSummary } = transactions;
@@ -16,8 +17,9 @@ const Table = ({ transactions, filteredCategories, handleClick }) => {
           <li
             onClick={() => {
               handleClick({
-                sum: Math.abs(it.total),
+                sum: it.total,
                 title: it.name,
+                color: barColors[idx],
               });
             }}
             className={css.itemList}
@@ -31,7 +33,7 @@ const Table = ({ transactions, filteredCategories, handleClick }) => {
             <p className={css.titleCategory}>{it.name}</p>
 
             <p className={`${css.sum} ${css.titleCategory}`}>
-              {Math.abs(it.total)}
+              {formattedAmount(it.total)}
             </p>
           </li>
         ))}
@@ -40,18 +42,19 @@ const Table = ({ transactions, filteredCategories, handleClick }) => {
         className={css.expenseHover}
         onClick={() =>
           handleClick({
-            sum: Math.abs(expenseSummary),
+            sum: expenseSummary,
             title: 'Expense',
           })
         }
       >
         <p className={`${css.sumarry} ${css.sumarryExpense}`}>
           Expenses:
-          <span className={css.expense}>{Math.abs(expenseSummary)}</span>
+          <span className={css.expense}>{formattedAmount(expenseSummary)}</span>
         </p>
       </div>
       <p className={`${css.sumarry} ${css.sumarryIncome}`}>
-        Income: <span className={css.income}>{incomeSummary}</span>
+        Income:{' '}
+        <span className={css.income}>{formattedAmount(incomeSummary)}</span>
       </p>
     </div>
   );

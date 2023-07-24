@@ -4,6 +4,8 @@ import { Doughnut } from 'react-chartjs-2';
 import Icons from '../../images/sprite.svg';
 import { barColors } from 'components/DiagramTab/selectService';
 
+import formattedAmount from 'config/formattedAmount';
+
 ChartJS.register(ArcElement, Tooltip);
 
 const Chart = ({ filteredCategories, categoryInfo }) => {
@@ -16,8 +18,8 @@ const Chart = ({ filteredCategories, categoryInfo }) => {
       {
         data: yValues,
         backgroundColor: barColors,
-        borderColor: 'transparent',
-        borderWidth: 1,
+        borderColor: categoryInfo.color ? categoryInfo.color : 'transparent',
+        borderWidth: 2,
         cutout: '70%',
       },
     ],
@@ -38,7 +40,8 @@ const Chart = ({ filteredCategories, categoryInfo }) => {
         />
         {categoryInfo.sum !== 0 ? (
           <p className={css.total}>
-            {categoryInfo.title} : <br /> &#8372; {categoryInfo.sum}
+            {categoryInfo.title} : <br /> &#8372;{' '}
+            {formattedAmount(categoryInfo.sum)}
           </p>
         ) : (
           <svg className={css.iconWallet} width="175" height="175">
