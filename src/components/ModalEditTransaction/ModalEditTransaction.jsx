@@ -69,9 +69,17 @@ const ModalEditTransaction = () => {
         toast.error('You have not entered an amount');
         return;
       }
-      const date = values.transactionDate
-        .toString()
-        .replace('00:00:00', '12:00:00');
+
+      let dateContainer = null;
+      if (values.transactionDate?.length) {
+        const normalizeDate = values.transactionDate?.split('.').reverse();
+        normalizeDate[1] = Number(normalizeDate[1]) - 1;
+        dateContainer = new Date(...normalizeDate);
+      } else {
+        dateContainer = values.transactionDate;
+      }
+
+      const date = dateContainer.toString().replace('00:00:00', '12:00:00');
 
       const updateValues = {
         ...values,

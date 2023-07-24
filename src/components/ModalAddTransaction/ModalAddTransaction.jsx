@@ -44,7 +44,7 @@ const ModalAddTransaction = () => {
 
   const validationSchema = Yup.object().shape({
     amount: Yup.number().typeError('Please enter a valid number'),
-    transactionDate: Yup.date().required('Transaction date is required'),
+    // transactionDate: Yup.date().required('Transaction date is required'),
     categoryId: Yup.string().required('Category is required'),
   });
 
@@ -73,9 +73,17 @@ const ModalAddTransaction = () => {
         return;
       }
 
-      const date = value.transactionDate
-        .toString()
-        .replace('00:00:00', '12:00:00');
+      let dateContainer = null;
+      if (value.transactionDate?.length) {
+        const normalizeDate = value.transactionDate?.split('.').reverse();
+        normalizeDate[1] = Number(normalizeDate[1]) - 1;
+        dateContainer = new Date(...normalizeDate);
+      } else {
+        dateContainer = value.transactionDate;
+      }
+
+      const date = dateContainer.toString().replace('00:00:00', '12:00:00');
+
       if (!type) {
         dispatch(
           addTransactionThunk({
