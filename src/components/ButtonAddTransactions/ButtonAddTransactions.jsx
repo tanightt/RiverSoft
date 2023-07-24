@@ -26,6 +26,9 @@ const ButtonAddTransactions = () => {
         </svg>
       </button>
       {isAdd && <Modal />}
+      {isAdd
+        ? document.body.classList.add(`${css.noScroll}`)
+        : document.body.classList.remove(`${css.noScroll}`)}
     </div>
   );
 };

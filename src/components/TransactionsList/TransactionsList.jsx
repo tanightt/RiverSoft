@@ -12,6 +12,7 @@ import {
   selectDeleteModal,
   selectEditTransaction,
 } from 'redux/global/selectors';
+import css from './TransactionsList.module.css';
 
 const TransactionsList = ({ finanseSort, Scrol }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ const TransactionsList = ({ finanseSort, Scrol }) => {
       {isMobile && <TransactionsMobile finanseSort={finanseSort} />}
       {isEdit && <Modal />}
       {isDelete && <Modal />}
+      {isEdit || isDelete
+        ? document.body.classList.add(`${css.noScroll}`)
+        : document.body.classList.remove(`${css.noScroll}`)}
     </>
   );
 };
