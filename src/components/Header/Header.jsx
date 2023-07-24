@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <>
       <header className={css.header}>
-        <NavLink className={css.headerLogo} to='/home'>
+        <NavLink className={css.headerLogo} to="/home">
           <svg className={css.headerSvg}>
             <use href={Icons + '#icon-logo'}></use>
           </svg>
@@ -38,6 +38,9 @@ const Header = () => {
         </div>
       </header>
       {isOpenLogout && <Modal />}
+      {isOpenLogout
+        ? document.body.classList.add(`${css.noScroll}`)
+        : document.body.classList.remove(`${css.noScroll}`)}
       <div className={css.wrapper}>
         <Layout />
         <main className={css.mainContent}>
