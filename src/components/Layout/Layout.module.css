@@ -8,7 +8,6 @@
   .layout {
     height: 214px;
     display: flex;
-    margin: 0 auto;
     max-width: 704;
   }
   .tabletNav {
