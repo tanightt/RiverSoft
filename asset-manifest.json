@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/RiverSoft/static/css/main.b62025a9.css",
-    "main.js": "/RiverSoft/static/js/main.5374df7c.js",
+    "main.css": "/RiverSoft/static/css/main.828bf83a.css",
+    "main.js": "/RiverSoft/static/js/main.e208cc42.js",
     "static/css/762.9d2eb99a.chunk.css": "/RiverSoft/static/css/762.9d2eb99a.chunk.css",
     "static/js/762.cc09e130.chunk.js": "/RiverSoft/static/js/762.cc09e130.chunk.js",
-    "static/css/389.73bea777.chunk.css": "/RiverSoft/static/css/389.73bea777.chunk.css",
-    "static/js/389.84c66f65.chunk.js": "/RiverSoft/static/js/389.84c66f65.chunk.js",
+    "static/css/389.a986cab3.chunk.css": "/RiverSoft/static/css/389.a986cab3.chunk.css",
+    "static/js/389.84617884.chunk.js": "/RiverSoft/static/js/389.84617884.chunk.js",
     "static/js/977.26f27bd9.chunk.js": "/RiverSoft/static/js/977.26f27bd9.chunk.js",
     "static/js/623.bde53c92.chunk.js": "/RiverSoft/static/js/623.bde53c92.chunk.js",
     "static/media/dollar-2x-tab.png": "/RiverSoft/static/media/dollar-2x-tab.cf6e2957fc772f432371.png",
@@ -27,17 +27,17 @@
     "static/media/sprite.svg": "/RiverSoft/static/media/sprite.96d254ee9a0f326f8b0477924ed34252.svg",
     "static/media/Diagram-currency-1.png": "/RiverSoft/static/media/Diagram-currency-1.6f0cffb78f4a518204b7.png",
     "index.html": "/RiverSoft/index.html",
-    "main.b62025a9.css.map": "/RiverSoft/static/css/main.b62025a9.css.map",
-    "main.5374df7c.js.map": "/RiverSoft/static/js/main.5374df7c.js.map",
+    "main.828bf83a.css.map": "/RiverSoft/static/css/main.828bf83a.css.map",
+    "main.e208cc42.js.map": "/RiverSoft/static/js/main.e208cc42.js.map",
     "762.9d2eb99a.chunk.css.map": "/RiverSoft/static/css/762.9d2eb99a.chunk.css.map",
     "762.cc09e130.chunk.js.map": "/RiverSoft/static/js/762.cc09e130.chunk.js.map",
-    "389.73bea777.chunk.css.map": "/RiverSoft/static/css/389.73bea777.chunk.css.map",
-    "389.84c66f65.chunk.js.map": "/RiverSoft/static/js/389.84c66f65.chunk.js.map",
+    "389.a986cab3.chunk.css.map": "/RiverSoft/static/css/389.a986cab3.chunk.css.map",
+    "389.84617884.chunk.js.map": "/RiverSoft/static/js/389.84617884.chunk.js.map",
     "977.26f27bd9.chunk.js.map": "/RiverSoft/static/js/977.26f27bd9.chunk.js.map",
     "623.bde53c92.chunk.js.map": "/RiverSoft/static/js/623.bde53c92.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b62025a9.css",
-    "static/js/main.5374df7c.js"
+    "static/css/main.828bf83a.css",
+    "static/js/main.e208cc42.js"
   ]
 }
